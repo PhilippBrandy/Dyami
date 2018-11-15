@@ -8,6 +8,11 @@ public class TriggeredState : State<Guard>
     private static TriggeredState _instance;
     private Transform target;
 
+    //Beschleunigung und nur links/rechts
+    
+    private Vector3 direction;
+    private float currentSpeed = 0;
+
     public Transform groundDetection;
 
     private Vector2 tmpVec;
@@ -45,6 +50,7 @@ public class TriggeredState : State<Guard>
     public override void ExitState(Guard _owner)
     {
         Debug.Log("Exiting Triggered State");
+        currentSpeed = 0f;
     }
 
     public override void UpdateState(Guard _owner)
@@ -60,12 +66,14 @@ public class TriggeredState : State<Guard>
         if (target.transform.position.x < _owner.transform.position.x)
         {
             _owner.transform.eulerAngles = new Vector3(0, -180, 0);
+            direction = Vector3.left;
             charge(_owner);
         }
         //ist rechts
         else
         {
             _owner.transform.eulerAngles = new Vector3(0, 0, 0);
+            direction = Vector3.right;
             charge(_owner);
         }
     }
@@ -76,7 +84,18 @@ public class TriggeredState : State<Guard>
 
         if (groundInfo.collider == true)
         {
-            _owner.transform.position = Vector2.MoveTowards(_owner.transform.position, target.position, _owner.speed * Time.deltaTime);
+            if (currentSpeed < _owner.Speed)
+            {
+                currentSpeed += _owner.Beschleunigung * Time.deltaTime;
+            }
+            _owner.transform.position += direction * currentSpeed * Time.deltaTime;
+
+
+            //_owner.transform.position = Vector2.MoveTowards(_owner.transform.position, target.position, _owner.speed * Time.deltaTime);
+        }
+        else
+        {
+            currentSpeed = 0f;
         }
     }
 }

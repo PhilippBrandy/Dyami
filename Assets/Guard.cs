@@ -10,9 +10,13 @@ public class Guard : MonoBehaviour {
     public bool isTriggered = false;
     public Transform player;
     public float triggerDistance;
-    public float speed;
+    
     public float detDistance;
     public Transform groundDetection;
+
+    //Beschleunigung
+    public float Speed;
+    public float Beschleunigung;
 
     public GuardStateMachine<Guard> guardStateMachine { get; set; }
 
