@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ShootArrow : MonoBehaviour
 {
-    public float offset = 0;
-    public float strength = 20;
+    public float offset = -90;
+    public float strength = 10;
     public GameObject arrow;
     public GameObject player;
     private Rigidbody2D rb = null;
@@ -28,23 +28,42 @@ public class ShootArrow : MonoBehaviour
             }
         }
 
-
+        //Rotate Bow towards direction of mouse
         Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg + offset;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
+
+        //Shoot Arrow
         if (Input.GetMouseButtonDown(0))
         {
             Destroy(projectile);
             hit = false;
             projectile = Instantiate(arrow);
+            
+            //make arrow strength independent of distance:
+            float div = 1f;
+            if (Mathf.Abs(diff.x)>Mathf.Abs(diff.y))
+            {
+                div = Mathf.Abs(diff.x);
+            } else {
+                div = Mathf.Abs(diff.y);
+            }
 
+            diff.x = diff.x / div;
+            diff.y = diff.y / div;
+            
+            diff.y *= 1.25f;
+            diff.x /= 1.25f;
+
+            //Move arrow
             projectile.transform.position = transform.position + Camera.main.transform.forward * 20;
             rb = projectile.GetComponent<Rigidbody2D>();
             rb.velocity = diff * strength;
 
         }
 
+        //Teleport
         if (Input.GetMouseButtonDown(1) && projectile != null && canTeleport)
         {
             Rigidbody2D playerRig = player.GetComponent<Rigidbody2D>();
@@ -54,15 +73,13 @@ public class ShootArrow : MonoBehaviour
             {
                 playerRig.velocity = Vector3.zero;
             } else {
-                float x = rb.velocity.x;
-                float y = rb.velocity.y;
-                playerRig.AddForce(new Vector2(x*50,y*50));
-                Debug.Log(rb.velocity);
+                playerRig.velocity = rb.velocity*0.7f;
             }
             canTeleport = false;
 
         }
 
+        //Rotate arrow depending on velocity
         if (projectile != null && !(rb.velocity.x == 0 || rb.velocity.x == 0))
         {
             Vector2 v = rb.velocity;
@@ -70,6 +87,7 @@ public class ShootArrow : MonoBehaviour
             projectile.transform.rotation = Quaternion.AngleAxis(angle_arrow, Vector3.forward);
         }
 
+        //Stop arrow on impact
         if (rb != null)
         {
             if (!hit && rb != null)
