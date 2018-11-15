@@ -13,9 +13,9 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
     [SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
 
-    const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
+    const float k_GroundedRadius = .4f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;            // Whether or not the player is grounded.
-    const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
+    const float k_CeilingRadius = .4f; // Radius of the overlap circle to determine if the player can stand up
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private Vector3 m_Velocity = Vector3.zero;
@@ -75,7 +75,7 @@ public class CharacterController2D : MonoBehaviour
         }
 
         //only control the player if grounded or airControl is turned on
-        if (m_Grounded || m_AirControl)
+        if (m_Grounded)
         {
 
             // If crouching
@@ -112,25 +112,30 @@ public class CharacterController2D : MonoBehaviour
             // And then smoothing it out and applying it to the character
             m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
-            // If the input is moving the player right and the player is facing left...
-            if (move > 0 && !m_FacingRight)
-            {
-                // ... flip the player.
-                Flip();
-            }
-            // Otherwise if the input is moving the player left and the player is facing right...
-            else if (move < 0 && m_FacingRight)
-            {
-                // ... flip the player.
-                Flip();
-            }
+        } else if ((move > 0 && 7 > m_Rigidbody2D.velocity.x) || (move < 0 && m_Rigidbody2D.velocity.x > -7))
+        {
+            m_Rigidbody2D.AddForce(new Vector2(move * 20f, 0));
+            Debug.Log(m_Rigidbody2D.velocity.x);
         }
         // If the player should jump...
         if (m_Grounded && jump)
         {
             // Add a vertical force to the player.
             m_Grounded = false;
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            m_Rigidbody2D.AddForce(new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce));
+        }
+
+        // If the input is moving the player right and the player is facing left...
+        if (move > 0 && !m_FacingRight)
+        {
+            // ... flip the player.
+            Flip();
+        }
+        // Otherwise if the input is moving the player left and the player is facing right...
+        else if (move < 0 && m_FacingRight)
+        {
+            // ... flip the player.
+            Flip();
         }
     }
 
@@ -145,5 +150,10 @@ public class CharacterController2D : MonoBehaviour
         if (m_FacingRight) theRotation.y = 0.0f;
         else theRotation.y = 180.0f;
         transform.localRotation = theRotation;
+    }
+
+    public bool getGrounded()
+    {
+        return m_Grounded;
     }
 }

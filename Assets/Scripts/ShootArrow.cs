@@ -7,17 +7,27 @@ public class ShootArrow : MonoBehaviour
     public float offset = 0;
     public float strength = 20;
     public GameObject arrow;
+    public GameObject player;
     private Rigidbody2D rb = null;
+    private bool canTeleport = true;
     private GameObject projectile = null;
     bool hit = false;
-    float depth = 0.5f;
     [SerializeField] private LayerMask getsStuckIn;
     [SerializeField] private Transform shotPoint;
-    //[SerializeField] private Transform hitCheck;
 
 
     private void FixedUpdate()
     {
+
+        //makes the player able to teleport again when they are on the ground
+        if (!canTeleport)
+        {
+            if (player.GetComponent<CharacterController2D>().getGrounded())
+            {
+                canTeleport = true;
+            }
+        }
+
 
         Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg + offset;
@@ -35,6 +45,24 @@ public class ShootArrow : MonoBehaviour
 
         }
 
+        if (Input.GetMouseButtonDown(1) && projectile != null && canTeleport)
+        {
+            Rigidbody2D playerRig = player.GetComponent<Rigidbody2D>();
+            player.transform.position = new Vector2(projectile.transform.position.x, projectile.transform.position.y + 0.5f);
+            
+            if (hit)
+            {
+                playerRig.velocity = Vector3.zero;
+            } else {
+                float x = rb.velocity.x;
+                float y = rb.velocity.y;
+                playerRig.AddForce(new Vector2(x*50,y*50));
+                Debug.Log(rb.velocity);
+            }
+            canTeleport = false;
+
+        }
+
         if (projectile != null && !(rb.velocity.x == 0 || rb.velocity.x == 0))
         {
             Vector2 v = rb.velocity;
@@ -44,14 +72,13 @@ public class ShootArrow : MonoBehaviour
 
         if (rb != null)
         {
-            if (!hit && rb.GetComponent<Collider2D>() != null)
+            if (!hit && rb != null)
             {
-                if (rb.GetComponent<Collider2D>().IsTouchingLayers(getsStuckIn))
+                if (rb.IsTouchingLayers(getsStuckIn))
                 {
                     hit = true;
                     rb.isKinematic = true;
                     rb.velocity = Vector3.zero;
-                    Debug.Log("test123");
                 }
             }
         }
