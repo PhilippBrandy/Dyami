@@ -15,6 +15,9 @@ public class ShootArrow : MonoBehaviour
     [SerializeField] private LayerMask getsStuckIn;
     [SerializeField] private Transform shotPoint;
 
+    //forceemitter while in air after teleport
+    public bool theForce = false;
+
 
     private void FixedUpdate()
     {
@@ -25,7 +28,11 @@ public class ShootArrow : MonoBehaviour
             if (player.GetComponent<CharacterController2D>().getGrounded())
             {
                 canTeleport = true;
+                //start force-code
+                theForce = false;
+                //end force-code
             }
+
         }
 
         //Rotate Bow towards direction of mouse
@@ -77,6 +84,10 @@ public class ShootArrow : MonoBehaviour
             }
             canTeleport = false;
 
+            //start force-code
+            theForce = true;
+            //end force-code
+
         }
 
         //Rotate arrow depending on velocity
@@ -102,4 +113,7 @@ public class ShootArrow : MonoBehaviour
         }
         
     }
+
+
+    
 }

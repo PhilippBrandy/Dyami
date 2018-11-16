@@ -371,9 +371,10 @@ GameObject:
   - component: {fileID: 663357704}
   - component: {fileID: 663357702}
   - component: {fileID: 663357701}
+  - component: {fileID: 663357703}
   m_Layer: 0
   m_Name: New Sprite (4)
-  m_TagString: Untagged
+  m_TagString: breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,7 +388,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.09096336, y: -1.0915775}
@@ -415,7 +416,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.24257016, y: 0.24256921}
+  m_Offset: {x: 0.030359268, y: -1.0930042}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -426,8 +427,22 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.8297, y: 4.2834325}
+  m_Size: {x: 30.506947, y: 1.2458763}
   m_EdgeRadius: 0
+--- !u!114 &663357703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 663357700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 006fabb688c70aa428cb2f3da17b92ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  breakingApartEffect: {fileID: 1345728375354208, guid: 2052a91a84e07d742b645a578b9b0d41,
+    type: 2}
 --- !u!212 &663357704
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -906,6 +921,15 @@ Prefab:
     - target: {fileID: 1582962119295828, guid: 0e8e185341deae246a3cd0d14a181975, type: 2}
       propertyPath: m_Name
       value: Charakter
+      objectReference: {fileID: 0}
+    - target: {fileID: 61861223611609570, guid: 0e8e185341deae246a3cd0d14a181975,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582962119295828, guid: 0e8e185341deae246a3cd0d14a181975, type: 2}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e8e185341deae246a3cd0d14a181975, type: 2}
