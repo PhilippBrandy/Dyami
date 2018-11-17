@@ -17,6 +17,9 @@ public class ShootArrow : MonoBehaviour
     [SerializeField] private Transform shotPoint;
 
 
+    //forceemitter while in air after teleport
+    public bool theForce = false;
+
     private void FixedUpdate()
     {
 
@@ -26,6 +29,10 @@ public class ShootArrow : MonoBehaviour
             if (player.GetComponent<CharacterController2D>().getGrounded())
             {
                 canTeleport = true;
+
+                //start force-code
+                theForce = false;
+                //end force-code
             }
         }
 
@@ -77,6 +84,9 @@ public class ShootArrow : MonoBehaviour
                 playerRig.velocity = rb.velocity*0.7f;
             }
             canTeleport = false;
+            //start force-code
+            theForce = true;
+            //end force-code
 
         }
 

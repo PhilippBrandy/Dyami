@@ -24,7 +24,7 @@ public class Guard : MonoBehaviour {
     {
         guardStateMachine = new GuardStateMachine<Guard>(this);
         guardStateMachine.ChangeState(IdleState.Instance);
-
+        
     }
 
     private void Update()
