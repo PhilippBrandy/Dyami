@@ -8,15 +8,13 @@ public class ShootArrow : MonoBehaviour
     public float strength = 10;
     public GameObject arrow;
     public GameObject player;
+    public GameObject rp; //rotation point
     private Rigidbody2D rb = null;
     private bool canTeleport = true;
     private GameObject projectile = null;
     bool hit = false;
     [SerializeField] private LayerMask getsStuckIn;
     [SerializeField] private Transform shotPoint;
-
-    //forceemitter while in air after teleport
-    public bool theForce = false;
 
 
     private void FixedUpdate()
@@ -28,17 +26,13 @@ public class ShootArrow : MonoBehaviour
             if (player.GetComponent<CharacterController2D>().getGrounded())
             {
                 canTeleport = true;
-                //start force-code
-                theForce = false;
-                //end force-code
             }
-
         }
 
         //Rotate Bow towards direction of mouse
-        Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg + offset;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - rp.transform.position;
+        float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        rp.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 
         //Shoot Arrow
@@ -84,10 +78,6 @@ public class ShootArrow : MonoBehaviour
             }
             canTeleport = false;
 
-            //start force-code
-            theForce = true;
-            //end force-code
-
         }
 
         //Rotate arrow depending on velocity
@@ -113,7 +103,4 @@ public class ShootArrow : MonoBehaviour
         }
         
     }
-
-
-    
 }

@@ -4,9 +4,8 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
-    [SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
+    [SerializeField] private float m_JumpForce = 0.4f;                          // Amount of force added when the player jumps.
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;  // How much to smooth out the movement
-    [SerializeField] private bool m_AirControl = false;                         // Whether or not a player can steer while jumping;
     [SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
     [SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
@@ -70,14 +69,13 @@ public class CharacterController2D : MonoBehaviour
         } else if ((move > 0 && 7 > m_Rigidbody2D.velocity.x) || (move < 0 && m_Rigidbody2D.velocity.x > -7))
         {
             m_Rigidbody2D.AddForce(new Vector2(move * 20f, 0));
-            Debug.Log(m_Rigidbody2D.velocity.x);
         }
         // If the player should jump...
         if (m_Grounded && jump)
         {
             // Add a vertical force to the player.
             m_Grounded = false;
-            m_Rigidbody2D.AddForce(new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce));
+            m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce);
         }
 
         // If the input is moving the player right and the player is facing left...
