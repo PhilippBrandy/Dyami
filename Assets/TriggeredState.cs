@@ -99,7 +99,5 @@ public class TriggeredState : State<Guard>
             currentSpeed = 0f;
         }
     }
-
-    private void onCollision2D 
     
 }
