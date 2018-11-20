@@ -57,6 +57,7 @@ public class TriggeredState : State<Guard>
     {
         if (!_owner.isTriggered)
         {
+            currentSpeed = 0f;
             _owner.guardStateMachine.ChangeState(IdleState.Instance);
         }
 
@@ -98,4 +99,7 @@ public class TriggeredState : State<Guard>
             currentSpeed = 0f;
         }
     }
+
+    private void onCollision2D 
+    
 }

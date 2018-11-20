@@ -61,8 +61,8 @@ public class ShootArrow : MonoBehaviour
             diff.x = diff.x / div;
             diff.y = diff.y / div;
             
-            diff.y *= 1.25f;
-            diff.x /= 1.25f;
+            diff.y *= 1.10f;
+            diff.x /= 1.05f;
 
             //Move arrow
             projectile.transform.position = transform.position + Camera.main.transform.forward * 20;
