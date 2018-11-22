@@ -10,6 +10,11 @@ public class Guard : MonoBehaviour {
     public bool isTriggered = false;
     public Transform player;
     public float triggerDistance;
+    public bool isAttacking = false;
+
+    //attack
+    public float attackDistance;
+    public Transform attackDetection;
     
     public float detDistance;
     public Transform groundDetection;
@@ -24,21 +29,18 @@ public class Guard : MonoBehaviour {
     {
         guardStateMachine = new GuardStateMachine<Guard>(this);
         guardStateMachine.ChangeState(IdleState.Instance);
-        
     }
 
     private void Update()
     {
-        if ((player.position - transform.position).magnitude < triggerDistance)
-        {
-            Debug.Log((player.position - transform.position).magnitude);
-            isTriggered = true;
-        }
-
-        else
-        {
-            isTriggered = false;
-        }
         guardStateMachine.Update();
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (isTriggered == true && !other.gameObject.CompareTag("ground"))
+        {
+            guardStateMachine.ChangeState(IdleState.Instance);
+        }
     }
 }
