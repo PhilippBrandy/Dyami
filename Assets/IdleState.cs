@@ -42,14 +42,8 @@ public class IdleState : State<Guard>
 
     public override void UpdateState(Guard _owner)
     {
-        float distance = _owner.transform.position.x - _owner.player.position.x;
-        if (distance < 0)
+        if (_owner.isTriggered)
         {
-            distance = distance * -1;
-        }
-        if (distance <= _owner.triggerDistance)
-        {
-            _owner.isTriggered = true;
             _owner.guardStateMachine.ChangeState(TriggeredState.Instance);
         }
     }

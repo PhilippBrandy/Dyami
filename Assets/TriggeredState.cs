@@ -7,7 +7,6 @@ public class TriggeredState : State<Guard>
 {
     private static TriggeredState _instance;
     private Transform target;
-    private GameObject stopPoint;
 
     //Beschleunigung und nur links/rechts
     
@@ -45,38 +44,44 @@ public class TriggeredState : State<Guard>
     {
         Debug.Log("Entering Triggered State");
 
-        //spawn empty at entry-position
         target = _owner.player;
-        stopPoint = new GameObject("stopPoint");
-        stopPoint.tag = "stop";
-        stopPoint.transform.position = target.transform.position;
-
-        Vector3 yDif = new Vector3(0, _owner.transform.position.y - stopPoint.transform.position.y);
-        stopPoint.transform.Translate(yDif);
-        
-
-        //flip to look into right direction
-        if (stopPoint.transform.position.x < _owner.transform.position.x)
-        {
-            _owner.transform.eulerAngles = new Vector3(0, -180, 0);
-            direction = Vector3.left;
-        }
-        else
-        {
-            _owner.transform.eulerAngles = new Vector3(0, 0, 0);
-            direction = Vector3.right;
-        }
     }
 
     public override void ExitState(Guard _owner)
     {
         Debug.Log("Exiting Triggered State");
+        currentSpeed = 0f;
     }
 
     public override void UpdateState(Guard _owner)
     {
+        if (!_owner.isTriggered)
+        {
+            currentSpeed = 0f;
+            _owner.guardStateMachine.ChangeState(IdleState.Instance);
+        }
+
+        // schau ob Player links is, ansonsten, schau ob Player rechts is
+
+        //ist links
+        if (target.transform.position.x < _owner.transform.position.x)
+        {
+            _owner.transform.eulerAngles = new Vector3(0, -180, 0);
+            direction = Vector3.left;
+            charge(_owner);
+        }
+        //ist rechts
+        else
+        {
+            _owner.transform.eulerAngles = new Vector3(0, 0, 0);
+            direction = Vector3.right;
+            charge(_owner);
+        }
+    }
+
+    private void charge(Guard _owner)
+    {
         RaycastHit2D groundInfo = Physics2D.Raycast(_owner.groundDetection.position, Vector2.down, _owner.detDistance);
-        RaycastHit2D attackInfo = Physics2D.Raycast(_owner.attackDetection.position, Vector2.down, _owner.attackDistance);
 
         if (groundInfo.collider == true)
         {
@@ -84,28 +89,15 @@ public class TriggeredState : State<Guard>
             {
                 currentSpeed += _owner.Beschleunigung * Time.deltaTime;
             }
-            if(attackInfo.collider == true)
-            {
-                if (attackInfo.collider.CompareTag("Player"))
-                {
-                    _owner.isAttacking = true;
-                }
-                float speed = currentSpeed;
-            }
-            
             _owner.transform.position += direction * currentSpeed * Time.deltaTime;
+
+
+            //_owner.transform.position = Vector2.MoveTowards(_owner.transform.position, target.position, _owner.speed * Time.deltaTime);
         }
         else
         {
-            changeState(_owner);
+            currentSpeed = 0f;
         }
     }
-
-    private void changeState(Guard _owner)
-    {
-        currentSpeed = 0f;
-        _owner.isTriggered = false;
-        UnityEngine.Object.Destroy(stopPoint.gameObject);
-        _owner.guardStateMachine.ChangeState(IdleState.Instance);
-    }
+    
 }
