@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4432931130008668}
   - component: {fileID: 212741541838922604}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Left Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4572342061199102}
   - component: {fileID: 212435956324595346}
   - component: {fileID: 114668331948556738}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4178305831349812}
   - component: {fileID: 212101370947580218}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Right Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4502048589441782}
   - component: {fileID: 212569371792344322}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Right Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4242767697513382}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: shotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4359752342635834}
   - component: {fileID: 212806942900136782}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Left Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,8 @@ GameObject:
   - component: {fileID: 114981637920036404}
   - component: {fileID: 61451882891940152}
   - component: {fileID: 114439555992092968}
-  m_Layer: 8
+  - component: {fileID: 58186937308554572}
+  m_Layer: 9
   m_Name: Avatar
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -137,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4137401953570386}
   - component: {fileID: 212086136567839114}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4562153391814970}
   - component: {fileID: 212202961639378952}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Left Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4928766339441886}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RotationPointWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4741424789080990}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4114239726532596}
   - component: {fileID: 212738272184328394}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Left Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4375355903754520}
   - component: {fileID: 212956595633899840}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Right Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4188573402566442}
   - component: {fileID: 212225348961587574}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Right Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4736383194053918}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CeilingCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,8 +439,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332689571881544}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.34502888, y: 14.28022, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -13.5, y: 71.7, z: 0}
+  m_LocalScale: {x: 2.6119053, y: 2.6119053, z: 2.6119053}
   m_Children:
   - {fileID: 4137401953570386}
   - {fileID: 4741424789080990}
@@ -473,7 +474,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
@@ -482,6 +483,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!58 &58186937308554572
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332689571881544}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.2775917, y: 0.69397926}
+  serializedVersion: 2
+  m_Radius: 1.5641022
 --- !u!61 &61451882891940152
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -494,7 +510,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.23263335, y: 0.51179314}
+  m_Offset: {x: -0.1928652, y: 0.043266118}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -505,7 +521,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9587054, y: 2.66959}
+  m_Size: {x: 1.1077083, y: 1.7325357}
   m_EdgeRadius: 0
 --- !u!61 &61757969015634728
 BoxCollider2D:
@@ -519,7 +535,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.24814284, y: 0.48077583}
+  m_Offset: {x: -0.17257464, y: 0.036153495}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -530,7 +546,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.748143, y: 2.4615517}
+  m_Size: {x: 0.906708, y: 1.5723065}
   m_EdgeRadius: 0
 --- !u!114 &114311183651760604
 MonoBehaviour:
@@ -543,7 +559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5938d82d8ae59ec49914325085731ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 30
+  m_JumpForce: 40
   m_MovementSmoothing: 0.05
   m_WhatIsGround:
     serializedVersion: 2
@@ -580,13 +596,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: -90
-  strength: 30
-  arrow: {fileID: 1675469599595558, guid: e9f8dd7efe551914db3e8bdd48112bbc, type: 2}
+  strength: 35
+  arrow: {fileID: 1600528414436316, guid: 126ec6bc120743943a1fcb0e9340aa62, type: 2}
   player: {fileID: 1332689571881544}
   rp: {fileID: 1642322435875414}
   getsStuckIn:
     serializedVersion: 2
-    m_Bits: 567
+    m_Bits: 55
   shotPoint: {fileID: 4242767697513382}
   theForce: 0
 --- !u!114 &114981637920036404
@@ -601,7 +617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 114311183651760604}
-  runSpeed: 40
+  runSpeed: 80
 --- !u!212 &212086136567839114
 SpriteRenderer:
   m_ObjectHideFlags: 1
