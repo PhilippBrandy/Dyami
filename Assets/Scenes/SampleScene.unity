@@ -2537,6 +2537,17 @@ Prefab:
       propertyPath: m_Mass
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114668331948556738, guid: e7535b498b439bb41b1f2604756ece8c,
+        type: 2}
+      propertyPath: arrow
+      value: 
+      objectReference: {fileID: 1600528414436316, guid: 126ec6bc120743943a1fcb0e9340aa62,
+        type: 2}
+    - target: {fileID: 114668331948556738, guid: e7535b498b439bb41b1f2604756ece8c,
+        type: 2}
+      propertyPath: offset
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7535b498b439bb41b1f2604756ece8c, type: 2}
   m_IsPrefabAsset: 0
