@@ -94,7 +94,7 @@ public class ShootArrow : MonoBehaviour
         if (projectile != null && !(rb.velocity.x == 0 || rb.velocity.x == 0))
         {
             Vector2 v = rb.velocity;
-            float angle_arrow = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg + 90;
+            float angle_arrow = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg + offset;
             projectile.transform.rotation = Quaternion.AngleAxis(angle_arrow, Vector3.forward);
         }
 
