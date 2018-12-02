@@ -48,7 +48,6 @@ public class CharacterController2D : MonoBehaviour
         {
             if (colliders[i].gameObject != gameObject)
             {
-                canMove = true;
                 m_Grounded = true;
                 if (!wasGrounded)
                     OnLandEvent.Invoke();
@@ -60,23 +59,23 @@ public class CharacterController2D : MonoBehaviour
     public void Move(float move, bool jump)
     {
 
-
+        if(m_Grounded) canMove = true;
         //only control the player if grounded or airControl is turned on
-        Vector2 slippyCheck1 = new Vector2(m_GroundCheck.position.x - 0.4f, m_GroundCheck.position.y - 5);
-        Vector2 slippyCheck2 = new Vector2(m_GroundCheck.position.x + 0.4f, m_GroundCheck.position.y + 3);
-        //Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius - 0.4f, m_WhatIsSlippy);
+        Vector2 slippyCheck1 = new Vector2(m_GroundCheck.position.x-0.5f, m_GroundCheck.position.y-1);
+        Vector2 slippyCheck2 = new Vector2(1f, -10f);
         Collider2D[] colliders = Physics2D.OverlapBoxAll(slippyCheck1, slippyCheck2, 0f, m_WhatIsSlippy);
+        //Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius - 0.4f, m_WhatIsSlippy);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
             {
                 canMove = false;
-                Debug.Log("test");
+                Debug.Log(colliders[i].ToString());
             }
         }
         float direction = 0f;
-        if (m_FacingRight) direction = 0.01f;
-        else direction = -0.01f;
+        if (m_FacingRight) direction = 10f;
+        else direction = -10f;
 
         if (canMove)
         {
