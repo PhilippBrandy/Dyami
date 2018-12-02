@@ -105,7 +105,6 @@ public class TriggeredState : State<Guard>
     {
         currentSpeed = 0f;
         _owner.isTriggered = false;
-        UnityEngine.Object.Destroy(stopPoint.gameObject);
         _owner.guardStateMachine.ChangeState(IdleState.Instance);
     }
 }
