@@ -76,7 +76,7 @@ public class TriggeredState : State<Guard>
     public override void UpdateState(Guard _owner)
     {
         RaycastHit2D groundInfo = Physics2D.Raycast(_owner.groundDetection.position, Vector2.down, _owner.detDistance);
-        RaycastHit2D attackInfo = Physics2D.Raycast(_owner.attackDetection.position, Vector2.down, _owner.attackDistance);
+        RaycastHit2D attackInfo = Physics2D.Raycast(_owner.attackDetection.position, Vector2.right, _owner.attackDistance);
 
         if (groundInfo.collider == true)
         {
