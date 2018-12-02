@@ -17,6 +17,7 @@ public class FalldownPlatform : MonoBehaviour {
             Rigidbody2D myRigidbody = gameObject.AddComponent<Rigidbody2D>(); // Add the rigidbody.
             myRigidbody.mass = 5;
             isHanging = false;
+            gameObject.tag = "falling";
         }
 	}
 }

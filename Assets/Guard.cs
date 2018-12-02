@@ -19,6 +19,7 @@ public class Guard : MonoBehaviour {
     public float detDistance;
     public Transform groundDetection;
 
+
     //Beschleunigung
     public float Speed;
     public float Beschleunigung;
