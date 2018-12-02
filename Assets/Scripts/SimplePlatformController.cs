@@ -39,11 +39,13 @@ public class SimplePlatformController : MonoBehaviour {
 
         anim.SetFloat("Speed", Mathf.Abs(h));
 
-        if (h * rb2d.velocity.x < maxSpeed)
+        if (h * rb2d.velocity.x < maxSpeed) {
             rb2d.AddForce(Vector2.right * h * moveForce);
+        }
 
-        if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
+        if (Mathf.Abs(rb2d.velocity.x) > maxSpeed) {
             rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * maxSpeed, rb2d.velocity.x);
+        }
 
         if (h > 0 && !facingRight)
             Flip();
