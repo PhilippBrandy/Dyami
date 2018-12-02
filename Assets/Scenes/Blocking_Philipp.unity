@@ -8699,6 +8699,21 @@ Prefab:
       propertyPath: m_WhatIsSlippy.m_Bits
       value: 8192
       objectReference: {fileID: 0}
+    - target: {fileID: 114668331948556738, guid: e7535b498b439bb41b1f2604756ece8c,
+        type: 2}
+      propertyPath: offset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114668331948556738, guid: e7535b498b439bb41b1f2604756ece8c,
+        type: 2}
+      propertyPath: getsStuckIn.m_Bits
+      value: 12309
+      objectReference: {fileID: 0}
+    - target: {fileID: 114311183651760604, guid: e7535b498b439bb41b1f2604756ece8c,
+        type: 2}
+      propertyPath: m_WhatIsGround.m_Bits
+      value: 12821
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7535b498b439bb41b1f2604756ece8c, type: 2}
   m_IsPrefabAsset: 0
