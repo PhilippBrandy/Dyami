@@ -11,6 +11,7 @@ public class ShootArrow : MonoBehaviour
     public GameObject rp; //rotation point
     private Rigidbody2D rb = null;
     private bool canTeleport = true;
+    public bool learnedTeleporting = false; 
     private GameObject projectile = null;
     bool hit = false;
     [SerializeField] private LayerMask getsStuckIn;
@@ -72,7 +73,7 @@ public class ShootArrow : MonoBehaviour
         }
 
         //Teleport
-        if (Input.GetMouseButtonDown(1) && projectile != null && canTeleport)
+        if (Input.GetMouseButtonDown(1) && projectile != null && canTeleport && learnedTeleporting)
         {
             Rigidbody2D playerRig = player.GetComponent<Rigidbody2D>();
             player.transform.position = new Vector2(projectile.transform.position.x, projectile.transform.position.y + 0.5f);
@@ -88,6 +89,7 @@ public class ShootArrow : MonoBehaviour
             theForce = true;
             //end force-code
 
+            Destroy(projectile);
         }
 
         //Rotate arrow depending on velocity
