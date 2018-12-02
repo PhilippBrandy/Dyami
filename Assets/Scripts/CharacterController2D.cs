@@ -68,7 +68,7 @@ public class CharacterController2D : MonoBehaviour
 
         } else if ((move > 0 && 7 > m_Rigidbody2D.velocity.x) || (move < 0 && m_Rigidbody2D.velocity.x > -7))
         {
-            m_Rigidbody2D.AddForce(new Vector2(move * 20f, 0));
+            m_Rigidbody2D.AddForce(new Vector2(move * 100f, 0));
         }
         // If the player should jump...
         if (m_Grounded && jump)
