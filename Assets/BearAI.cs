@@ -17,8 +17,13 @@ public class BearAI : MonoBehaviour {
 
     //states
     private Guarding guarding;
-    private Charging charging;
+    public Charging charging;
     private Slowingdown slowingdown;
+
+    // raycasts
+    public Transform groundDetection;
+    public Transform wallDetection;
+    public int detectionRange;
 
     public State currentState { get; private set; }
 
@@ -29,6 +34,9 @@ public class BearAI : MonoBehaviour {
     private void Awake()
     {
         BearAI.instance = this;
+        guarding = new Guarding();
+        charging = new Charging();
+        slowingdown = new Slowingdown();
         currentState = guarding;
         currentSpeed = 0;
     }
@@ -47,10 +55,10 @@ public class BearAI : MonoBehaviour {
         }
 
         // wenn charging
-        if (currentGuardState == GuardState.charging)
+        else if (currentGuardState == GuardState.charging)
         {
             //wenn Spieler aus Trigger-Range kommt
-            if (gameObject.transform.position.x - player.position.x > triggerDistance && gameObject.transform.position.y - player.position.y < triggerHeigth)
+            if (gameObject.transform.position.x - player.position.x > triggerDistance || gameObject.transform.position.y - player.position.y > triggerHeigth)
             {
                 setState(GuardState.slowingdown);
             }
@@ -61,13 +69,13 @@ public class BearAI : MonoBehaviour {
                 switch (charging.directionLoR)
                 {
                     case 1:
-                        if (lor > 0)
+                        if (lor < 0)
                         {
                             setState(GuardState.slowingdown);
                         }
                         break;
                     case -1:
-                        if (lor < 0)
+                        if (lor > 0)
                         {
                             setState(GuardState.slowingdown);
                         }
@@ -77,7 +85,7 @@ public class BearAI : MonoBehaviour {
         }
 
         // wenn slowingdown
-        if (currentGuardState == GuardState.slowingdown)
+        else if (currentGuardState == GuardState.slowingdown)
         {
             if (currentSpeed <= 0)
             {
