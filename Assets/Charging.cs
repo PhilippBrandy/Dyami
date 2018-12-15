@@ -45,14 +45,16 @@ public class Charging : State
         }
 
         //Schau ob vor dir Boden oder eine Wand ist
-        RaycastHit2D groundInfo = Physics2D.Raycast(owner.groundDetection.position, Vector2.down, owner.detectionRange, 0);
-        RaycastHit2D wallInfo = Physics2D.Raycast(owner.wallDetection.position, owner.wallDetection.transform.right, owner.detectionRange, 0);
+        RaycastHit2D groundInfo = Physics2D.Raycast(owner.groundDetection.position, owner.groundDetection.transform.up, (float)owner.detectionRange);
+        RaycastHit2D wallInfo = Physics2D.Raycast(owner.wallDetection.position, owner.wallDetection.transform.right, 0.2f, 9);
+
+        Debug.Log(groundInfo.collider.name);
 
         if (groundInfo.collider == null)
         {
             owner.currentSpeed = 0;
         }
-        else if (wallInfo.collider != null)
+        if (wallInfo.collider != null)
         {
             owner.currentSpeed = 0;
         }

@@ -5772,15 +5772,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502b922cb361e60458e7d0366c666d78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerDistance: 25
+  triggerDistance: 35
   triggerHeigth: 15
   currentSpeed: 0
-  maxSpeed: 30
-  acceleration: 3
+  maxSpeed: 60
+  acceleration: 5
   player: {fileID: 1149037559}
   groundDetection: {fileID: 2074063050}
   wallDetection: {fileID: 1769426253}
-  detectionRange: 3
+  detectionRange: 10
 --- !u!212 &661251743
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10889,7 +10889,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1173977279}
   m_LocalRotation: {x: -0, y: -0, z: -0.00040933536, w: 0.99999994}
-  m_LocalPosition: {x: -67.73, y: 60.15, z: -0.34}
+  m_LocalPosition: {x: -67.72, y: 73.14, z: -0.34}
   m_LocalScale: {x: 12.153073, y: 21.242298, z: 1.8445}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18468,13 +18468,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2074063049}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.35, y: -1.53, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.99561244, w: 0.09357313}
+  m_LocalPosition: {x: 2.93, y: -1.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 661251744}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -169.26201}
 --- !u!1 &2079350499
 GameObject:
   m_ObjectHideFlags: 0
