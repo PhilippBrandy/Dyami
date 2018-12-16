@@ -11,7 +11,7 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 
-    const float k_GroundedRadius = 1f; // Radius of the overlap circle to determine if grounded
+    const float k_GroundedRadius = 0.8f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;            // Whether or not the player is grounded.
     const float k_CeilingRadius = .4f; // Radius of the overlap circle to determine if the player can stand up
     private Rigidbody2D m_Rigidbody2D;
@@ -59,6 +59,7 @@ public class CharacterController2D : MonoBehaviour
     public void Move(float move, bool jump)
     {
 
+
         if(m_Grounded) canMove = true;
         //only control the player if grounded or airControl is turned on
         Vector2 slippyCheck1 = new Vector2(m_GroundCheck.position.x-0.5f, m_GroundCheck.position.y-1);
@@ -88,7 +89,9 @@ public class CharacterController2D : MonoBehaviour
             }
             else if ((move >= 0 && 7 > m_Rigidbody2D.velocity.x) || (move <= 0 && m_Rigidbody2D.velocity.x > -7))
             {
+                
                 m_Rigidbody2D.AddForce(new Vector2(move * 500f, 0));
+                
             }
         }
 
@@ -138,4 +141,16 @@ public class CharacterController2D : MonoBehaviour
     {
         return m_Grounded;
     }
+
+    //private bool hitswall()
+    //{
+
+    //    bool hit = physics2d.linecast(m_rigidbody2d.transform.position, m_groundcheck.position, 1 << layermask.nametolayer("ground"));
+    //    if (hit)
+    //    {
+    //        debug.log(hit);
+    //    }
+
+    //    return hit;
+    //}
 }
