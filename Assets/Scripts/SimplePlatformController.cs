@@ -29,6 +29,7 @@ public class SimplePlatformController : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump") && grounded)
         {
+            Debug.Log("test");
             jump = true;
         }
 	}
