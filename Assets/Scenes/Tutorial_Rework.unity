@@ -1187,6 +1187,7 @@ GameObject:
   - component: {fileID: 117791040}
   - component: {fileID: 117791039}
   - component: {fileID: 117791038}
+  - component: {fileID: 117791041}
   m_Layer: 0
   m_Name: single_branch
   m_TagString: Untagged
@@ -1204,7 +1205,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 1.3084561, y: 0.022866353}
   m_SpriteTilingProperty:
@@ -1278,6 +1279,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 448.183}
+--- !u!251 &117791041
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 117791037}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &122654978
 GameObject:
   m_ObjectHideFlags: 0
@@ -11130,7 +11149,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1531202611643976, guid: 344f5968d97fe734487716be082e737f,
     type: 2}
   m_PrefabInternal: {fileID: 685198552}
---- !u!251 &1050710970
+--- !u!251 &1050710974
 PlatformEffector2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14063,6 +14082,7 @@ GameObject:
   - component: {fileID: 1398887193}
   - component: {fileID: 1398887192}
   - component: {fileID: 1398887191}
+  - component: {fileID: 1398887194}
   m_Layer: 0
   m_Name: western cedar tree2 (1)
   m_TagString: Untagged
@@ -14080,7 +14100,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.18906167, y: -1.0398235}
   m_SpriteTilingProperty:
@@ -14154,6 +14174,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &1398887194
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1398887190}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1407885512
 GameObject:
   m_ObjectHideFlags: 0
@@ -16587,7 +16625,8 @@ Prefab:
       propertyPath: runSpeed
       value: 120
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 58186937308554572, guid: e7535b498b439bb41b1f2604756ece8c, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: e7535b498b439bb41b1f2604756ece8c, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1631756027
@@ -17158,6 +17197,7 @@ GameObject:
   - component: {fileID: 1670349283}
   - component: {fileID: 1670349282}
   - component: {fileID: 1670349281}
+  - component: {fileID: 1670349284}
   m_Layer: 0
   m_Name: interactivetree2 (2)
   m_TagString: Untagged
@@ -17175,7 +17215,7 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0.7562835, y: -4.119803}
   serializedVersion: 2
@@ -17239,6 +17279,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 76
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &1670349284
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1670349280}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1671815273
 GameObject:
   m_ObjectHideFlags: 0
@@ -21288,7 +21346,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1531202611643976, guid: 344f5968d97fe734487716be082e737f,
     type: 2}
   m_PrefabInternal: {fileID: 107704909}
---- !u!251 &2133138452
+--- !u!251 &2133138456
 PlatformEffector2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
