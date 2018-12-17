@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class FalldownTree : MonoBehaviour {
 
+    public float mass = 5;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Rigidbody2D myRigidbody = gameObject.AddComponent<Rigidbody2D>(); // Add the rigidbody.
-        myRigidbody.mass = 5;
+        myRigidbody.mass = mass;
         gameObject.tag = "falling";
     }
 }

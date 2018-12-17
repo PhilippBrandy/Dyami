@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FalldownPlatform : MonoBehaviour {
 
+    public float mass = 5;
     private bool isHanging = true;
 
 	// Use this for initialization
@@ -15,7 +16,7 @@ public class FalldownPlatform : MonoBehaviour {
 		if (transform.childCount == 0 && isHanging)
         {
             Rigidbody2D myRigidbody = gameObject.AddComponent<Rigidbody2D>(); // Add the rigidbody.
-            myRigidbody.mass = 5;
+            myRigidbody.mass = mass;
             isHanging = false;
             gameObject.tag = "falling";
         }
