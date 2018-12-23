@@ -93,7 +93,7 @@ public class ShootArrow : MonoBehaviour
         }
 
         //Rotate arrow depending on velocity
-        if (projectile != null && !(rb.velocity.x == 0 || rb.velocity.x == 0))
+        if (projectile != null && rb != null && !(rb.velocity.x == 0 || rb.velocity.x == 0))
         {
             Vector2 v = rb.velocity;
             float angle_arrow = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg + offset;
@@ -110,6 +110,13 @@ public class ShootArrow : MonoBehaviour
                     hit = true;
                     rb.isKinematic = true;
                     rb.velocity = Vector3.zero;
+                    Collider2D[] test = new Collider2D[1];
+                    ContactFilter2D filter = new ContactFilter2D();
+                    filter.SetLayerMask(getsStuckIn);
+                    rb.OverlapCollider(filter, test);
+                    projectile.GetComponent<Transform>().SetParent(test[0].GetComponent<Transform>());
+                    Destroy(projectile.GetComponent<Rigidbody2D>());
+                    Destroy(projectile.GetComponent<Collider2D>());
                 }
             }
         }

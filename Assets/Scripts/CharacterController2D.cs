@@ -80,7 +80,7 @@ public class CharacterController2D : MonoBehaviour
 
         if (canMove)
         {
-            if (m_Grounded)
+            if (m_Grounded || m_Rigidbody2D.velocity.y == 0)
             {
                 // Move the character by finding the target velocity
                 Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
