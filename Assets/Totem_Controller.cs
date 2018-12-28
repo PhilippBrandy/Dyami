@@ -5,7 +5,7 @@ using UnityEngine;
 public class Totem_Controller : MonoBehaviour {
     public GameObject passiveTotem;
     public GameObject activeTotem;
-    public GameObject lightningFX;
+    public ParticleSystem lightningFX;
 
     // Use this for initialization
     void Start () {
@@ -23,7 +23,7 @@ public class Totem_Controller : MonoBehaviour {
         {
             passiveTotem.SetActive(false);
             activeTotem.SetActive(true);
-            Instantiate(lightningFX, transform.position, Quaternion.identity);
+            lightningFX.Play();
         }
     }
 }
