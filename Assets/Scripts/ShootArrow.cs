@@ -66,7 +66,7 @@ public class ShootArrow : MonoBehaviour
             diff.x /= 1.05f;
 
             //Move arrow
-            projectile.transform.position = transform.position + Camera.main.transform.forward * 20;
+            projectile.transform.position = transform.position + transform.forward * 20;
             rb = projectile.GetComponent<Rigidbody2D>();
             rb.velocity = diff * strength;
 
