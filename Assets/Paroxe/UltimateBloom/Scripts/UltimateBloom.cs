@@ -597,7 +597,7 @@ public class UltimateBloom : MonoBehaviour
         // Determine Texture Format
         bool doHdr = false;
         if (m_HDR == HDRBloomMode.Auto)
-            doHdr = source.format == RenderTextureFormat.ARGBHalf && GetComponent<Camera>().hdr;
+            doHdr = source.format == RenderTextureFormat.ARGBHalf && GetComponent<Camera>().allowHDR;
         else
             doHdr = m_HDR == HDRBloomMode.On;
 
