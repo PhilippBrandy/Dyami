@@ -116,7 +116,11 @@ public class ShootArrow : MonoBehaviour
                     rb.OverlapCollider(filter, test);
                     projectile.GetComponent<Transform>().SetParent(test[0].GetComponent<Transform>());
                     Destroy(projectile.GetComponent<Rigidbody2D>());
-                    Destroy(projectile.GetComponent<Collider2D>());
+                    Collider2D[] colliders = projectile.GetComponents<Collider2D>();
+                    for (int i = 0; i<colliders.Length; i++)
+                    {
+                        Destroy(colliders[i]);
+                    }
                 }
             }
         }
