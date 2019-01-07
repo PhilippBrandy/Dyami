@@ -6,8 +6,6 @@ public class Totem_Controller : MonoBehaviour {
     public GameObject passiveTotem;
     public GameObject activeTotem;
     public ParticleSystem lightningFX;
-    public Camera effect;
-
 
     // Use this for initialization
     void Start () {
@@ -26,8 +24,6 @@ public class Totem_Controller : MonoBehaviour {
             passiveTotem.SetActive(false);
             activeTotem.SetActive(true);
             lightningFX.Play();
-            effect.GetComponent<AmplifyColorEffect>().enabled = true;
-            effect.GetComponent<AudioListener>().enabled = true;
         }
     }
 }
