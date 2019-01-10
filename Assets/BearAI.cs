@@ -48,7 +48,7 @@ public class BearAI : MonoBehaviour {
         if (currentGuardState == GuardState.guarding)
         {
             //wenn Spieler in Trigger-Range kommt
-            if (gameObject.transform.position.x - player.position.x <= triggerDistance && gameObject.transform.position.y - player.position.y <= triggerHeigth)
+            if (gameObject.transform.position.x - player.position.x <= triggerDistance && Mathf.Abs(gameObject.transform.position.y - player.position.y) <= triggerHeigth)
             {
                 setState(GuardState.charging);
             }
