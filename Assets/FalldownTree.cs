@@ -7,6 +7,7 @@ public class FalldownTree : MonoBehaviour {
     private Rigidbody2D[] childrenPhysix;
 
     public ParticleSystem BreakApartFX;
+    public string comparatorTag;
 
     private void Awake()
     {
@@ -19,7 +20,7 @@ public class FalldownTree : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag(comparatorTag))
         {
             Instantiate(BreakApartFX, gameObject.transform);
             foreach (Rigidbody2D rigidBody in childrenPhysix)
