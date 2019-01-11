@@ -48,7 +48,7 @@ public class Charging : State
         RaycastHit2D groundInfo = Physics2D.Raycast(owner.groundDetection.position, owner.groundDetection.transform.up, (float)owner.detectionRange);
         RaycastHit2D wallInfo = Physics2D.Raycast(owner.wallDetection.position, owner.wallDetection.transform.right, 0.2f, 9);
 
-        Debug.Log(groundInfo.collider.name);
+        //Debug.Log(groundInfo.collider.name);
 
         if (groundInfo.collider == null)
         {
