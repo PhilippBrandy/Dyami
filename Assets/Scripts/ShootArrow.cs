@@ -9,13 +9,13 @@ public class ShootArrow : MonoBehaviour
     public GameObject arrow;
     public GameObject player;
     public GameObject rp; //rotation point
+    public GameObject crosshair;
     private Rigidbody2D rb = null;
     private bool canTeleport = true;
     public bool learnedTeleporting = false; 
     private GameObject projectile = null;
     bool hit = false;
     [SerializeField] private LayerMask getsStuckIn;
-    [SerializeField] private Transform shotPoint;
 
 
     //forceemitter while in air after teleport
@@ -38,8 +38,10 @@ public class ShootArrow : MonoBehaviour
         }
 
         //Rotate Bow towards direction of mouse
-        Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - rp.transform.position;
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 diff = mousePos - rp.transform.position;
         float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        crosshair.transform.position = mousePos;
         rp.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 
@@ -110,11 +112,14 @@ public class ShootArrow : MonoBehaviour
                     hit = true;
                     rb.isKinematic = true;
                     rb.velocity = Vector3.zero;
-                    Collider2D[] test = new Collider2D[1];
+                    Collider2D[] iHitThis = new Collider2D[1];
                     ContactFilter2D filter = new ContactFilter2D();
                     filter.SetLayerMask(getsStuckIn);
-                    rb.OverlapCollider(filter, test);
-                    projectile.GetComponent<Transform>().SetParent(test[0].GetComponent<Transform>());
+                    rb.OverlapCollider(filter, iHitThis);
+                    if (iHitThis[0] != null)
+                    {
+                        projectile.GetComponent<Transform>().SetParent(iHitThis[0].GetComponent<Transform>());
+                    }
                     Destroy(projectile.GetComponent<Rigidbody2D>());
                     Collider2D[] colliders = projectile.GetComponents<Collider2D>();
                     for (int i = 0; i<colliders.Length; i++)
