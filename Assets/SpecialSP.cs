@@ -86,7 +86,7 @@ public class SpecialSP : MonoBehaviour
         {
 
         }
-        else // currentState == zoomingIn
+        else if (currentState == zoomingIn)
         {
             if (Mathf.Abs(playerCam.transform.position.x - gameObject.transform.position.x) > maxDistance || Mathf.Abs(playerCam.transform.position.y - gameObject.transform.position.y) > triggerHeigth)
             {
@@ -161,7 +161,7 @@ internal class ZoomingOutState : CameraState
 
     public override void UpdateState(SpecialSP owner)
     {
-        owner.playerCam.orthographicSize += owner.sizeStep * Time.deltaTime;
+        owner.playerCam.orthographicSize -= owner.sizeStep * Time.deltaTime;
         owner.backgroundMusic.volume -= owner.volumeStep * Time.deltaTime;
         owner.overwrite.volume += owner.volumeGainStep * Time.deltaTime;
     }
@@ -200,7 +200,7 @@ internal class ZoomingInState : CameraState
 
     public override void UpdateState(SpecialSP owner)
     {
-        owner.playerCam.orthographicSize -= owner.sizeStep * Time.deltaTime;
+        owner.playerCam.orthographicSize += owner.sizeStep * Time.deltaTime;
         owner.backgroundMusic.volume += owner.volumeStep * Time.deltaTime;
         owner.overwrite.volume -= owner.volumeGainStep * Time.deltaTime;
     }
