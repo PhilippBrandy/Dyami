@@ -14827,6 +14827,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 924275939}
+  - component: {fileID: 924275940}
   m_Layer: 0
   m_Name: Foreground
   m_TagString: Untagged
@@ -14842,7 +14843,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924275938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 6.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2093918721}
@@ -14858,6 +14859,20 @@ Transform:
   m_Father: {fileID: 1912116350}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &924275940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924275938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4babcbad30fb588478dd0ee3d3a108e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundSize: 120
+  paralaxSpeed: 0.1
 --- !u!1001 &934172606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17742,7 +17757,7 @@ Camera:
   far clip plane: 100
   field of view: 60
   orthographic: 1
-  orthographic size: 30.02
+  orthographic size: 22
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -17766,7 +17781,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084574822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -98.41553, y: 79, z: 0}
+  m_LocalPosition: {x: -95, y: 85.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1044023212}
@@ -17786,7 +17801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1149037559}
-  offset: {x: 0, y: 0, z: -3}
+  offset: {x: 3.11, y: 10, z: -3}
 --- !u!114 &1084574827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17841,7 +17856,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   EffectFlags:
     components: []
-  sharedInstanceID: e8bd4a17-cbc9-4bf5-9211-9e8303c787e1
+  sharedInstanceID: df1b15d4-add4-4864-8c1a-9d5baaeb1865
 --- !u!114 &1084574828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17896,7 +17911,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   EffectFlags:
     components: []
-  sharedInstanceID: 05589911-abb3-4040-8d45-f64005391a37
+  sharedInstanceID: f362bfd3-178d-4c69-94ff-52caa60d0789
 --- !u!1001 &1092413047
 PrefabInstance:
   m_ObjectHideFlags: 0
