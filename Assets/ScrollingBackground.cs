@@ -35,42 +35,42 @@ public class ScrollingBackground : MonoBehaviour {
         float deltaX = cameraTranform.position.x - lastCameraX;
         transform.position += Vector3.right * (deltaX * paralaxSpeed);
         lastCameraX = cameraTranform.position.x;
-        if(cameraTranform.position.x < (layers[leftIndex].transform.position.x + viewZone))
-        {
-            ScrollLeft();
-        }
+        //if(cameraTranform.position.x < (layers[leftIndex].transform.position.x + viewZone))
+        //{
+           // ScrollLeft();
+        //}
 
-        if (cameraTranform.position.x > (layers[rightIndex].transform.position.x + viewZone))
-        {
-            ScrollRight();
-        }
+        //if (cameraTranform.position.x > (layers[rightIndex].transform.position.x + viewZone))
+        //{
+            //ScrollRight();
+        //}
     }
 
     private void ScrollLeft()
     {
-        int lastRight = rightIndex;
-        Debug.Log("Right: " + rightIndex + " | Left:" + leftIndex);
-        layers[rightIndex].position = new Vector3(1 * layers[leftIndex].position.x - backgroundSize, layers[leftIndex].position.y, 0);//Vector3.right * (layers[leftIndex].position.x - backgroundSize);
-        leftIndex = rightIndex;
+        //int lastRight = rightIndex;
+        //Debug.Log("Right: " + rightIndex + " | Left:" + leftIndex);
+        //layers[rightIndex].position = new Vector3(1 * layers[leftIndex].position.x - backgroundSize, layers[leftIndex].position.y, 0);//Vector3.right * (layers[leftIndex].position.x - backgroundSize);
+        //leftIndex = rightIndex;
 
-        rightIndex--;
-        if (rightIndex < 0)
-        {
-            rightIndex = layers.Length - 1;
-        }  
+        //rightIndex--;
+        //if (rightIndex < 0)
+        //{
+           // rightIndex = layers.Length - 1;
+       // }  
     }
 
 
     private void ScrollRight()
     {
-        int lastLeft = leftIndex;
-        layers[leftIndex].position = new Vector3(1 * layers[rightIndex].position.x + backgroundSize, layers[rightIndex].position.y, 0);//Vector3.right * (layers[rightIndex].position.x + backgroundSize);
-        rightIndex = leftIndex;
-        rightIndex++;
-        if (leftIndex == layers.Length - 1);
-        {
-            leftIndex = 0;
-        }
+        //int lastLeft = leftIndex;
+        //layers[leftIndex].position = new Vector3(1 * layers[rightIndex].position.x + backgroundSize, layers[rightIndex].position.y, 0);//Vector3.right * (layers[rightIndex].position.x + backgroundSize);
+        //rightIndex = leftIndex;
+        //rightIndex++;
+        //if (leftIndex == layers.Length - 1);
+        //{
+            //leftIndex = 0;
+        //}
     }
 
 }
