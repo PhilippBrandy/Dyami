@@ -84,13 +84,26 @@ public class SpecialSP : MonoBehaviour
         }
         else if (currentState == active)
         {
-
-        }
-        else if (currentState == zoomingIn)
-        {
             if (Mathf.Abs(playerCam.transform.position.x - gameObject.transform.position.x) > maxDistance || Mathf.Abs(playerCam.transform.position.y - gameObject.transform.position.y) > triggerHeigth)
             {
                 changeState(SSPState.zoomingin);
+            }
+        }
+        else if (currentState == zoomingIn)
+        {
+            if (baseSize < maxSize)
+            {
+                if (playerCam.orthographicSize <= baseSize)
+                {
+                    changeState(SSPState.sleeping);
+                }
+            }
+            else
+            {
+                if (playerCam.orthographicSize <= baseSize)
+                {
+                    changeState(SSPState.sleeping);
+                }
             }
         }
         currentState.UpdateState(this);
