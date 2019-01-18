@@ -17891,7 +17891,9 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: -1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866364419122094277, guid: d35f9c14a71205249937f12911adea35, type: 3}
+    - {fileID: 2834588816061894645, guid: d35f9c14a71205249937f12911adea35, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d35f9c14a71205249937f12911adea35, type: 3}
 --- !u!4 &1060201786 stripped
 Transform:
@@ -18397,7 +18399,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084574822}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b9e31fdf962e3e4ca3b62ec3ecc2f4e, type: 3}
   m_Name: 
@@ -18407,7 +18409,7 @@ MonoBehaviour:
   LinearWhitePoint: 11.2
   ApplyDithering: 1
   QualityLevel: 1
-  BlendAmount: 0
+  BlendAmount: 1
   LutTexture: {fileID: 2800000, guid: eca78a30e2fbb19408d79e616aad87ed, type: 3}
   LutBlendTexture: {fileID: 2800000, guid: 0d67521c57bec9045a93e0cc2e50624a, type: 3}
   MaskTexture: {fileID: 0}
@@ -18444,7 +18446,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   EffectFlags:
     components: []
-  sharedInstanceID: df1b15d4-add4-4864-8c1a-9d5baaeb1865
+  sharedInstanceID: 0f6c6564-7df8-4089-afa1-40d7c0f46377
 --- !u!114 &1084574828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18499,7 +18501,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   EffectFlags:
     components: []
-  sharedInstanceID: f362bfd3-178d-4c69-94ff-52caa60d0789
+  sharedInstanceID: ceb69fec-d09e-4fd5-8975-a7a427802c5f
 --- !u!1001 &1092413047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21962,11 +21964,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1616058227, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
       propertyPath: m_SortingLayerID
-      value: 0
+      value: -297717993
       objectReference: {fileID: 0}
     - target: {fileID: 1616058227, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
       propertyPath: m_SortingLayer
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1616058227, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
       propertyPath: m_SortingOrder
@@ -31551,15 +31553,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1616058227, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
       propertyPath: m_SortingLayerID
-      value: 0
+      value: -297717993
       objectReference: {fileID: 0}
     - target: {fileID: 1616058227, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
       propertyPath: m_SortingLayer
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1616058227, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
