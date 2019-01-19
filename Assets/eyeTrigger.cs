@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class eyeTrigger : MonoBehaviour
 {
+    public GameObject eyehandler;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("eye trigger set active(false)");
+        eyehandler.SetActive(false);
     }
+    
 
-    // Update is called once per frame
-    void Update()
+         void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        Debug.Log("collider collision");
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("collider player");
+
+            eyehandler.SetActive(true);
+        }
     }
 }
