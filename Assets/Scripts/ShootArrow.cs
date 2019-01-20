@@ -16,7 +16,9 @@ public class ShootArrow : MonoBehaviour
     private GameObject projectile = null;
     bool hit = false;
     [SerializeField] private LayerMask getsStuckIn;
+    public Animator anim;
 
+    int shootHash = Animator.StringToHash("Shoot");
 
     //forceemitter while in air after teleport
     public bool theForce = false;
@@ -40,14 +42,19 @@ public class ShootArrow : MonoBehaviour
         //Rotate Bow towards direction of mouse
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 diff = mousePos - rp.transform.position;
+        if (mousePos.x > rp.transform.position.x) playerFaces(0);
+        else playerFaces(1);
         float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         crosshair.transform.position = mousePos;
         rp.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 
+
+
         //Shoot Arrow
         if (Input.GetMouseButtonDown(0))
         {
+            anim.SetTrigger(shootHash);
             Destroy(projectile);
             hit = false;
             projectile = Instantiate(arrow);
@@ -130,5 +137,12 @@ public class ShootArrow : MonoBehaviour
             }
         }
         
+    }
+    private void playerFaces(int i)
+    {
+        // Multiply the player's x local scale by -1.
+        Quaternion theRotation = player.transform.localRotation;
+        theRotation.y = 180.0f * i;
+        player.transform.localRotation = theRotation;
     }
 }

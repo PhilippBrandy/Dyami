@@ -11,6 +11,11 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 
+    public Animator anim;
+
+    int jumpHash = Animator.StringToHash("Jump");
+
+
     const float k_GroundedRadius = 0.8f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;            // Whether or not the player is grounded.
     const float k_CeilingRadius = .4f; // Radius of the overlap circle to determine if the player can stand up
@@ -26,7 +31,6 @@ public class CharacterController2D : MonoBehaviour
 
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
-
 
     private void Awake()
     {
@@ -71,7 +75,6 @@ public class CharacterController2D : MonoBehaviour
             if (colliders[i].gameObject != gameObject)
             {
                 canMove = false;
-                Debug.Log(colliders[i].ToString());
             }
         }
         float direction = 0f;
@@ -82,6 +85,8 @@ public class CharacterController2D : MonoBehaviour
         {
             if (m_Grounded || m_Rigidbody2D.velocity.y == 0)
             {
+                float speed = Input.GetAxis("Vertical");
+                anim.SetFloat("Speed", move);
                 // Move the character by finding the target velocity
                 Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
                 // And then smoothing it out and applying it to the character
@@ -106,6 +111,7 @@ public class CharacterController2D : MonoBehaviour
         {
             // Add a vertical force to the player.
             m_Grounded = false;
+            anim.SetTrigger(jumpHash);
             if (canMove) m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce);
             else m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce*0.75f);
         }
@@ -129,12 +135,6 @@ public class CharacterController2D : MonoBehaviour
     {
         // Switch the way the player is labelled as facing.
         m_FacingRight = !m_FacingRight;
-
-        // Multiply the player's x local scale by -1.
-        Quaternion theRotation = transform.localRotation;
-        if (m_FacingRight) theRotation.y = 0.0f;
-        else theRotation.y = 180.0f;
-        transform.localRotation = theRotation;
     }
 
     public bool getGrounded()
