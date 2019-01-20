@@ -9,7 +9,6 @@ public class ShootArrow : MonoBehaviour
     public GameObject arrow;
     public GameObject player;
     public GameObject rp; //rotation point
-    public GameObject crosshair;
     private Rigidbody2D rb = null;
     private bool canTeleport = true;
     public bool learnedTeleporting = false; 
@@ -17,7 +16,10 @@ public class ShootArrow : MonoBehaviour
     bool hit = false;
     [SerializeField] private LayerMask getsStuckIn;
     public Animator anim;
+    public Transform bowAimAt;
+    public Transform headLookAt;
 
+    bool facesRight = true;
     int shootHash = Animator.StringToHash("Shoot");
 
     //forceemitter while in air after teleport
@@ -45,8 +47,12 @@ public class ShootArrow : MonoBehaviour
         if (mousePos.x > rp.transform.position.x) playerFaces(0);
         else playerFaces(1);
         float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        crosshair.transform.position = mousePos;
         rp.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        bowAimAt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        if (!facesRight) angle = angle - 135;
+        angle = angle / 2;
+        headLookAt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
 
 
 
@@ -144,5 +150,7 @@ public class ShootArrow : MonoBehaviour
         Quaternion theRotation = player.transform.localRotation;
         theRotation.y = 180.0f * i;
         player.transform.localRotation = theRotation;
+        if (i == 0) facesRight = true;
+        else facesRight = false;
     }
 }

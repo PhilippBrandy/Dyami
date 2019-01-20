@@ -11,7 +11,8 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 
-    public Animator anim;
+    public Animator animBody;
+    public Animator animArms;
 
     int jumpHash = Animator.StringToHash("Jump");
 
@@ -81,12 +82,14 @@ public class CharacterController2D : MonoBehaviour
         if (m_FacingRight) direction = 10f;
         else direction = -10f;
 
+        float speed = Input.GetAxis("Vertical");
+        animBody.SetFloat("Speed", move);
+        animArms.SetFloat("Speed", move);
+
         if (canMove)
         {
             if (m_Grounded || m_Rigidbody2D.velocity.y == 0)
             {
-                float speed = Input.GetAxis("Vertical");
-                anim.SetFloat("Speed", move);
                 // Move the character by finding the target velocity
                 Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
                 // And then smoothing it out and applying it to the character
@@ -111,7 +114,8 @@ public class CharacterController2D : MonoBehaviour
         {
             // Add a vertical force to the player.
             m_Grounded = false;
-            anim.SetTrigger(jumpHash);
+            animBody.SetTrigger(jumpHash);
+            animArms.SetTrigger(jumpHash);
             if (canMove) m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce);
             else m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce*0.75f);
         }
