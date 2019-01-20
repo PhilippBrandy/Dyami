@@ -142,7 +142,7 @@ public class ShootArrow : MonoBehaviour
                 }
             }
         }
-        
+
     }
     private void playerFaces(int i)
     {
