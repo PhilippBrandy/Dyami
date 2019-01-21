@@ -12,8 +12,11 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 
     public Animator animBody;
+    public Animator animHead;
     public Animator animArms;
     public bool crawling;
+    public GameObject normalRig;
+    public GameObject crawlingRig;
 
     int jumpHash = Animator.StringToHash("Jump");
 
@@ -45,6 +48,9 @@ public class CharacterController2D : MonoBehaviour
     private void FixedUpdate()
     {
         animBody.SetBool("Crawl", crawling);
+        normalRig.SetActive(!crawling);
+        //crawlingRig.SetActive(crawling);
+
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
 
@@ -86,6 +92,7 @@ public class CharacterController2D : MonoBehaviour
 
         float speed = Input.GetAxis("Vertical");
         animBody.SetFloat("Speed", move);
+        animHead.SetFloat("Speed", move);
         animArms.SetFloat("Speed", move);
 
         if (canMove)

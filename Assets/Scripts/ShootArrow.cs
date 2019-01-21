@@ -47,6 +47,7 @@ public class ShootArrow : MonoBehaviour
         if (mousePos.x > rp.transform.position.x) playerFaces(0);
         else playerFaces(1);
         float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        angle = angle / 2;
         rp.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         bowAimAt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         if (!facesRight)
@@ -54,7 +55,6 @@ public class ShootArrow : MonoBehaviour
             angle = angle - 135;
             if (mousePos.y < rp.transform.position.y) angle = angle - 360;
         }
-        angle = angle / 2;
         headLookAt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 
