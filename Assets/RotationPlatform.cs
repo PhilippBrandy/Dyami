@@ -8,6 +8,7 @@ public class RotationPlatform : MonoBehaviour
     private bool isRotationUp;
     public float waitTime;
     public float rotationSpeed;
+    public GameObject parent;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,28 +21,36 @@ public class RotationPlatform : MonoBehaviour
     {
         if (isRotatingDown && gameObject.transform.rotation.z <= 90)
         {
-            //
+            parent.transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
         }
         else if (isRotationUp && gameObject.transform.rotation.z >= 0)
         {
-
+            parent.transform.Rotate(Vector3.forward, -rotationSpeed * Time.deltaTime);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isRotationUp == true)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            isRotationUp = false;
+            if (isRotationUp == true)
+            {
+                isRotationUp = false;
+            }
+            StartCoroutine(wait());
+            isRotatingDown = true;
         }
-        StartCoroutine(wait());
-        isRotatingDown = true;
+        
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        StartCoroutine(wait());
-        isRotationUp = true;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(wait());
+            isRotationUp = true;
+        }
+        
     }
 
     IEnumerator wait()

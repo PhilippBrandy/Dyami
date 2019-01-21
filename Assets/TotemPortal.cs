@@ -48,7 +48,6 @@ public class TotemPortal : MonoBehaviour
         {
             if (combination == "123")
             {
-                gameObject.GetComponent<SpriteRenderer>().sprite = gateOpen;
                 teleporter.SetActive(true);
             }
             else

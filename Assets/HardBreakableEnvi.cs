@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HardBreakableEnvi : MonoBehaviour {
     public int health = 1;
-    public GameObject breakingApartEffect;
+    //public GameObject breakingApartEffect;
 
     // Use this for initialization
     void Start()
@@ -18,7 +18,7 @@ public class HardBreakableEnvi : MonoBehaviour {
         if (health < 1)
         {
             Destroy(gameObject);
-            Instantiate(breakingApartEffect, transform.position, Quaternion.identity);
+            //Instantiate(breakingApartEffect, transform.position, Quaternion.identity);
         }
     }
 
