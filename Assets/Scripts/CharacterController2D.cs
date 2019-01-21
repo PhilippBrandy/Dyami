@@ -13,6 +13,7 @@ public class CharacterController2D : MonoBehaviour
 
     public Animator animBody;
     public Animator animArms;
+    public bool crawling;
 
     int jumpHash = Animator.StringToHash("Jump");
 
@@ -43,6 +44,7 @@ public class CharacterController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
+        animBody.SetBool("Crawl", crawling);
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
 
@@ -110,7 +112,7 @@ public class CharacterController2D : MonoBehaviour
 
 
         // If the player should jump...
-        if ((m_Grounded || m_Rigidbody2D.velocity.y == 0) && jump)
+        if ((m_Grounded || m_Rigidbody2D.velocity.y == 0) && jump && !crawling)
         {
             // Add a vertical force to the player.
             m_Grounded = false;
