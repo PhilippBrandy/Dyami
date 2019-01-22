@@ -145,14 +145,14 @@ public class ShootArrow : MonoBehaviour
                     }
                 }
             }
-        }   
-
+        }
+        headLookAt.eulerAngles = new Vector3(0,0,headLookAt.rotation.z);
     }
     private void playerFaces(int i)
     {
         // Multiply the player's x local scale by -1.
         Quaternion theRotation = player.transform.localRotation;
-        theRotation.y = 179.8f * i;
+        theRotation.y = 180f * i;
         player.transform.localRotation = theRotation;
         if (i == 0) facesRight = true;
         else facesRight = false;
