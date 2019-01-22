@@ -13,7 +13,6 @@ public class CharacterController2D : MonoBehaviour
 
     public Animator animBody;
     public Animator animHead;
-    public Animator animArms;
     public bool crawling;
     public GameObject normalRig;
     public GameObject crawlingRig;
@@ -93,7 +92,6 @@ public class CharacterController2D : MonoBehaviour
         float speed = Input.GetAxis("Vertical");
         animBody.SetFloat("Speed", move);
         animHead.SetFloat("Speed", move);
-        animArms.SetFloat("Speed", move);
 
         if (canMove)
         {
@@ -125,7 +123,6 @@ public class CharacterController2D : MonoBehaviour
             m_Grounded = false;
             animBody.SetTrigger(jumpHash);
             animHead.SetTrigger(jumpHash);
-            animArms.SetTrigger(jumpHash);
             if (canMove) m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce);
             else m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce*0.75f);
         }

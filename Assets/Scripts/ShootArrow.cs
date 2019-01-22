@@ -17,7 +17,10 @@ public class ShootArrow : MonoBehaviour
     [SerializeField] private LayerMask getsStuckIn;
     public Animator anim;
     public Transform bowAimAt;
+    public Transform bowAimAt2;
     public Transform headLookAt;
+    public GameObject AnimArms;
+    public GameObject NormalArms;
 
     bool facesRight = true;
     int shootHash = Animator.StringToHash("Shoot");
@@ -55,11 +58,13 @@ public class ShootArrow : MonoBehaviour
             rp.transform.rotation = Quaternion.AngleAxis(angle+135, Vector3.forward);
             headLookAt.localRotation = Quaternion.AngleAxis(angle/2, Vector3.back);
             bowAimAt.localRotation = Quaternion.AngleAxis(angle, Vector3.back);
+            bowAimAt2.localRotation = Quaternion.AngleAxis(angle, Vector3.back);
         } else
         {
             rp.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             headLookAt.localRotation = Quaternion.AngleAxis(angle/2, Vector3.forward);
             bowAimAt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            bowAimAt2.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
             
 
@@ -69,6 +74,9 @@ public class ShootArrow : MonoBehaviour
         //Shoot Arrow
         if (Input.GetMouseButtonDown(0))
         {
+
+            AnimArms.SetActive(true);
+            NormalArms.SetActive(false);
             anim.SetTrigger(shootHash);
             Destroy(projectile);
             hit = false;
@@ -93,7 +101,7 @@ public class ShootArrow : MonoBehaviour
             projectile.transform.position = transform.position + transform.forward * 20;
             rb = projectile.GetComponent<Rigidbody2D>();
             rb.velocity = diff * strength;
-
+            Invoke("resetArms", 2);
         }
 
         //Teleport
@@ -160,5 +168,10 @@ public class ShootArrow : MonoBehaviour
         player.transform.localRotation = theRotation;
         if (i == 0) facesRight = true;
         else facesRight = false;
+    }
+    private void resetArms()
+    {
+        AnimArms.SetActive(false);
+        NormalArms.SetActive(true);
     }
 }
