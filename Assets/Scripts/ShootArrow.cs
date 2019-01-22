@@ -47,16 +47,21 @@ public class ShootArrow : MonoBehaviour
         if (mousePos.x > rp.transform.position.x) playerFaces(0);
         else playerFaces(1);
         float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        angle = angle / 2;
-        rp.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        bowAimAt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        
         if (!facesRight)
         {
-            angle = angle - 135;
-            if (mousePos.y < rp.transform.position.y) angle = angle - 360;
+            if (mousePos.y < rp.transform.position.y) angle += 180;
+            else angle -= 180;
+            rp.transform.rotation = Quaternion.AngleAxis(angle+135, Vector3.forward);
+            headLookAt.localRotation = Quaternion.AngleAxis(angle/2, Vector3.back);
+            bowAimAt.localRotation = Quaternion.AngleAxis(angle, Vector3.back);
+        } else
+        {
+            rp.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            headLookAt.localRotation = Quaternion.AngleAxis(angle/2, Vector3.forward);
+            bowAimAt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
-        headLookAt.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        headLookAt.eulerAngles = new Vector3(0, 0, headLookAt.eulerAngles.z);
+            
 
 
 
@@ -146,7 +151,6 @@ public class ShootArrow : MonoBehaviour
                 }
             }
         }
-        headLookAt.eulerAngles = new Vector3(0,0,headLookAt.rotation.z);
     }
     private void playerFaces(int i)
     {
