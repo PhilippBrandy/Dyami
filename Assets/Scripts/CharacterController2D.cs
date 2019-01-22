@@ -12,7 +12,6 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 
     public Animator animBody;
-    public Animator animHead;
     public bool crawling;
     public GameObject normalRig;
     public GameObject crawlingRig;
@@ -91,7 +90,6 @@ public class CharacterController2D : MonoBehaviour
 
         float speed = Input.GetAxis("Vertical");
         animBody.SetFloat("Speed", move);
-        animHead.SetFloat("Speed", move);
 
         if (canMove)
         {
@@ -122,7 +120,6 @@ public class CharacterController2D : MonoBehaviour
             // Add a vertical force to the player.
             m_Grounded = false;
             animBody.SetTrigger(jumpHash);
-            animHead.SetTrigger(jumpHash);
             if (canMove) m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce);
             else m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce*0.75f);
         }

@@ -57,6 +57,7 @@ public class ShootArrow : MonoBehaviour
             else angle -= 180;
             rp.transform.rotation = Quaternion.AngleAxis(angle+135, Vector3.forward);
             headLookAt.localRotation = Quaternion.AngleAxis(angle/2, Vector3.back);
+            angle += 90;
             bowAimAt.localRotation = Quaternion.AngleAxis(angle, Vector3.back);
             bowAimAt2.localRotation = Quaternion.AngleAxis(angle, Vector3.back);
         } else
@@ -64,6 +65,7 @@ public class ShootArrow : MonoBehaviour
             rp.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             headLookAt.localRotation = Quaternion.AngleAxis(angle/2, Vector3.forward);
             bowAimAt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            angle -= 80;
             bowAimAt2.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
             
@@ -78,6 +80,7 @@ public class ShootArrow : MonoBehaviour
             AnimArms.SetActive(true);
             NormalArms.SetActive(false);
             anim.SetTrigger(shootHash);
+            
             Destroy(projectile);
             hit = false;
             projectile = Instantiate(arrow);
