@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PostProcessingTrigger : MonoBehaviour
 {
-    public Animation vignette;
+    public Animator vignette;
     
     // Start is called before the first frame update
     void Start()
@@ -22,9 +22,9 @@ public class PostProcessingTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("collider player");
-            vignette.Play("vignetteFadeIn");
-            
+            vignette.SetTrigger("Start");
+
+
         }
     }
 }
