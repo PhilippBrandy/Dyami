@@ -55,8 +55,8 @@ public class ShootArrow : MonoBehaviour
             angle = angle - 135;
             if (mousePos.y < rp.transform.position.y) angle = angle - 360;
         }
-        headLookAt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
+        headLookAt.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        headLookAt.eulerAngles = new Vector3(0, 0, headLookAt.eulerAngles.z);
 
 
 
@@ -152,7 +152,7 @@ public class ShootArrow : MonoBehaviour
     {
         // Multiply the player's x local scale by -1.
         Quaternion theRotation = player.transform.localRotation;
-        theRotation.y = 180.0f * i;
+        theRotation.y = 179.8f * i;
         player.transform.localRotation = theRotation;
         if (i == 0) facesRight = true;
         else facesRight = false;
