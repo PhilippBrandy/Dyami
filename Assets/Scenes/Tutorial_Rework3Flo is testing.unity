@@ -7177,7 +7177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414116486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -63.446426, y: 70.78209, z: 0}
+  m_LocalPosition: {x: -2.8, y: 70.78209, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 641769049}
@@ -13989,7 +13989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504507e15f409ea48afaeaa786765900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterWeapon: {fileID: 0}
+  characterWeapon: {fileID: 2115652195}
 --- !u!1001 &833022806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36870,6 +36870,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2111443381}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2115652195 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2832685614668533198, guid: e7535b498b439bb41b1f2604756ece8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1631198415}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 365e107d8c6c2304e80e8a2cbf379535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2126389968
 GameObject:
   m_ObjectHideFlags: 0
