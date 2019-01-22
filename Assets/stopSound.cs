@@ -2,31 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Eagletrigger : MonoBehaviour
+public class stopSound : MonoBehaviour
 {
-    public Animator eagle;
-    public AudioSource eagleScream;
+    public AudioSource sound;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            eagle.SetTrigger("Start");
-            eagleScream.Play();
+            sound.Stop();
 
         }
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
