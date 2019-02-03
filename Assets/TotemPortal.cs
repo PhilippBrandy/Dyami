@@ -13,7 +13,7 @@ public class TotemPortal : MonoBehaviour
     public GameObject teleporter;
 
     public Sprite gateOpen;
-    private string combination;
+    private string combination = "";
     private bool active1 = false;
     private bool active2 = false;
     private bool active3 = false;

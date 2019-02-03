@@ -11,6 +11,7 @@ public class ShootArrow : MonoBehaviour
     public GameObject rp; //rotation point
     private Rigidbody2D rb = null;
     private bool canTeleport = true;
+    private bool hasShot = true;
     public bool learnedTeleporting = false; 
     private GameObject projectile = null;
     bool hit = false;
@@ -36,6 +37,7 @@ public class ShootArrow : MonoBehaviour
         {
             if (player.GetComponent<CharacterController2D>().getGrounded())
             {
+                //TODO: Abprüfen ob er nochmal geschossen hat nachdem er gelandet ist
                 canTeleport = true;
 
                 //start force-code
@@ -76,7 +78,7 @@ public class ShootArrow : MonoBehaviour
         //Shoot Arrow
         if (Input.GetMouseButtonDown(0))
         {
-
+            if (canTeleport) hasShot = true;
             AnimArms.SetActive(true);
             NormalArms.SetActive(false);
             anim.SetTrigger(shootHash);
@@ -104,12 +106,13 @@ public class ShootArrow : MonoBehaviour
             projectile.transform.position = transform.position + transform.forward * 20;
             rb = projectile.GetComponent<Rigidbody2D>();
             rb.velocity = diff * strength;
-            Invoke("resetArms", 2);
+            Invoke("resetArms", 1);
         }
 
         //Teleport
-        if (Input.GetMouseButtonDown(1) && projectile != null && canTeleport && learnedTeleporting)
+        if (Input.GetMouseButtonDown(1) && projectile != null && canTeleport && learnedTeleporting && hasShot)
         {
+            hasShot = false;
             Rigidbody2D playerRig = player.GetComponent<Rigidbody2D>();
             player.transform.position = new Vector2(projectile.transform.position.x, projectile.transform.position.y + 0.5f);
             
