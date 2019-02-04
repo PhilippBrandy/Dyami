@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4036019930300805392}
   - component: {fileID: 6192064626375078599}
   - component: {fileID: 3449923823123923693}
+  - component: {fileID: 8176411354174066494}
   m_Layer: 0
   m_Name: BearEnemy
   m_TagString: damaging
@@ -193,6 +194,18 @@ CircleCollider2D:
   m_Offset: {x: 4.57, y: 1.01}
   serializedVersion: 2
   m_Radius: 2.13
+--- !u!114 &8176411354174066494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172010630391360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b97709ba1027fd42b702b3f7c3ca70f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1536062000476680
 GameObject:
   m_ObjectHideFlags: 0
