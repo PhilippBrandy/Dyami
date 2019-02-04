@@ -414,7 +414,6 @@ GameObject:
   - component: {fileID: 7804502906895406160}
   - component: {fileID: 2836408442535603695}
   - component: {fileID: 399155188793949189}
-  - component: {fileID: 5106670582227872631}
   m_Layer: 0
   m_Name: rotating root
   m_TagString: Untagged
@@ -541,21 +540,6 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
---- !u!114 &5106670582227872631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7804502906895406162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdcf087932dcbf040907160796abb27a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waitTime: 3
-  rotationSpeed: 1
-  parent: {fileID: 7512730629795196985}
 --- !u!1 &7804502906988158442
 GameObject:
   m_ObjectHideFlags: 0
