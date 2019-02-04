@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7140138637371232228}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -8.919556, y: 0.65864563, z: -0.0703125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.6167507, y: -3.6167507, z: 3.6167507}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: -297717993
   m_SortingLayer: 2
   m_SortingOrder: 7
-  m_Sprite: {fileID: 21300000, guid: 1ad9e0ba34c2a7740a13bc41fc5f9f78, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fbc0e20c80ea90f449485a02c0f7c947, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -115,7 +115,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.34, y: 7.76}
+    oldSize: {x: 7.13, y: 4.05}
     newSize: {x: 11.34, y: 7.76}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -123,18 +123,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -5.0049896, y: 1.512001}
-      - {x: -2.3657227, y: 0.5298691}
-      - {x: 0.95973206, y: -0.2107544}
-      - {x: 3.2072601, y: -0.43286133}
-      - {x: 4.1660004, y: -0.8913269}
-      - {x: 5.1445312, y: -3.1436615}
-      - {x: 5.137268, y: -2.0445328}
-      - {x: 4.5717926, y: -0.2671814}
-      - {x: 3.2544556, y: 0.7928543}
-      - {x: 1.6089478, y: 1.5092468}
-      - {x: -2.08667, y: 2.599289}
-      - {x: -4.2704163, y: 3.0038452}
+    - - {x: 2.5433183, y: 1.6818802}
+      - {x: 2.1372385, y: 1.6528435}
+      - {x: 2.0059457, y: -1.1236957}
+      - {x: -0.20492148, y: -1.2513851}
+      - {x: -3.0698059, y: -1.2312814}
+      - {x: -3.2801445, y: -1.7455664}
+      - {x: -2.960131, y: -1.9253706}
+      - {x: 2.9898996, y: -1.9573342}
+      - {x: 3.2848866, y: -1.5980844}
+      - {x: 3.2776976, y: 0.81000143}
 --- !u!60 &7140138637371232226
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -152,7 +150,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.34, y: 7.76}
+    oldSize: {x: 7.13, y: 4.05}
     newSize: {x: 11.34, y: 7.76}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -160,16 +158,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -5.195633, y: 1.4432983}
-      - {x: -2.0969238, y: 0.3388214}
-      - {x: 3.7956238, y: -0.9043503}
-      - {x: 5.1800537, y: -3.3770218}
-      - {x: 5.28479, y: -1.8147049}
-      - {x: 4.735031, y: -0.1240921}
-      - {x: 3.923645, y: 0.54717255}
-      - {x: 1.7477112, y: 1.7383804}
-      - {x: -1.8352966, y: 2.7733994}
-      - {x: -4.4021606, y: 3.2293243}
+    - - {x: -3.4518547, y: -2.363272}
+      - {x: -3.8094168, y: -1.3996754}
+      - {x: -3.1257994, y: -0.8734925}
+      - {x: -0.51774615, y: -0.85628355}
+      - {x: 1.7079378, y: -0.7692239}
+      - {x: 1.8563089, y: 2.1048155}
+      - {x: 2.8367357, y: 1.933753}
+      - {x: 3.6893294, y: 1.3498194}
+      - {x: 3.8594363, y: -2.2228267}
+      - {x: 2.4580286, y: -2.356266}
 --- !u!251 &7140138637371232225
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -182,7 +180,7 @@ PlatformEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RotationalOffset: 0
+  m_RotationalOffset: 180
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
   m_SurfaceArc: 180
