@@ -46,6 +46,13 @@ void Update()
         feather.SetActive(false);
         featherpower = false;
         textObject.SetActive(true);
+        Invoke("removeText", 20);
+
         // Destroy(feather);
+    }
+
+    private void removeText()
+    {
+        textObject.SetActive(false);
     }
 }
