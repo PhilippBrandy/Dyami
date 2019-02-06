@@ -67,19 +67,9 @@ public class SpecialSP : MonoBehaviour
         }
         else if (currentState == zoomingOut)
         {
-            if (baseSize < maxSize)
+            if (backgroundMusic.volume <= 0.02)
             {
-                if (playerCam.orthographicSize >= maxSize)
-                {
-                    changeState(SSPState.active);
-                }
-            }
-            else
-            {
-                if (playerCam.orthographicSize <= maxSize)
-                {
-                    changeState(SSPState.active);
-                }
+                changeState(SSPState.active);
             }
         }
         else if (currentState == active)
@@ -91,19 +81,9 @@ public class SpecialSP : MonoBehaviour
         }
         else if (currentState == zoomingIn)
         {
-            if (baseSize < maxSize)
+            if (backgroundMusic.volume >= 0.98)
             {
-                if (playerCam.orthographicSize <= baseSize)
-                {
-                    changeState(SSPState.sleeping);
-                }
-            }
-            else
-            {
-                if (playerCam.orthographicSize <= baseSize)
-                {
-                    changeState(SSPState.sleeping);
-                }
+                changeState(SSPState.sleeping);
             }
         }
         currentState.UpdateState(this);
@@ -151,7 +131,7 @@ internal class SleepState : CameraState
 
     public override void ExitState(SpecialSP owner)
     {
-
+        Debug.Log("Exit Sleeping");
     }
 
     public override void UpdateState(SpecialSP owner)
@@ -169,7 +149,7 @@ internal class ZoomingOutState : CameraState
 
     public override void ExitState(SpecialSP owner)
     {
-
+        Debug.Log("Exit ZoomingOut");
     }
 
     public override void UpdateState(SpecialSP owner)
@@ -189,7 +169,7 @@ internal class ActiveState : CameraState
 
     public override void ExitState(SpecialSP owner)
     {
-
+        Debug.Log("Exit Active");
     }
 
     public override void UpdateState(SpecialSP owner)
@@ -208,11 +188,12 @@ internal class ZoomingInState : CameraState
 
     public override void ExitState(SpecialSP owner)
     {
-
+        Debug.Log("Exit ZoomingIn");
     }
 
     public override void UpdateState(SpecialSP owner)
     {
+        Debug.Log("Going Back");
         owner.playerCam.orthographicSize += owner.sizeStep * Time.deltaTime;
         owner.backgroundMusic.volume += owner.volumeStep * Time.deltaTime;
         owner.overwrite.volume -= owner.volumeGainStep * Time.deltaTime;
