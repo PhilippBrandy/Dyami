@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,6 +25,8 @@ public class StoneEyeTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            Debug.Log("Animation should start");
+
             vignette.SetTrigger("Start");
             eyehandler.SetActive(true);
             eyeGlow.SetActive(true);
