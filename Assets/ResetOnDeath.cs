@@ -5,6 +5,7 @@ using UnityEngine;
 public class ResetOnDeath : MonoBehaviour
 {
     private Killable player;
+    private GameObject arrow;
     private Vector3 originalPosition;
     private Quaternion originalRotation;
     // Start is called before the first frame update
@@ -19,10 +20,12 @@ public class ResetOnDeath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (arrow == null) arrow = GameObject.Find("arrow(Clone)");
         if (player.health == 0)
         {
             gameObject.transform.position = originalPosition;
             gameObject.transform.rotation = originalRotation;
+            Destroy(arrow);
         }
     }
 }
