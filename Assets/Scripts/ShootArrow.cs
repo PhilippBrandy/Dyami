@@ -27,6 +27,7 @@ public class ShootArrow : MonoBehaviour
 
     private Vector3 playerScale;
     private Vector3 arrowVelocity;
+    private float speed;
 
     bool facesRight = true;
     int shootHash = Animator.StringToHash("Shoot");
@@ -138,15 +139,15 @@ public class ShootArrow : MonoBehaviour
             playerRB.isKinematic = true;
             player.GetComponent<BoxCollider2D>().enabled = false;
             eagle.SetActive(true);
-            Invoke("playerTeleported", 0.5f);
+            Vector3 range = player.transform.position - projectile.transform.position;
+            speed = Mathf.Sqrt((Mathf.Pow(range.y, 2)) + (Mathf.Pow(range.x, 2)));
+            Invoke("playerTeleported", 0.02f*speed);
         }
 
         if (isTeleporting)
         {
             Vector3 playerPos = player.transform.position;
-            Vector3 range = playerPos - projectile.transform.position;
-            float speed = Mathf.Sqrt((Mathf.Pow(range.y,2))+ (Mathf.Pow(range.x, 2)));
-            playerPos = Vector2.MoveTowards(new Vector2(playerPos.x, playerPos.y), projectile.transform.position, speed*3*Time.deltaTime);
+            playerPos = Vector2.MoveTowards(new Vector2(playerPos.x, playerPos.y), projectile.transform.position, 50*Time.deltaTime);
             player.transform.position = playerPos;
         }
 
