@@ -137,7 +137,9 @@ public class ShootArrow : MonoBehaviour
             Rigidbody2D playerRB = player.GetComponent<Rigidbody2D>();
             playerRB.velocity = Vector3.zero;
             playerRB.isKinematic = true;
-            player.GetComponent<BoxCollider2D>().enabled = false;
+            foreach (BoxCollider2D collider in player.GetComponents<BoxCollider2D>()) {
+                collider.enabled = false;
+            }
             eagle.SetActive(true);
             Vector3 range = player.transform.position - projectile.transform.position;
             speed = Mathf.Sqrt((Mathf.Pow(range.y, 2)) + (Mathf.Pow(range.x, 2)));
@@ -225,7 +227,10 @@ public class ShootArrow : MonoBehaviour
         player.GetComponent<Killable>().enabled = true;
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponent<Rigidbody2D>().isKinematic = false;
-        player.GetComponent<BoxCollider2D>().enabled = true;
+        foreach (BoxCollider2D collider in player.GetComponents<BoxCollider2D>())
+        {
+            collider.enabled = true;
+        }
         isTeleporting = false;
         eagle.SetActive(false);
     }
