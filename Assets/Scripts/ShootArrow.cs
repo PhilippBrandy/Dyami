@@ -8,6 +8,7 @@ public class ShootArrow : MonoBehaviour
     public float strength = 10;
     public GameObject arrow;
     public GameObject player;
+    public GameObject eagle;
     public GameObject rp; //rotation point
     private Rigidbody2D rb = null;
     private bool canTeleport = true;
@@ -22,12 +23,21 @@ public class ShootArrow : MonoBehaviour
     public Transform headLookAt;
     public GameObject AnimArms;
     public GameObject NormalArms;
+    private bool isTeleporting = false;
+
+    private Vector3 playerScale;
+    private Vector3 arrowVelocity;
 
     bool facesRight = true;
     int shootHash = Animator.StringToHash("Shoot");
 
     //forceemitter while in air after teleport
     public bool theForce = false;
+
+    private void Start()
+    {
+        playerScale = player.transform.localScale;
+    }
 
     private void FixedUpdate()
     {
@@ -76,7 +86,7 @@ public class ShootArrow : MonoBehaviour
 
 
         //Shoot Arrow
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isTeleporting)
         {
             if (canTeleport) hasShot = true;
             AnimArms.SetActive(true);
@@ -110,24 +120,34 @@ public class ShootArrow : MonoBehaviour
         }
 
         //Teleport
-        if (Input.GetMouseButtonDown(1) && projectile != null && canTeleport && learnedTeleporting && hasShot)
+        if (Input.GetMouseButtonDown(1) && projectile != null && canTeleport && learnedTeleporting && hasShot && !isTeleporting)
         {
-            hasShot = false;
-            Rigidbody2D playerRig = player.GetComponent<Rigidbody2D>();
-            player.transform.position = new Vector2(projectile.transform.position.x, projectile.transform.position.y + 0.5f);
-            
-            if (hit)
+            isTeleporting = true;
+            player.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
+            Rigidbody2D arrowRB = projectile.GetComponent<Rigidbody2D>();
+            if (arrowRB != null)
             {
-                playerRig.velocity = Vector3.zero;
-            } else {
-                playerRig.velocity = rb.velocity*0.7f;
+                arrowVelocity = arrowRB.velocity;
+                arrowRB.velocity = Vector3.zero;
+                arrowRB.isKinematic = true;
             }
-            canTeleport = false;
-            //start force-code
-            theForce = true;
-            //end force-code
+            player.GetComponent<Killable>().enabled = false;
+            player.GetComponent<PlayerMovement>().enabled = false;
+            Rigidbody2D playerRB = player.GetComponent<Rigidbody2D>();
+            playerRB.velocity = Vector3.zero;
+            playerRB.isKinematic = true;
+            player.GetComponent<BoxCollider2D>().enabled = false;
+            eagle.SetActive(true);
+            Invoke("playerTeleported", 0.5f);
+        }
 
-            Destroy(projectile);
+        if (isTeleporting)
+        {
+            Vector3 playerPos = player.transform.position;
+            Vector3 range = playerPos - projectile.transform.position;
+            float speed = Mathf.Sqrt((Mathf.Pow(range.y,2))+ (Mathf.Pow(range.x, 2)));
+            playerPos = Vector2.MoveTowards(new Vector2(playerPos.x, playerPos.y), projectile.transform.position, speed*3*Time.deltaTime);
+            player.transform.position = playerPos;
         }
 
         //Rotate arrow depending on velocity
@@ -179,5 +199,33 @@ public class ShootArrow : MonoBehaviour
     {
         AnimArms.SetActive(false);
         NormalArms.SetActive(true);
+    }
+    private void playerTeleported()
+    {
+        hasShot = false;
+        Rigidbody2D playerRig = player.GetComponent<Rigidbody2D>();
+        player.transform.position = new Vector2(projectile.transform.position.x, projectile.transform.position.y + 0.5f);
+
+        if (hit)
+        {
+            playerRig.velocity = Vector3.zero;
+        }
+        else
+        {
+            playerRig.velocity = arrowVelocity * 0.7f;
+        }
+        canTeleport = false;
+        //start force-code
+        theForce = true;
+        //end force-code
+
+        Destroy(projectile);
+        player.transform.localScale = playerScale;
+        player.GetComponent<Killable>().enabled = true;
+        player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<Rigidbody2D>().isKinematic = false;
+        player.GetComponent<BoxCollider2D>().enabled = true;
+        isTeleporting = false;
+        eagle.SetActive(false);
     }
 }
