@@ -73697,7 +73697,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335668496}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 4bc119713174a6b4b9aa4b4f9b76c2ec, type: 2}
   m_IsTrigger: 0
@@ -90621,11 +90621,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WhatIsSlippy.m_Bits
       value: 8192
-      objectReference: {fileID: 0}
-    - target: {fileID: 114311183651760604, guid: e7535b498b439bb41b1f2604756ece8c,
-        type: 3}
-      propertyPath: m_WhatIsGround.m_Bits
-      value: 12821
       objectReference: {fileID: 0}
     - target: {fileID: 114311183651760604, guid: e7535b498b439bb41b1f2604756ece8c,
         type: 3}
