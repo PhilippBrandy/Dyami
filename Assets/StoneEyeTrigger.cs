@@ -28,6 +28,8 @@ public class StoneEyeTrigger : MonoBehaviour
             Debug.Log("Animation should start");
 
             vignette.SetTrigger("Start");
+            eyehandler.SetActive(true);
+            eyeGlow.SetActive(true);
         }
     }
 }
