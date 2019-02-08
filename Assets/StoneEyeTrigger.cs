@@ -28,15 +28,6 @@ public class StoneEyeTrigger : MonoBehaviour
             Debug.Log("Animation should start");
 
             vignette.SetTrigger("Start");
-            eyehandler.SetActive(true);
-            eyeGlow.SetActive(true);
-
         }
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        eyehandler.SetActive(false);
-        eyeGlow.SetActive(false);
     }
 }
