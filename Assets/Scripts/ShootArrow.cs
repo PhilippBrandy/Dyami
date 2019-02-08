@@ -18,6 +18,7 @@ public class ShootArrow : MonoBehaviour
     bool hit = false;
     [SerializeField] private LayerMask getsStuckIn;
     public Animator anim;
+    public Animator animBody;
     public Transform bowAimAt;
     public Transform bowAimAt2;
     public Transform headLookAt;
@@ -31,6 +32,7 @@ public class ShootArrow : MonoBehaviour
 
     bool facesRight = true;
     int shootHash = Animator.StringToHash("Shoot");
+    int facingHash = Animator.StringToHash("facingRight");
 
     //forceemitter while in air after teleport
     public bool theForce = false;
@@ -197,6 +199,7 @@ public class ShootArrow : MonoBehaviour
         player.transform.localRotation = theRotation;
         if (i == 0) facesRight = true;
         else facesRight = false;
+        animBody.SetBool(facingHash, facesRight);
     }
     private void resetArms()
     {
