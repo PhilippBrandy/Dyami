@@ -20,12 +20,12 @@ public class CharacterController2D : MonoBehaviour
 
 
     const float k_GroundedRadius = 0.8f; // Radius of the overlap circle to determine if grounded
-    private bool m_Grounded;            // Whether or not the player is grounded.
+    private bool m_Grounded=true;            // Whether or not the player is grounded.
     const float k_CeilingRadius = .4f; // Radius of the overlap circle to determine if the player can stand up
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private Vector3 m_Velocity = Vector3.zero;
-    private bool canMove;
+    private bool canMove =true ;
 
     [Header("Events")]
     [Space]
@@ -90,11 +90,12 @@ public class CharacterController2D : MonoBehaviour
 
         float speed = Input.GetAxis("Vertical");
         animBody.SetFloat("Speed", move);
-
+        Debug.Log(canMove);
         if (canMove)
         {
             if (m_Grounded || m_Rigidbody2D.velocity.y == 0)
             {
+                Debug.Log("Ich bin hier");
                 // Move the character by finding the target velocity
                 Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
                 // And then smoothing it out and applying it to the character
