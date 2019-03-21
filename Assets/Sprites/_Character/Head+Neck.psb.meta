@@ -1,0 +1,304 @@
+fileFormatVersion: 2
+guid: 8ea6b10244c204f89bb54363e5c56338
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: Head+Neck_GO/Head+Neck_GO
+    100002: Head+Neck_GO/Head+Neck_GO/federn
+    100004: Head+Neck_GO/Head+Neck_GO/federn glow
+    100006: Head+Neck_GO/Head+Neck_GO/glow stripes head
+    100008: Head+Neck_GO/Head+Neck_GO/head
+    100010: Head+Neck_GO/Head+Neck_GO/newLongerNeck
+    100012: Head+Neck_GO/Head+Neck_GO/ponytail
+    400000: Head+Neck_GO/Head+Neck_GO/Transform
+    400002: Head+Neck_GO/Head+Neck_GO/federn/Transform
+    400004: Head+Neck_GO/Head+Neck_GO/federn glow/Transform
+    400006: Head+Neck_GO/Head+Neck_GO/glow stripes head/Transform
+    400008: Head+Neck_GO/Head+Neck_GO/head/Transform
+    400010: Head+Neck_GO/Head+Neck_GO/newLongerNeck/Transform
+    400012: Head+Neck_GO/Head+Neck_GO/ponytail/Transform
+    2800000: Head+Neck
+    21200000: Head+Neck_GO/Head+Neck_GO/federn/SpriteRenderer
+    21200002: Head+Neck_GO/Head+Neck_GO/federn glow/SpriteRenderer
+    21200004: Head+Neck_GO/Head+Neck_GO/glow stripes head/SpriteRenderer
+    21200006: Head+Neck_GO/Head+Neck_GO/head/SpriteRenderer
+    21200008: Head+Neck_GO/Head+Neck_GO/newLongerNeck/SpriteRenderer
+    21200010: Head+Neck_GO/Head+Neck_GO/ponytail/SpriteRenderer
+    21300000: glow stripes head
+    21300002: head
+    21300004: federn glow
+    21300006: federn
+    21300008: newLongerNeck
+    21300010: ponytail
+    100100000: Head+Neck_GO
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: glow stripes head
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 487
+      y: 1424
+      width: 505
+      height: 175
+    spriteID: 5b0ea75b817f84a0390ba60149979b8f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -130, y: 87}
+  - name: head
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 721
+      height: 862
+    spriteID: 15b279b4d7e1141bba5c3d538cd582f6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -393, y: -1061}
+  - name: federn glow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 874
+      width: 475
+      height: 645
+    spriteID: 42bd7e4033a3946cb80b2c8fb6d6e124
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -5, y: -629}
+  - name: federn
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 487
+      y: 874
+      width: 367
+      height: 542
+    spriteID: 2dd27cf784b54421cbf1539f8a74c0a5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 421, y: -685}
+  - name: newLongerNeck
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 487
+      y: 1607
+      width: 187
+      height: 381
+    spriteID: 1c423768e5b554127af29a271e1181c9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -129, y: 629}
+  - name: ponytail
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1527
+      width: 281
+      height: 438
+    spriteID: 1e4f5196d993f4a47b0b0374929e66ea
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -467, y: 521}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 1024
+  importedTextureHeight: 2048
+  documentSize: {x: 1825, y: 2166}
+  textureActualWidth: 1024
+  textureActualHeight: 2048
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: glow stripes head
+    spriteName: glow stripes head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5b0ea75b817f84a0390ba60149979b8f
+    layerID: 169
+    mosaicPosition: {x: 487, y: 1424}
+  - name: head
+    spriteName: head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 15b279b4d7e1141bba5c3d538cd582f6
+    layerID: 160
+    mosaicPosition: {x: 4, y: 4}
+  - name: federn glow
+    spriteName: federn glow
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 42bd7e4033a3946cb80b2c8fb6d6e124
+    layerID: 158
+    mosaicPosition: {x: 4, y: 874}
+  - name: federn
+    spriteName: federn
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2dd27cf784b54421cbf1539f8a74c0a5
+    layerID: 133
+    mosaicPosition: {x: 487, y: 874}
+  - name: newLongerNeck
+    spriteName: newLongerNeck
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 1c423768e5b554127af29a271e1181c9
+    layerID: 173
+    mosaicPosition: {x: 487, y: 1607}
+  - name: ponytail
+    spriteName: ponytail
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 1e4f5196d993f4a47b0b0374929e66ea
+    layerID: 44
+    mosaicPosition: {x: 4, y: 1527}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+  boneGOs: []
+  firstCreate: 0
+  generateGOHierarchy: 0
