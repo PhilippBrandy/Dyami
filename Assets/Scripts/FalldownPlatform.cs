@@ -6,6 +6,7 @@ public class FalldownPlatform : MonoBehaviour {
 
     public float mass = 5;
     private bool isHanging = true;
+   
 
 	// Use this for initialization
 	void Start () {
@@ -20,5 +21,6 @@ public class FalldownPlatform : MonoBehaviour {
             isHanging = false;
             gameObject.tag = "falling";
         }
+        
 	}
 }
