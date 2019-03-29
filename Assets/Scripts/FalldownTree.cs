@@ -8,9 +8,12 @@ public class FalldownTree : MonoBehaviour {
 
     public ParticleSystem BreakApartFX;
     public string comparatorTag;
+    private bool falling;
+    private IEnumerator coroutine;
 
     private void Awake()
     {
+        falling = false;
         childrenPhysix = GetComponentsInChildren<Rigidbody2D>();
         foreach (Rigidbody2D rigidBody in childrenPhysix)
             {
@@ -27,6 +30,24 @@ public class FalldownTree : MonoBehaviour {
             {
                 rigidBody.bodyType = RigidbodyType2D.Dynamic;
             }
+            falling = true;
         }
     }
+
+    private void Update()
+    {
+        if (falling == true)
+        {
+            coroutine = WaitAndPrint(10.0f);
+            StartCoroutine(coroutine);
+        }
+    }
+
+    private IEnumerator WaitAndPrint(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        gameObject.SetActive(false);
+    }
+
+
 }
