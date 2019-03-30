@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPause = false;
     public GameObject pauseMenuUI;
     public TMPro.TextMeshProUGUI gameIsPausedText;
+    public GameObject settingsMenuUI;
 
     // for pausing the music in the menu
     // public GameObject audioObject;
@@ -31,7 +32,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    void Pause()
+    public void Pause()
     {
         // audioObject.GetComponent<AudioSource>().enabled = false;
         pauseMenuUI.SetActive(true);
@@ -52,6 +53,14 @@ public class PauseMenu : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void SettingsMenu()
+    {
+        pauseMenuUI.SetActive(false);
+        gameIsPausedText.enabled = false;
+        settingsMenuUI.SetActive(true);
+        gameIsPause = true;
     }
 
     public void QuitGame()
