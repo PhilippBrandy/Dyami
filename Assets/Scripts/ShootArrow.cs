@@ -13,7 +13,7 @@ public class ShootArrow : MonoBehaviour
     private Rigidbody2D rb = null;
     private bool canTeleport = true;
     private bool hasShot = true;
-    public bool learnedTeleporting = false; 
+    public bool learnedTeleporting = false;
     private GameObject projectile = null;
     bool hit = false;
     [SerializeField] private LayerMask getsStuckIn;
@@ -65,25 +65,25 @@ public class ShootArrow : MonoBehaviour
         if (mousePos.x > rp.transform.position.x) playerFaces(0);
         else playerFaces(1);
         float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        
+
         if (!facesRight)
         {
             if (mousePos.y < rp.transform.position.y) angle += 180;
             else angle -= 180;
-            rp.transform.rotation = Quaternion.AngleAxis(angle+135, Vector3.forward);
-            headLookAt.localRotation = Quaternion.AngleAxis(angle/2, Vector3.back);
-            angle += 90;
+            rp.transform.rotation = Quaternion.AngleAxis(angle + 135, Vector3.forward);
+            headLookAt.localRotation = Quaternion.AngleAxis(angle / 2, Vector3.back);
+            //angle += 90;
             bowAimAt.localRotation = Quaternion.AngleAxis(angle, Vector3.back);
             bowAimAt2.localRotation = Quaternion.AngleAxis(angle, Vector3.back);
-        } else
+        }
+        else
         {
             rp.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            headLookAt.localRotation = Quaternion.AngleAxis(angle/2, Vector3.forward);
+            headLookAt.localRotation = Quaternion.AngleAxis(angle / 2, Vector3.forward);
             bowAimAt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            angle -= 80;
             bowAimAt2.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
-            
+
 
 
 
@@ -95,28 +95,30 @@ public class ShootArrow : MonoBehaviour
             AnimArms.SetActive(true);
             NormalArms.SetActive(false);
             anim.SetTrigger(shootHash);
-            
+
             Destroy(projectile);
             hit = false;
             projectile = Instantiate(arrow);
-            
+
             //make arrow strength independent of distance:
             float div = 1f;
-            if (Mathf.Abs(diff.x)>Mathf.Abs(diff.y))
+            if (Mathf.Abs(diff.x) > Mathf.Abs(diff.y))
             {
                 div = Mathf.Abs(diff.x);
-            } else {
+            }
+            else
+            {
                 div = Mathf.Abs(diff.y);
             }
 
             diff.x = diff.x / div;
             diff.y = diff.y / div;
-            
+
             diff.y *= 1.10f;
             diff.x /= 1.05f;
 
             //Move arrow
-            projectile.transform.position = transform.position + transform.forward * 20;
+            projectile.transform.position = transform.position;
             rb = projectile.GetComponent<Rigidbody2D>();
             rb.velocity = diff * strength;
             Invoke("resetArms", 1);
@@ -126,7 +128,7 @@ public class ShootArrow : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && projectile != null && canTeleport && learnedTeleporting && hasShot && !isTeleporting)
         {
             isTeleporting = true;
-            player.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
+            player.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             Rigidbody2D arrowRB = projectile.GetComponent<Rigidbody2D>();
             if (arrowRB != null)
             {
@@ -139,19 +141,20 @@ public class ShootArrow : MonoBehaviour
             Rigidbody2D playerRB = player.GetComponent<Rigidbody2D>();
             playerRB.velocity = Vector3.zero;
             playerRB.isKinematic = true;
-            foreach (BoxCollider2D collider in player.GetComponents<BoxCollider2D>()) {
+            foreach (BoxCollider2D collider in player.GetComponents<BoxCollider2D>())
+            {
                 collider.enabled = false;
             }
             eagle.SetActive(true);
             Vector3 range = player.transform.position - projectile.transform.position;
             speed = Mathf.Sqrt((Mathf.Pow(range.y, 2)) + (Mathf.Pow(range.x, 2)));
-            Invoke("playerTeleported", 0.02f*speed);
+            Invoke("playerTeleported", 0.02f * speed);
         }
 
         if (isTeleporting)
         {
             Vector3 playerPos = player.transform.position;
-            playerPos = Vector2.MoveTowards(new Vector2(playerPos.x, playerPos.y), projectile.transform.position, 50*Time.deltaTime);
+            playerPos = Vector2.MoveTowards(new Vector2(playerPos.x, playerPos.y), projectile.transform.position, 50 * Time.deltaTime);
             player.transform.position = playerPos;
         }
 
@@ -159,7 +162,7 @@ public class ShootArrow : MonoBehaviour
         if (projectile != null && rb != null && !(rb.velocity.x == 0 || rb.velocity.x == 0))
         {
             Vector2 v = rb.velocity;
-            float angle_arrow = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg + offset;
+            float angle_arrow = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
             projectile.transform.rotation = Quaternion.AngleAxis(angle_arrow, Vector3.forward);
         }
 
@@ -183,7 +186,7 @@ public class ShootArrow : MonoBehaviour
                     }
                     Destroy(projectile.GetComponent<Rigidbody2D>());
                     Collider2D[] colliders = projectile.GetComponents<Collider2D>();
-                    for (int i = 0; i<colliders.Length; i++)
+                    for (int i = 0; i < colliders.Length; i++)
                     {
                         Destroy(colliders[i]);
                     }
