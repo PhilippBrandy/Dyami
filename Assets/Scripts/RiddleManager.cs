@@ -41,6 +41,6 @@ public class RiddleManager : MonoBehaviour
         key1.deactivate();
         key2.deactivate();
         key3.deactivate();
-        password = "";
+        collectedPassword = "";
     }
 }
