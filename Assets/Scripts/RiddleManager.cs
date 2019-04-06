@@ -11,6 +11,7 @@ public class RiddleManager : MonoBehaviour
     public string collectedPassword;
     public GameObject toActivate;
     public GameObject toDeactivate;
+    public Animation camera;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class RiddleManager : MonoBehaviour
         {
             if (collectedPassword == password)
             {
+                
                 toActivate.SetActive(true);
                 toDeactivate.SetActive(false);
             }
