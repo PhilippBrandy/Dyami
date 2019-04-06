@@ -14,7 +14,7 @@ public class CameraBehaviour : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        Debug.Log("camera trigger");
+
 
         // Camera follows the player with specified offset position
         transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, offset.z);

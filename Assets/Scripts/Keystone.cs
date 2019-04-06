@@ -28,8 +28,11 @@ public class Keystone : MonoBehaviour
             {
                 if (once)
                 {
-                    camera.Play("showActivationOnce");
+                    camera.applyRootMotion = false;
+                    SetTimeDelayed(22f,camera);
                     once = false;
+                    camera.applyRootMotion = true;
+
                 }
                 activeEyes.SetActive(true);
                 notactiveEyes.SetActive(false);
@@ -38,11 +41,17 @@ public class Keystone : MonoBehaviour
             }
         }
     }
-
+    IEnumerator SetTimeDelayed(float delayTime, Animator camera)
+    {
+        Debug.Log("animation triggered");
+        camera.Play("showActivationOnce");
+        yield return new WaitForSeconds(delayTime);  
+    }
     public void deactivate()
     {
         activeEyes.SetActive(false);
         notactiveEyes.SetActive(true);
         activated = false;
     }
+    
 }
