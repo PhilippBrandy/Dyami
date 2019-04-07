@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShootArrow : MonoBehaviour
 {
+
     public float offset = -90;
     public float strength = 10;
     public GameObject arrow;
@@ -36,6 +37,10 @@ public class ShootArrow : MonoBehaviour
 
     //forceemitter while in air after teleport
     public bool theForce = false;
+
+    //audiofiles for telport and shooting
+    public AudioSource shootArrow;
+    public AudioSource teleportSound;
 
     private void Start()
     {
@@ -91,6 +96,7 @@ public class ShootArrow : MonoBehaviour
         //Shoot Arrow
         if (Input.GetMouseButtonDown(0) && !isTeleporting)
         {
+            shootArrow.Play();
             if (canTeleport) hasShot = true;
             AnimArms.SetActive(true);
             NormalArms.SetActive(false);
@@ -145,6 +151,7 @@ public class ShootArrow : MonoBehaviour
             {
                 collider.enabled = false;
             }
+            teleportSound.Play();
             eagle.SetActive(true);
             Vector3 range = player.transform.position - projectile.transform.position;
             speed = Mathf.Sqrt((Mathf.Pow(range.y, 2)) + (Mathf.Pow(range.x, 2)));

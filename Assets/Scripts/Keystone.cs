@@ -29,7 +29,8 @@ public class Keystone : MonoBehaviour
                 if (once)
                 {
                     camera.applyRootMotion = false;
-                    SetTimeDelayed(22f,camera);
+                    SetTimeDelayed(2f,camera);
+                    camera.Play("showActivationOnce");
                     once = false;
                     camera.applyRootMotion = true;
 
