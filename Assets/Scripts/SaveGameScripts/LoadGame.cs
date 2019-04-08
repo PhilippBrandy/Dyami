@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LoadGame : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class LoadGame : MonoBehaviour
     public Button button1;
     public Button button2;
     public Button button3;
+    public TMPro.TextMeshProUGUI button1Text;
+    public TMPro.TextMeshProUGUI button2Text;
+    public TMPro.TextMeshProUGUI button3Text;
 
     public void Start()
     {
@@ -22,6 +26,7 @@ public class LoadGame : MonoBehaviour
         if (saveGames[0] != null)
         {
             button1.enabled = true;
+            button1Text.text = saveGames[0].Date;
         }
         else
         {
@@ -30,6 +35,7 @@ public class LoadGame : MonoBehaviour
         if (saveGames[1] != null)
         {
             button2.enabled = true;
+            button2Text.text = saveGames[1].Date;
         }
         else
         {
@@ -38,6 +44,7 @@ public class LoadGame : MonoBehaviour
         if (saveGames[2] != null)
         {
             button3.enabled = true;
+            button3Text.text = saveGames[2].Date;
         }
         else
         {
