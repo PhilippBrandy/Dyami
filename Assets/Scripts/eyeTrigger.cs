@@ -7,18 +7,11 @@ public class eyeTrigger : MonoBehaviour
     public Animator openEye;
     public GameObject eyeGlow;
     public GameObject eyehandler;
-    // Start is called before the first frame update
+    public GameObject stoneEye;
+
     void Start()
     {
-        Debug.Log("eye trigger set active(false)");
-        eyehandler.SetActive(false);
         eyeGlow.SetActive(false);
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -26,9 +19,8 @@ public class eyeTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Animation should start");
-
             openEye.SetTrigger("Start");
-            eyehandler.SetActive(true);
+            eyehandler.transform.parent = collision.transform;
             eyeGlow.SetActive(true);
         }
     }
@@ -38,9 +30,7 @@ public class eyeTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Animation should end");
-
-       
-            eyehandler.SetActive(false);
+            eyehandler.transform.parent = stoneEye.transform;
             eyeGlow.SetActive(false);
         }
     }
