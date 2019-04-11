@@ -10,6 +10,7 @@ public class Keystone : MonoBehaviour
     public bool activated;
     public string key;
     public Animator camera;
+    private IEnumerator coroutine;
     // showing the effect to the player once
     public bool once;
 
@@ -29,7 +30,9 @@ public class Keystone : MonoBehaviour
                 if (once)
                 {
                     camera.applyRootMotion = false;
-                    SetTimeDelayed(2f,camera);
+                    coroutine = SetTimeDelayed(2f,camera);
+                    StartCoroutine(coroutine);
+
                     camera.Play("showActivationOnce");
                     once = false;
                     camera.applyRootMotion = true;
