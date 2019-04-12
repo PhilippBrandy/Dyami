@@ -7,10 +7,11 @@ public class BreakableEnvi : MonoBehaviour {
     public int health = 1;
     public GameObject breakingApartEffect;
     private Killable player;
+    public AudioSource breakSound;
 
     // Use this for initialization
     void Start () {
-        player = GameObject.Find("Avatar").GetComponent<Killable>();
+        player = GameObject.Find("Avatar new").GetComponent<Killable>();
     }
 	
 	// Update is called once per frame
@@ -32,6 +33,7 @@ public class BreakableEnvi : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             Debug.Log("destruction triggered");
+            breakSound.Play();
             if (other.GetComponentInChildren<ShootArrow>().theForce == true)
             {
                 health = 0;

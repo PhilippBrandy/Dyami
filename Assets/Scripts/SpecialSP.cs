@@ -17,7 +17,7 @@ public class SpecialSP : MonoBehaviour
     public int minDistance;
     public AudioSource backgroundMusic;
     public AudioSource overwrite;
-    public AudioSource roar;
+    //public AudioSource roar;
 
     public CameraState currentState { get; private set; }
 
@@ -144,7 +144,7 @@ internal class ZoomingOutState : CameraState
 {
     public override void EnterState(SpecialSP owner)
     {
-        owner.roar.Play();
+      //  owner.roar.Play();
     }
 
     public override void ExitState(SpecialSP owner)

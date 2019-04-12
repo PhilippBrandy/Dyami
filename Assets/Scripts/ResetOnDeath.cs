@@ -11,7 +11,7 @@ public class ResetOnDeath : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Avatar").GetComponent<Killable>();
+        player = GameObject.Find("Avatar new").GetComponent<Killable>();
         
         originalPosition = gameObject.transform.position;
         originalRotation = gameObject.transform.rotation;
