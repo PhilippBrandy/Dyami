@@ -6,13 +6,20 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
-
     public AudioMixer audioMixer;
     Resolution[] resolutions;
     public Dropdown resolutionDropdown;
     public GameObject pauseMenuUI;
     public TMPro.TextMeshProUGUI gameIsPausedText;
     public GameObject settingsMenuUI;
+
+    // Keybinding
+    public Transform keyBindingGroup;
+    bool waitingForKey;
+    Event keyEvent;
+    KeyCode newKey;
+    Text buttonText;
+
 
     private void Start()
     {
@@ -21,7 +28,7 @@ public class SettingsMenu : MonoBehaviour
 
         List<string> options = new List<string>();
         int curResIndex = 0;
-        
+
         for (int i = 0; i < resolutions.Length; i++)
         {
             string option = resolutions[i].width + " x " + resolutions[i].height;
@@ -35,7 +42,92 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = curResIndex;
         resolutionDropdown.RefreshShownValue();
+
+        // KEYBINDING
+        waitingForKey = false;
+        for (int i = 0; i < keyBindingGroup.childCount; i++)
+        {
+            if (keyBindingGroup.GetChild(i).name == "left" && GameManager.instance != null)
+            {
+                keyBindingGroup.GetChild(i).GetComponentInChildren<Text>().text = GameManager.instance.left.ToString();
+            }
+            else if (keyBindingGroup.GetChild(i).name == "right" && GameManager.instance != null)
+            {
+                keyBindingGroup.GetChild(i).GetComponentInChildren<Text>().text = GameManager.instance.right.ToString();
+            }
+            else if (keyBindingGroup.GetChild(i).name == "jump" && GameManager.instance != null)
+            {
+                keyBindingGroup.GetChild(i).GetComponentInChildren<Text>().text = GameManager.instance.jump.ToString();
+            }
+        }
     }
+
+    // -------------------------------- KEYBINDING ---------------------------------------------
+
+    private void OnGUI()
+    {
+        keyEvent = Event.current;
+        if (keyEvent.isKey && waitingForKey)
+        {
+            newKey = keyEvent.keyCode;
+            waitingForKey = false;
+        }
+    }
+
+    public void StartAssignment(string keyName)
+    {
+        if (!waitingForKey)
+        {
+            StartCoroutine(AssignKey(keyName));
+        }
+    }
+
+    public void SendText(Text text)
+    {
+        buttonText = text;
+    }
+
+    IEnumerator WaitForKey()
+    {
+        while (!keyEvent.isKey)
+            yield return null;
+    }
+
+    public IEnumerator AssignKey(string keyName)
+    {
+        waitingForKey = true;
+        yield return WaitForKey();
+        Debug.Log("BEFORE GM");
+
+        if (GameManager.instance != null)
+        {
+         Debug.Log("GM IS NOT NULL");
+            switch (keyName)
+            {
+                case "left":
+                    Debug.Log(keyName);
+                    GameManager.instance.left = newKey;
+                    buttonText.text = GameManager.instance.left.ToString();
+                    Debug.Log(buttonText.text);
+                    PlayerPrefs.SetString("left", GameManager.instance.left.ToString());
+                    break;
+                case "right":
+                    GameManager.instance.right = newKey;
+                    buttonText.text = GameManager.instance.right.ToString();
+                    PlayerPrefs.SetString("right", GameManager.instance.right.ToString());
+                    break;
+                case "jump":
+                    GameManager.instance.jump = newKey;
+                    buttonText.text = GameManager.instance.jump.ToString();
+                    PlayerPrefs.SetString("jump", GameManager.instance.jump.ToString());
+                    break;
+            }
+            yield return null;
+        }
+    }
+
+    // ------------------------ RESOLUTION, GRAPHICS, AUDIO ------------------------------------
+
 
     public void SetVolume(float volume)
     {

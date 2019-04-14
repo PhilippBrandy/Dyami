@@ -7,14 +7,12 @@ using UnityEngine.UI;
 
 public class KeyBinding : MonoBehaviour
 {
-
     private Dictionary<string, KeyCode> keys = new Dictionary<string, KeyCode>();
-    public TMPro.TextMeshProUGUI moveLeft;
-    public TMPro.TextMeshProUGUI moveRight;
-    public TMPro.TextMeshProUGUI jump;
+    public Text left, right, jump;
     private GameObject curKey;
-    private Color32 normalColor = new Color32(195,200,229,255);
-    private Color32 selectedColor = new Color32(122, 134, 207,255);
+    private Color32 normalColor = new Color32(195, 200, 229, 255);
+    private Color32 selectedColor = new Color32(122, 134, 207, 255);
+
 
     void Start()
     {
@@ -22,30 +20,12 @@ public class KeyBinding : MonoBehaviour
         keys.Add("Right", KeyCode.D);
         keys.Add("Jump", KeyCode.Space);
 
-        moveLeft.text = keys["Left"].ToString();
-        moveRight.text = keys["Right"].ToString();
+        left.text = keys["Left"].ToString();
+        right.text = keys["Right"].ToString();
         jump.text = keys["Jump"].ToString();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(keys["Left"]))
-        {
-
-        }
-
-        if (Input.GetKeyDown(keys["Right"]))
-        {
-
-        }
-
-        if (Input.GetKeyDown(keys["Jump"]))
-        {
-
-        }
-    }
-
-    void OnGui()
+    void OnGUI()
     {
         if (curKey != null)
         {
@@ -53,7 +33,7 @@ public class KeyBinding : MonoBehaviour
             if (e.isKey)
             {
                 keys[curKey.name] = e.keyCode;
-                curKey.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = e.keyCode.ToString();
+                curKey.transform.GetChild(0).GetComponent<Text>().text = e.keyCode.ToString();
                 curKey.GetComponent<Image>().color = normalColor;
                 curKey = null;
             }
