@@ -8,10 +8,13 @@ public class eyeTrigger : MonoBehaviour
     public GameObject eyeGlow;
     public GameObject eyehandler;
     public GameObject stoneEye;
+    public Transform eyeTarget;
+    Vector3 origPosition;
 
     void Start()
     {
         eyeGlow.SetActive(false);
+        origPosition = transform.position;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -22,6 +25,7 @@ public class eyeTrigger : MonoBehaviour
             openEye.SetTrigger("Start");
             eyehandler.transform.parent = collision.transform;
             eyeGlow.SetActive(true);
+            eyehandler.transform.position = eyeTarget.transform.position;
         }
     }
 
@@ -32,6 +36,7 @@ public class eyeTrigger : MonoBehaviour
             Debug.Log("Animation should end");
             eyehandler.transform.parent = stoneEye.transform;
             eyeGlow.SetActive(false);
+            eyehandler.transform.position = origPosition;
         }
     }
 }

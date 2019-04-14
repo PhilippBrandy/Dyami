@@ -14,16 +14,16 @@ public class EndGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (pressedOnce)
-            {
-                Application.Quit();
-            }
-            else
-            {
-                pressedOnce = true;
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    if (pressedOnce)
+        //    {
+        //        Application.Quit();
+        //    }
+        //    else
+        //    {
+        //        pressedOnce = true;
+        //    }
+        //}
     }
 }
