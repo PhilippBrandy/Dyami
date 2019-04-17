@@ -55,19 +55,14 @@ public class CharacterController2D : MonoBehaviour
         {
             if (Input.GetKeyDown(GameManager.instance.jump))
             {
-                // Todo KT
             }
             if (Input.GetKeyDown(GameManager.instance.left))
             {
-                
             }
             if (Input.GetKeyDown(GameManager.instance.right))
-            {
-                
+            { 
             }
         }
-
-
 
         bool wasGrounded = m_Grounded;
         m_Grounded = false;

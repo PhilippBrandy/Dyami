@@ -97,11 +97,9 @@ public class SettingsMenu : MonoBehaviour
     {
         waitingForKey = true;
         yield return WaitForKey();
-        Debug.Log("BEFORE GM");
 
         if (GameManager.instance != null)
         {
-         Debug.Log("GM IS NOT NULL");
             switch (keyName)
             {
                 case "left":
