@@ -10,43 +10,46 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af7181f404f1447c0a7a17b3070b952b, type: 3}
-  m_Name: groundBlocks
+  m_Name: earthBlocks
   m_EditorClassIdentifier: 
   m_Angles:
   - m_Start: -45
     m_End: 45
     m_Order: 0
     m_Sprites:
-    - {fileID: 21300000, guid: 3ed13560ee2c04447b5d2e3a17017ca0, type: 3}
+    - {fileID: 21300000, guid: 5f8d53a05b222044fb703cc0386e20aa, type: 3}
+    - {fileID: 21300000, guid: 71c60807ec53ad54ca10f925fc5752e2, type: 3}
+    - {fileID: 21300000, guid: 672f5cf090ede954ab62adb823791850, type: 3}
+    - {fileID: 21300000, guid: 47a4c91379ebb03418928e43c89114e1, type: 3}
   - m_Start: 45
-    m_End: 132
+    m_End: 120
     m_Order: 0
     m_Sprites:
     - {fileID: 21300000, guid: 5f8d53a05b222044fb703cc0386e20aa, type: 3}
-  - m_Start: 132
-    m_End: 222
-    m_Order: 0
-    m_Sprites:
-    - {fileID: 21300000, guid: 5f8d53a05b222044fb703cc0386e20aa, type: 3}
-  - m_Start: -138
+  - m_Start: -129
     m_End: -45
     m_Order: 0
     m_Sprites:
     - {fileID: 21300000, guid: 5f8d53a05b222044fb703cc0386e20aa, type: 3}
-  m_FillTexture: {fileID: 2800000, guid: 5ac86ce95dfe3483186a4fee2ab9af8f, type: 3}
+  - m_Start: 120
+    m_End: 231
+    m_Order: 0
+    m_Sprites:
+    - {fileID: 21300000, guid: 5ac86ce95dfe3483186a4fee2ab9af8f, type: 3}
+  m_FillTexture: {fileID: 0}
   m_CornerSprites:
   - m_CornerType: 0
     m_Sprites:
-    - {fileID: 21300000, guid: c61013a61fe534a6ab3a7cd15f42f2f3, type: 3}
+    - {fileID: 21300000, guid: 5f8d53a05b222044fb703cc0386e20aa, type: 3}
   - m_CornerType: 1
     m_Sprites:
-    - {fileID: 21300000, guid: c61013a61fe534a6ab3a7cd15f42f2f3, type: 3}
+    - {fileID: 21300000, guid: 5f8d53a05b222044fb703cc0386e20aa, type: 3}
   - m_CornerType: 2
     m_Sprites:
-    - {fileID: 21300000, guid: 5f8d53a05b222044fb703cc0386e20aa, type: 3}
+    - {fileID: 0}
   - m_CornerType: 3
     m_Sprites:
-    - {fileID: 21300000, guid: 5f8d53a05b222044fb703cc0386e20aa, type: 3}
+    - {fileID: 0}
   - m_CornerType: 4
     m_Sprites:
     - {fileID: 0}
@@ -62,6 +65,6 @@ MonoBehaviour:
   m_FillPixelPerUnit: 100
   m_BevelSize: 0
   m_BevelCutoff: 0
-  m_FillOffset: 0.286
+  m_FillOffset: 0
   m_WorldSpaceUV: 0
   m_UseSpriteBorders: 1

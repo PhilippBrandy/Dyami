@@ -10,33 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af7181f404f1447c0a7a17b3070b952b, type: 3}
-  m_Name: New SpriteShapeProfile
+  m_Name: Moos
   m_EditorClassIdentifier: 
   m_Angles:
-  - m_Start: -45
-    m_End: 45
+  - m_Start: -180
+    m_End: 180
     m_Order: 0
     m_Sprites:
-    - {fileID: 21300000, guid: 3ed13560ee2c04447b5d2e3a17017ca0, type: 3}
-  - m_Start: -315
-    m_End: -45
-    m_Order: 0
-    m_Sprites:
-    - {fileID: 21300000, guid: 5f8d53a05b222044fb703cc0386e20aa, type: 3}
-  m_FillTexture: {fileID: 2800000, guid: 5ac86ce95dfe3483186a4fee2ab9af8f, type: 3}
+    - {fileID: 21300000, guid: 960c953d67519eb4982b8cd73c618f02, type: 3}
+    - {fileID: 21300000, guid: 80a02e80b3ba22f4f8bdbe87130b1aed, type: 3}
+  m_FillTexture: {fileID: 0}
   m_CornerSprites:
   - m_CornerType: 0
     m_Sprites:
-    - {fileID: 21300000, guid: c61013a61fe534a6ab3a7cd15f42f2f3, type: 3}
+    - {fileID: 0}
   - m_CornerType: 1
     m_Sprites:
-    - {fileID: 21300000, guid: 5e5cbffc8a67e4f779b2ed8566e7beb9, type: 3}
+    - {fileID: 0}
   - m_CornerType: 2
     m_Sprites:
-    - {fileID: 21300000, guid: 5f8d53a05b222044fb703cc0386e20aa, type: 3}
+    - {fileID: 0}
   - m_CornerType: 3
     m_Sprites:
-    - {fileID: 21300000, guid: 5f8d53a05b222044fb703cc0386e20aa, type: 3}
+    - {fileID: 0}
   - m_CornerType: 4
     m_Sprites:
     - {fileID: 0}
