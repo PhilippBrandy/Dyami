@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 6908466340935991588}
   - component: {fileID: 4257994086514865475}
   - component: {fileID: 8609916615846268129}
+  - component: {fileID: 3625045850321938240}
   m_Layer: 0
-  m_Name: Grass_stripe
+  m_Name: Grassplatform_stripe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +117,7 @@ MonoBehaviour:
   m_AdaptiveUV: 1
   m_UpdateCollider: 1
   m_ColliderDetail: 4
-  m_ColliderOffset: 0
+  m_ColliderOffset: -0.14
   m_ColliderCornerType: 0
 --- !u!61 &8609916615846268129
 BoxCollider2D:
@@ -125,7 +126,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5112129952801285753}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -144,3 +145,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.67, y: 6.3919315}
   m_EdgeRadius: 0
+--- !u!68 &3625045850321938240
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5112129952801285753}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.05, y: -0.16}
+  m_EdgeRadius: 3.14
+  m_Points:
+  - {x: -2, y: 0}
+  - {x: 2, y: 0}
