@@ -1,0 +1,992 @@
+fileFormatVersion: 2
+guid: ffec60ec062ffae4882f43b7ab79bd45
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO
+    100002: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Arm
+      left
+    100004: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Arm
+      left Glow
+    100006: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Arm
+      right
+    100008: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Arm
+      right Glow
+    100010: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/arrow
+    100012: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/arrow
+      glow
+    100014: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/bended
+      Bow
+    100016: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Body
+    100018: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Bow
+    100020: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/federn
+    100022: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/federn
+      glow
+    100024: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/foot
+      left
+    100026: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/foot
+      right
+    100028: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/glow
+      stripes head
+    100030: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Hand
+      Left
+    100032: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Hand
+      Left Glow
+    100034: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/head
+    100036: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Hip
+    100038: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Koecher
+    100040: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Leg
+      left
+    100042: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Leg
+      right
+    100044: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/NECK
+    100046: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/ponytail
+    100050: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/underarm-rightglow
+    100052: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/upperleg
+      left
+    100054: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/upperleg
+      right
+    400000: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Transform
+    400002: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Arm
+      left/Transform
+    400004: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Arm
+      left Glow/Transform
+    400006: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Arm
+      right/Transform
+    400008: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Arm
+      right Glow/Transform
+    400010: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/arrow/Transform
+    400012: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/arrow
+      glow/Transform
+    400014: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/bended
+      Bow/Transform
+    400016: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Body/Transform
+    400018: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Bow/Transform
+    400020: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/federn/Transform
+    400022: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/federn
+      glow/Transform
+    400024: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/foot
+      left/Transform
+    400026: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/foot
+      right/Transform
+    400028: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/glow
+      stripes head/Transform
+    400030: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Hand
+      Left/Transform
+    400032: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Hand
+      Left Glow/Transform
+    400034: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/head/Transform
+    400036: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Hip/Transform
+    400038: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Koecher/Transform
+    400040: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Leg
+      left/Transform
+    400042: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Leg
+      right/Transform
+    400044: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/NECK/Transform
+    400046: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/ponytail/Transform
+    400050: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/underarm-rightglow/Transform
+    400052: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/upperleg
+      left/Transform
+    400054: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/upperleg
+      right/Transform
+    2800000: bowshoot position - Kopie-22-04
+    21200000: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Arm
+      left/SpriteRenderer
+    21200002: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Arm
+      left Glow/SpriteRenderer
+    21200004: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Arm
+      right/SpriteRenderer
+    21200006: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Arm
+      right Glow/SpriteRenderer
+    21200008: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/arrow/SpriteRenderer
+    21200010: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/arrow
+      glow/SpriteRenderer
+    21200012: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/bended
+      Bow/SpriteRenderer
+    21200014: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Body/SpriteRenderer
+    21200016: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Bow/SpriteRenderer
+    21200018: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/federn/SpriteRenderer
+    21200020: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/federn
+      glow/SpriteRenderer
+    21200022: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/foot
+      left/SpriteRenderer
+    21200024: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/foot
+      right/SpriteRenderer
+    21200026: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/glow
+      stripes head/SpriteRenderer
+    21200028: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Hand
+      Left/SpriteRenderer
+    21200030: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Hand
+      Left Glow/SpriteRenderer
+    21200032: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/head/SpriteRenderer
+    21200034: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Hip/SpriteRenderer
+    21200036: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Koecher/SpriteRenderer
+    21200038: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Leg
+      left/SpriteRenderer
+    21200040: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/Leg
+      right/SpriteRenderer
+    21200042: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/NECK/SpriteRenderer
+    21200044: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/ponytail/SpriteRenderer
+    21200048: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/underarm-rightglow/SpriteRenderer
+    21200050: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/upperleg
+      left/SpriteRenderer
+    21200052: bowshoot position - Kopie-22-04_GO/bowshoot position - Kopie-22-04_GO/upperleg
+      right/SpriteRenderer
+    21300000: underarm-rightglow
+    21300004: Hand Left Glow
+    21300006: Hand Left
+    21300008: bended Bow
+    21300010: Bow
+    21300012: glow stripes head
+    21300014: head
+    21300016: federn glow
+    21300018: federn
+    21300020: Arm right Glow
+    21300022: Arm right
+    21300024: Body
+    21300026: Koecher
+    21300028: arrow glow
+    21300030: arrow
+    21300032: Hip
+    21300034: NECK
+    21300036: Leg right
+    21300038: upperleg right
+    21300040: foot right
+    21300042: Leg left
+    21300044: upperleg left
+    21300046: foot left
+    21300048: ponytail
+    21300050: Arm left Glow
+    21300052: Arm left
+    100100000: bowshoot position - Kopie-22-04_GO
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: underarm-rightglow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1395
+      y: 1252
+      width: 451
+      height: 178
+    spriteID: 618a8b018d084f240aecdb19c102b42d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1110, y: 278}
+  - name: Hand Left Glow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1854
+      y: 1252
+      width: 150
+      height: 167
+    spriteID: 98673a2a5866dce4786528afd943454d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 642, y: 187}
+  - name: Hand Left
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1908
+      y: 1069
+      width: 99
+      height: 121
+    spriteID: ada8f272224d31342821b4307007a5e2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 670, y: -19}
+  - name: bended Bow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 665
+      height: 2113
+    spriteID: f15f47ccd3bc680468ad1eb135f3aab4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -644, y: -26}
+  - name: Bow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 689
+      y: 4
+      width: 325
+      height: 2166
+    spriteID: bf6d680eca249e44cbcd24a89a6aaba9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -307, y: 4}
+  - name: glow stripes head
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1395
+      y: 1069
+      width: 505
+      height: 175
+    spriteID: 6947a07a89d6de342942a51293caa7c0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 778, y: -266}
+  - name: head
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1034
+      y: 4
+      width: 721
+      height: 862
+    spriteID: c5d20725aba20cd45a63e8a1baa3b40f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 637, y: -1059}
+  - name: federn glow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2137
+      width: 475
+      height: 645
+    spriteID: a0e062b6564119c4bbecc396860ed1fe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -5, y: 634}
+  - name: federn
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2790
+      width: 367
+      height: 542
+    spriteID: 7655cdfc0bf6bea4fbdb3b18bcb864d6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -62, y: 1231}
+  - name: Arm right Glow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1395
+      y: 1438
+      width: 364
+      height: 192
+    spriteID: 009b739f5f47ef0408fdae63736bbad9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1115, y: 443}
+  - name: Arm right
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 689
+      y: 3820
+      width: 330
+      height: 174
+    spriteID: 0b6e8a999e0f2bf43bc9ed9c15946bda
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 375, y: 2808}
+  - name: Body
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1034
+      y: 874
+      width: 353
+      height: 473
+    spriteID: d9bf781aed9c86c42adc0307e5a8a1be
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 551, y: 130}
+  - name: Koecher
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1034
+      y: 1355
+      width: 353
+      height: 462
+    spriteID: b753acd3be2b5834bbe40c6b6ed31b43
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 712, y: 542}
+  - name: arrow glow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3340
+      width: 395
+      height: 474
+    spriteID: eb7dfb048c61db84ab4b43ac8ee2c0d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -281, y: 2509}
+  - name: arrow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 689
+      y: 2572
+      width: 317
+      height: 397
+    spriteID: 474f4328ae435364eb2153b2f2a75743
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 367, y: 1701}
+  - name: Hip
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1395
+      y: 1638
+      width: 367
+      height: 185
+    spriteID: 7d6af1e03058cb149afd0cad1a245823
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 954, y: 1023}
+  - name: NECK
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 407
+      y: 3340
+      width: 182
+      height: 199
+    spriteID: de6ca4751fe4d334db56c169dff16242
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -210, y: 2186}
+  - name: Leg right
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 689
+      y: 2178
+      width: 333
+      height: 386
+    spriteID: 612f6c3a63255a34585d4e9a146527fd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 295, y: 2032}
+  - name: upperleg right
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 379
+      y: 2790
+      width: 296
+      height: 426
+    spriteID: 6b0a125238ebcc842bda605e61f7b915
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -62, y: 2452}
+  - name: foot right
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1034
+      y: 2332
+      width: 300
+      height: 120
+    spriteID: 19ee5d048c5ab9f4589405688e6ec138
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 627, y: 2206}
+  - name: Leg left
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1034
+      y: 1825
+      width: 302
+      height: 366
+    spriteID: 4dde57d5a9e21ac4e94848dd79a1a5f4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 467, y: 1656}
+  - name: upperleg left
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 689
+      y: 2977
+      width: 317
+      height: 389
+    spriteID: ae0365bdd3260bc468cd1afc1fe51c02
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 144, y: 2603}
+  - name: foot left
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1034
+      y: 2199
+      width: 316
+      height: 125
+    spriteID: a2b3652877e946645878c8160d243d2b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 450, y: 2040}
+  - name: ponytail
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 689
+      y: 3374
+      width: 281
+      height: 438
+    spriteID: 01bcf2508f700a94a9127aaea6bc58e4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 218, y: 2370}
+  - name: Arm left Glow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3822
+      width: 593
+      height: 200
+    spriteID: 8d6244d1f2a139d4ebb0acab2a27eec2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -735, y: 2822}
+  - name: Arm left
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1395
+      y: 874
+      width: 594
+      height: 187
+    spriteID: 1072e8152c89e5d4f8a9739af326be21
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 656, y: -140}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 1024
+  importedTextureHeight: 2048
+  documentSize: {x: 1825, y: 2166}
+  textureActualWidth: 2048
+  textureActualHeight: 4096
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: underarm-rightglow
+    spriteName: underarm-rightglow
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 618a8b018d084f240aecdb19c102b42d
+    layerID: 131
+    mosaicPosition: {x: 1395, y: 1252}
+  - name: Hand Left Glow
+    spriteName: Hand Left Glow
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 98673a2a5866dce4786528afd943454d
+    layerID: 41
+    mosaicPosition: {x: 1854, y: 1252}
+  - name: Hand Left
+    spriteName: Hand Left
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ada8f272224d31342821b4307007a5e2
+    layerID: 32
+    mosaicPosition: {x: 1908, y: 1069}
+  - name: bended Bow
+    spriteName: bended Bow
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f15f47ccd3bc680468ad1eb135f3aab4
+    layerID: 171
+    mosaicPosition: {x: 4, y: 4}
+  - name: Bow
+    spriteName: Bow
+    isGroup: 0
+    parentIndex: -1
+    spriteID: bf6d680eca249e44cbcd24a89a6aaba9
+    layerID: 31
+    mosaicPosition: {x: 689, y: 4}
+  - name: glow stripes head
+    spriteName: glow stripes head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6947a07a89d6de342942a51293caa7c0
+    layerID: 169
+    mosaicPosition: {x: 1395, y: 1069}
+  - name: head
+    spriteName: head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c5d20725aba20cd45a63e8a1baa3b40f
+    layerID: 160
+    mosaicPosition: {x: 1034, y: 4}
+  - name: federn glow
+    spriteName: federn glow
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a0e062b6564119c4bbecc396860ed1fe
+    layerID: 158
+    mosaicPosition: {x: 4, y: 2137}
+  - name: federn
+    spriteName: federn
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7655cdfc0bf6bea4fbdb3b18bcb864d6
+    layerID: 133
+    mosaicPosition: {x: 4, y: 2790}
+  - name: Arm right Glow
+    spriteName: Arm right Glow
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 009b739f5f47ef0408fdae63736bbad9
+    layerID: 110
+    mosaicPosition: {x: 1395, y: 1438}
+  - name: Arm right
+    spriteName: Arm right
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 0b6e8a999e0f2bf43bc9ed9c15946bda
+    layerID: 95
+    mosaicPosition: {x: 689, y: 3820}
+  - name: Body
+    spriteName: Body
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d9bf781aed9c86c42adc0307e5a8a1be
+    layerID: 89
+    mosaicPosition: {x: 1034, y: 874}
+  - name: Koecher
+    spriteName: Koecher
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b753acd3be2b5834bbe40c6b6ed31b43
+    layerID: 86
+    mosaicPosition: {x: 1034, y: 1355}
+  - name: arrow glow
+    spriteName: arrow glow
+    isGroup: 0
+    parentIndex: -1
+    spriteID: eb7dfb048c61db84ab4b43ac8ee2c0d7
+    layerID: 81
+    mosaicPosition: {x: 4, y: 3340}
+  - name: arrow
+    spriteName: arrow
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 474f4328ae435364eb2153b2f2a75743
+    layerID: 72
+    mosaicPosition: {x: 689, y: 2572}
+  - name: Hip
+    spriteName: Hip
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7d6af1e03058cb149afd0cad1a245823
+    layerID: 66
+    mosaicPosition: {x: 1395, y: 1638}
+  - name: NECK
+    spriteName: NECK
+    isGroup: 0
+    parentIndex: -1
+    spriteID: de6ca4751fe4d334db56c169dff16242
+    layerID: 64
+    mosaicPosition: {x: 407, y: 3340}
+  - name: Leg right
+    spriteName: Leg right
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 612f6c3a63255a34585d4e9a146527fd
+    layerID: 62
+    mosaicPosition: {x: 689, y: 2178}
+  - name: upperleg right
+    spriteName: upperleg right
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6b0a125238ebcc842bda605e61f7b915
+    layerID: 56
+    mosaicPosition: {x: 379, y: 2790}
+  - name: foot right
+    spriteName: foot right
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 19ee5d048c5ab9f4589405688e6ec138
+    layerID: 53
+    mosaicPosition: {x: 1034, y: 2332}
+  - name: Leg left
+    spriteName: Leg left
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4dde57d5a9e21ac4e94848dd79a1a5f4
+    layerID: 50
+    mosaicPosition: {x: 1034, y: 1825}
+  - name: upperleg left
+    spriteName: upperleg left
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ae0365bdd3260bc468cd1afc1fe51c02
+    layerID: 47
+    mosaicPosition: {x: 689, y: 2977}
+  - name: foot left
+    spriteName: foot left
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a2b3652877e946645878c8160d243d2b
+    layerID: 46
+    mosaicPosition: {x: 1034, y: 2199}
+  - name: ponytail
+    spriteName: ponytail
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 01bcf2508f700a94a9127aaea6bc58e4
+    layerID: 44
+    mosaicPosition: {x: 689, y: 3374}
+  - name: Arm left Glow
+    spriteName: Arm left Glow
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 8d6244d1f2a139d4ebb0acab2a27eec2
+    layerID: 29
+    mosaicPosition: {x: 4, y: 3822}
+  - name: Arm left
+    spriteName: Arm left
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 1072e8152c89e5d4f8a9739af326be21
+    layerID: 5
+    mosaicPosition: {x: 1395, y: 874}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+  boneGOs: []
+  firstCreate: 0
+  generateGOHierarchy: 0
