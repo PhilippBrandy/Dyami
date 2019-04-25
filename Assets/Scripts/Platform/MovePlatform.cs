@@ -52,22 +52,36 @@ public class MovePlatform : MonoBehaviour
         keepMoving = false;
     }
 
-    public void MovePlatformRight()
+    public IEnumerator MovePlatformRight()
     {
         
-            float step = speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, moveRightTarget.position, step);
-        
+        Debug.Log("moveRight");
+        while (Vector3.Distance(this.transform.position, moveLeftTarget.position) > speed)
+        {
+            this.transform.position = Vector3.MoveTowards(this.transform.position, moveRightTarget.position, speed);
+            yield return 0;
+        }
 
+        this.transform.position = moveRightTarget.position;
+
+
+        //float step = speed * Time.deltaTime;
+        //    transform.position = Vector3.MoveTowards(transform.position, moveRightTarget.position, step);
     }
 
-    public void MovePlatformLeft()
+    public IEnumerator MovePlatformLeft()
     {
-       
-            float step = speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, moveLeftTarget.position, step);
-        
+        Debug.Log("moveLeft");
+        while (Vector3.Distance(this.transform.position, moveLeftTarget.position) > speed)
+        {
+            this.transform.position = Vector3.MoveTowards(this.transform.position, moveLeftTarget.position, speed);
+            yield return 0;
+        }
 
+        this.transform.position = moveLeftTarget.position;
+        
+        //float step = speed * Time.deltaTime;
+        //transform.position = Vector3.MoveTowards(transform.position, moveLeftTarget.position, step);
     }
 
     IEnumerator MoveToTarget()

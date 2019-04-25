@@ -13,7 +13,6 @@ public class MovePlatformLeft : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             player.transform.parent = platform.transform;
-
             platform.GetComponent<MovePlatform>().MovePlatformLeft();
             platform.GetComponent<MovePlatform>().moveLeft = true;
             platform.GetComponent<MovePlatform>().moveRight = false;
