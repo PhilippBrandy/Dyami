@@ -46,6 +46,7 @@ public class CharacterController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
+       
         animBody.SetBool("Crawl", crawling);
         normalRig.SetActive(!crawling);
         //crawlingRig.SetActive(crawling);
@@ -55,6 +56,7 @@ public class CharacterController2D : MonoBehaviour
         {
             if (Input.GetKeyDown(GameManager.instance.jump))
             {
+               
             }
             if (Input.GetKeyDown(GameManager.instance.left))
             {

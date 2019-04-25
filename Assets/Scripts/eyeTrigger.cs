@@ -21,7 +21,7 @@ public class eyeTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Animation should start");
+            //Debug.Log("Animation should start");
             openEye.SetTrigger("Start");
             eyehandler.transform.parent = collision.transform;
             eyeGlow.SetActive(true);
@@ -33,7 +33,7 @@ public class eyeTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Animation should end");
+            //Debug.Log("Animation should end");
             eyehandler.transform.parent = stoneEye.transform;
             eyeGlow.SetActive(false);
             eyehandler.transform.position = origPosition;
