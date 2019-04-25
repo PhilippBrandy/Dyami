@@ -1,0 +1,528 @@
+fileFormatVersion: 2
+guid: 4f6d96b0a4f58704db6e49490e65fa8b
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: deer 24-04_GO/deer 24-04_GO
+    100002: deer 24-04_GO/deer 24-04_GO/body
+    100004: deer 24-04_GO/deer 24-04_GO/downLegBack L
+    100006: deer 24-04_GO/deer 24-04_GO/downLegBack R
+    100008: deer 24-04_GO/deer 24-04_GO/downLegFront L
+    100010: deer 24-04_GO/deer 24-04_GO/downLegFront R
+    100012: deer 24-04_GO/deer 24-04_GO/ear L
+    100014: deer 24-04_GO/deer 24-04_GO/ear R
+    100016: deer 24-04_GO/deer 24-04_GO/head
+    100018: deer 24-04_GO/deer 24-04_GO/neck
+    100020: deer 24-04_GO/deer 24-04_GO/upperlegBack L
+    100022: deer 24-04_GO/deer 24-04_GO/upperlegBack R
+    100024: deer 24-04_GO/deer 24-04_GO/upperlegFront L
+    100026: deer 24-04_GO/deer 24-04_GO/upperlegFront R
+    400000: deer 24-04_GO/deer 24-04_GO/Transform
+    400002: deer 24-04_GO/deer 24-04_GO/body/Transform
+    400004: deer 24-04_GO/deer 24-04_GO/downLegBack L/Transform
+    400006: deer 24-04_GO/deer 24-04_GO/downLegBack R/Transform
+    400008: deer 24-04_GO/deer 24-04_GO/downLegFront L/Transform
+    400010: deer 24-04_GO/deer 24-04_GO/downLegFront R/Transform
+    400012: deer 24-04_GO/deer 24-04_GO/ear L/Transform
+    400014: deer 24-04_GO/deer 24-04_GO/ear R/Transform
+    400016: deer 24-04_GO/deer 24-04_GO/head/Transform
+    400018: deer 24-04_GO/deer 24-04_GO/neck/Transform
+    400020: deer 24-04_GO/deer 24-04_GO/upperlegBack L/Transform
+    400022: deer 24-04_GO/deer 24-04_GO/upperlegBack R/Transform
+    400024: deer 24-04_GO/deer 24-04_GO/upperlegFront L/Transform
+    400026: deer 24-04_GO/deer 24-04_GO/upperlegFront R/Transform
+    2800000: deer 24-04
+    21200000: deer 24-04_GO/deer 24-04_GO/body/SpriteRenderer
+    21200002: deer 24-04_GO/deer 24-04_GO/downLegBack L/SpriteRenderer
+    21200004: deer 24-04_GO/deer 24-04_GO/downLegBack R/SpriteRenderer
+    21200006: deer 24-04_GO/deer 24-04_GO/downLegFront L/SpriteRenderer
+    21200008: deer 24-04_GO/deer 24-04_GO/downLegFront R/SpriteRenderer
+    21200010: deer 24-04_GO/deer 24-04_GO/ear L/SpriteRenderer
+    21200012: deer 24-04_GO/deer 24-04_GO/ear R/SpriteRenderer
+    21200014: deer 24-04_GO/deer 24-04_GO/head/SpriteRenderer
+    21200016: deer 24-04_GO/deer 24-04_GO/neck/SpriteRenderer
+    21200018: deer 24-04_GO/deer 24-04_GO/upperlegBack L/SpriteRenderer
+    21200020: deer 24-04_GO/deer 24-04_GO/upperlegBack R/SpriteRenderer
+    21200022: deer 24-04_GO/deer 24-04_GO/upperlegFront L/SpriteRenderer
+    21200024: deer 24-04_GO/deer 24-04_GO/upperlegFront R/SpriteRenderer
+    21300000: downLegBack R
+    21300002: upperlegBack R
+    21300004: downLegFront R
+    21300006: upperlegFront R
+    21300008: body
+    21300010: ear R
+    21300012: head
+    21300014: ear L
+    21300016: neck
+    21300018: downLegBack L
+    21300020: upperlegBack L
+    21300022: downLegFront L
+    21300024: upperlegFront L
+    100100000: deer 24-04_GO
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: downLegBack R
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 446
+      y: 179
+      width: 39
+      height: 126
+    spriteID: 7965cd4041190534b8d4db8f6a8c7e9e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 425, y: 164}
+  - name: upperlegBack R
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 329
+      width: 77
+      height: 148
+    spriteID: bc39f0db288a4ea4d995ed99d3f262fa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -16, y: 224}
+  - name: downLegFront R
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 371
+      y: 179
+      width: 67
+      height: 121
+    spriteID: f8407780fd7ec2048bb813d34b74f4e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 162, y: 169}
+  - name: upperlegFront R
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 329
+      width: 78
+      height: 91
+    spriteID: 2c0be2ccaf6788940a5fd6c1fd9f9fc0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -119, y: 220}
+  - name: body
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 179
+      width: 284
+      height: 142
+    spriteID: b8fdf6f21d8b94d49913df553bdad201
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -12, y: 19}
+  - name: ear R
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 452
+      y: 138
+      width: 50
+      height: 32
+    spriteID: 2085e2b21569df4418090c7a71b67968
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 161, y: -193}
+  - name: head
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 261
+      y: 329
+      width: 103
+      height: 50
+    spriteID: 8e88cf5dc2ebdba458e0b459dd511a62
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -52, y: 29}
+  - name: ear L
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 428
+      width: 36
+      height: 36
+    spriteID: e491c5273c8cc544b86c5bca81a83a07
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -226, y: 91}
+  - name: neck
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 355
+      height: 167
+    spriteID: 161a79919c260d341a492f58bb54cf03
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -7, y: -157}
+  - name: downLegBack L
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 452
+      y: 4
+      width: 38
+      height: 126
+    spriteID: aea8c76bd51416e40abcf6ed86064aeb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 393, y: -19}
+  - name: upperlegBack L
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 367
+      y: 4
+      width: 77
+      height: 149
+    spriteID: ea7b1fff44fb32b48abaa171e9bb78d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 309, y: -109}
+  - name: downLegFront L
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 296
+      y: 179
+      width: 67
+      height: 122
+    spriteID: 3f73c6604f76272499239ea6ba5b4f1e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 62, y: 153}
+  - name: upperlegFront L
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 329
+      width: 78
+      height: 90
+    spriteID: 4010fec5b2c3dd441baf7f06d90d183f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -58, y: 203}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 512
+  importedTextureHeight: 512
+  documentSize: {x: 426, y: 383}
+  textureActualWidth: 512
+  textureActualHeight: 512
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: downLegBack R
+    spriteName: downLegBack R
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7965cd4041190534b8d4db8f6a8c7e9e
+    layerID: 14
+    mosaicPosition: {x: 446, y: 179}
+  - name: upperlegBack R
+    spriteName: upperlegBack R
+    isGroup: 0
+    parentIndex: -1
+    spriteID: bc39f0db288a4ea4d995ed99d3f262fa
+    layerID: 13
+    mosaicPosition: {x: 4, y: 329}
+  - name: downLegFront R
+    spriteName: downLegFront R
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f8407780fd7ec2048bb813d34b74f4e8
+    layerID: 10
+    mosaicPosition: {x: 371, y: 179}
+  - name: upperlegFront R
+    spriteName: upperlegFront R
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2c0be2ccaf6788940a5fd6c1fd9f9fc0
+    layerID: 9
+    mosaicPosition: {x: 89, y: 329}
+  - name: body
+    spriteName: body
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b8fdf6f21d8b94d49913df553bdad201
+    layerID: 6
+    mosaicPosition: {x: 4, y: 179}
+  - name: ear R
+    spriteName: ear R
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2085e2b21569df4418090c7a71b67968
+    layerID: 5
+    mosaicPosition: {x: 452, y: 138}
+  - name: head
+    spriteName: head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 8e88cf5dc2ebdba458e0b459dd511a62
+    layerID: 4
+    mosaicPosition: {x: 261, y: 329}
+  - name: ear L
+    spriteName: ear L
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e491c5273c8cc544b86c5bca81a83a07
+    layerID: 3
+    mosaicPosition: {x: 89, y: 428}
+  - name: neck
+    spriteName: neck
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 161a79919c260d341a492f58bb54cf03
+    layerID: 2
+    mosaicPosition: {x: 4, y: 4}
+  - name: downLegBack L
+    spriteName: downLegBack L
+    isGroup: 0
+    parentIndex: -1
+    spriteID: aea8c76bd51416e40abcf6ed86064aeb
+    layerID: 12
+    mosaicPosition: {x: 452, y: 4}
+  - name: upperlegBack L
+    spriteName: upperlegBack L
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ea7b1fff44fb32b48abaa171e9bb78d3
+    layerID: 11
+    mosaicPosition: {x: 367, y: 4}
+  - name: downLegFront L
+    spriteName: downLegFront L
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 3f73c6604f76272499239ea6ba5b4f1e
+    layerID: 8
+    mosaicPosition: {x: 296, y: 179}
+  - name: upperlegFront L
+    spriteName: upperlegFront L
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4010fec5b2c3dd441baf7f06d90d183f
+    layerID: 7
+    mosaicPosition: {x: 175, y: 329}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+  boneGOs: []
+  firstCreate: 0
+  generateGOHierarchy: 0
