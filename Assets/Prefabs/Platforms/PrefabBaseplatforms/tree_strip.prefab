@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6559668097095924250}
   - component: {fileID: 7932121474146260640}
   - component: {fileID: 5091146368408313448}
+  - component: {fileID: 7945500653093103471}
   m_Layer: 0
   m_Name: tree_strip
   m_TagString: Untagged
@@ -77,8 +78,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: ef67a86d288643b4686d909511266f24, type: 3}
   - {fileID: 21300000, guid: a6c618ee39ac9394f83841761e7971a6, type: 3}
   m_LocalAABB:
-    m_Center: {x: 24.224312, y: -5.8341722, z: -0.0005}
-    m_Extent: {x: 2.6776333, y: 15.758096, z: 0.0005}
+    m_Center: {x: 31.084372, y: -8.113845, z: -0.001}
+    m_Extent: {x: 9.844812, y: 13.493094, z: 0.001}
 --- !u!114 &7932121474146260640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,11 +104,11 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 0
-    - position: {x: 24.224312, y: 9.902197, z: 0}
-      leftTangent: {x: -0.050961018, y: -5.1309505, z: -0}
-      rightTangent: {x: 0.050961018, y: 5.1309505, z: 0}
+    - position: {x: 23.643555, y: 1.3077602, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
-      height: 1.13
+      height: 1
       bevelCutoff: 0
       bevelSize: 0
       spriteIndex: 0
@@ -136,4 +137,20 @@ EdgeCollider2D:
   m_EdgeRadius: 2.09
   m_Points:
   - {x: 23.96896, y: -21.57276}
-  - {x: 24.22431, y: 9.90219}
+  - {x: 23.64355, y: 1.30776}
+--- !u!111 &7945500653093103471
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6988605513447705561}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 3a0c16f7a12143947a9bad1c67c7a2d7, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
