@@ -6,16 +6,17 @@ public class MovePlatformLeft : MonoBehaviour
 {
     public GameObject platform;
     public GameObject player;
+    bool isMoving = false;
 
     void OnTriggerEnter2D(Collider2D col)
     {
-
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player") && !isMoving)
         {
             player.transform.parent = platform.transform;
-            platform.GetComponent<MovePlatform>().MovePlatformLeft();
+            isMoving = true;
             platform.GetComponent<MovePlatform>().moveLeft = true;
             platform.GetComponent<MovePlatform>().moveRight = false;
+            StartCoroutine(StartPlatform());
         }
     }
 
@@ -24,6 +25,16 @@ public class MovePlatformLeft : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             player.transform.parent = null;
+            platform.GetComponent<MovePlatform>().moveLeft = false;
+            isMoving = false;
+        }
+    }
+
+    IEnumerator StartPlatform()
+    {
+        while (isMoving)
+        {
+            yield return StartCoroutine(platform.GetComponent<MovePlatform>().MovePFLeftByPlayer());
         }
     }
 }

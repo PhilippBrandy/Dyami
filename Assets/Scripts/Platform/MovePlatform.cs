@@ -4,96 +4,107 @@ using UnityEngine;
 
 public class MovePlatform : MonoBehaviour
 {
-    Vector3 pointB;
+    // target to move the PF while moving from left to right
     public Transform target;
+    // target where PF should stop after player gets near
     public Transform endTarget;
-    public Collider2D collider;
-    bool keepMoving = true;
-    float time = 3.0f;
-    float speed = 10.0f;
+    // player can move the PF between this two targets while standing on it
     public Transform moveLeftTarget;
     public Transform moveRightTarget;
+
+    // speed of PF while moving from left to right
+    public float speedOfPF = 10.0f;
+    // speed of PF while moving away from player
+    public float speedOfPFMovingAwayFromPlayer = 10.0f;
+    // distance from PF to endTarget
+    float magnitude = 0.3f;
+
     public bool moveRight = false;
     public bool moveLeft = false;
+
+    Vector3 pointB;
+    bool keepMoving = true;
+    float time = 3.0f;
+    bool wasPFStopped = false;
+    bool hasPFReachedEndPos = false;
 
     IEnumerator Start()
     {
         pointB = target.position;
         var pointA = transform.position;
-        while (true)
-        {
-            yield return StartCoroutine(MoveObject(transform, pointA, pointB, time));
-            yield return StartCoroutine(MoveObject(transform, pointB, pointA, time));
-        }
-    }
 
-    IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
-    {
-        if (keepMoving)
+        while (!wasPFStopped)
         {
-            var i = 0.0f;
-            var rate = 1.0f / time;
-            while (i < 1.0f)
+            yield return StartCoroutine(MovePFBackAndForth(transform, pointA, pointB, time));
+            yield return StartCoroutine(MovePFBackAndForth(transform, pointB, pointA, time));
+        }
+
+        if (wasPFStopped)
+        {
+            while (!hasPFReachedEndPos)
             {
-                i += Time.deltaTime * rate;
-                thisTransform.position = Vector3.Lerp(startPos, endPos, i);
-                yield return null;
+                yield return StartCoroutine(MovePFAwayFromPlayer());
             }
         }
-        else
-        {
-            float step = speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, endTarget.position, step);
-        }
     }
 
-    public void StopPlatform()
-    {
-        keepMoving = false;
-    }
-
-    public IEnumerator MovePlatformRight()
-    {
-        
-        Debug.Log("moveRight");
-        while (Vector3.Distance(this.transform.position, moveLeftTarget.position) > speed)
-        {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, moveRightTarget.position, speed);
-            yield return 0;
-        }
-
-        this.transform.position = moveRightTarget.position;
-
-
-        //float step = speed * Time.deltaTime;
-        //    transform.position = Vector3.MoveTowards(transform.position, moveRightTarget.position, step);
-    }
-
-    public IEnumerator MovePlatformLeft()
-    {
-        Debug.Log("moveLeft");
-        while (Vector3.Distance(this.transform.position, moveLeftTarget.position) > speed)
-        {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, moveLeftTarget.position, speed);
-            yield return 0;
-        }
-
-        this.transform.position = moveLeftTarget.position;
-        
-        //float step = speed * Time.deltaTime;
-        //transform.position = Vector3.MoveTowards(transform.position, moveLeftTarget.position, step);
-    }
-
-    IEnumerator MoveToTarget()
+    IEnumerator MovePFBackAndForth(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
     {
         var i = 0.0f;
         var rate = 1.0f / time;
-        while (i < 1.0f)
+        while (i < 1.0f && !wasPFStopped)
         {
             i += Time.deltaTime * rate;
-            transform.position = Vector3.Lerp(transform.position, pointB, i);
-            yield return null;
+            thisTransform.position = Vector3.Lerp(startPos, endPos, i);
+            yield return new WaitForEndOfFrame();
         }
     }
 
+    public void StopPFFromMovingFromLeftToRight()
+    {
+        keepMoving = false;
+        wasPFStopped = true;
+    }
+
+    public IEnumerator MovePFRightByPlayer()
+    {
+        while (Vector3.Distance(this.transform.position, moveRightTarget.position) > magnitude && moveRight)
+        {
+            float step = speedOfPF * Time.deltaTime;
+            this.transform.position = Vector3.MoveTowards(this.transform.position, moveRightTarget.position, step);
+            yield return 0;
+        }
+
+        // movement with acceleration
+        //var i = 0.0f;
+        //var rate = 0.01f / time;
+        //while (i < 1.0f && moveRight)
+        //{
+        //    i += Time.deltaTime * rate;
+        //    this.transform.position = Vector3.Lerp(transform.position, moveRightTarget.position, i);
+        //    yield return null;
+        //}
+    }
+
+    public IEnumerator MovePFLeftByPlayer()
+    {
+        while (Vector3.Distance(this.transform.position, moveLeftTarget.position) > magnitude && moveLeft)
+        {
+            float step = speedOfPF * Time.deltaTime;
+            this.transform.position = Vector3.MoveTowards(this.transform.position, moveLeftTarget.position, step);
+            yield return 0;
+        }
+    }
+
+    IEnumerator MovePFAwayFromPlayer()
+    {
+        while (Vector3.Distance(this.transform.position, endTarget.position) > magnitude && !hasPFReachedEndPos)
+        {
+            float step = speedOfPFMovingAwayFromPlayer * Time.deltaTime;
+            this.transform.position = Vector3.MoveTowards(this.transform.position, endTarget.position, step);
+            yield return 0;
+        }
+        this.transform.position = endTarget.position;
+        hasPFReachedEndPos = true;
+    }
 }

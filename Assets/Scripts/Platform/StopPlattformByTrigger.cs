@@ -8,6 +8,6 @@ public class StopPlattformByTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        platform.GetComponent<MovePlatform>().StopPlatform();
+        platform.GetComponent<MovePlatform>().StopPFFromMovingFromLeftToRight();
     }
 }
