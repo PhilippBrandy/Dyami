@@ -130,10 +130,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1616058223, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1043489962, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
       propertyPath: mass
-      value: 7
+      value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1043489962, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
+      propertyPath: gravity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1616058226, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
+      propertyPath: ShootDownPlattformPivot
+      value: 
+      objectReference: {fileID: 1301964712959564358}
+    - target: {fileID: 1616058226, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
+      propertyPath: move
+      value: 
+      objectReference: {fileID: 1301964712959564356}
     - target: {fileID: 1616058227, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
       propertyPath: m_SortingLayerID
       value: -297717993
@@ -146,18 +162,6 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1616058223, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1616058226, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
-      propertyPath: ShootDownPlattformPivot
-      value: 
-      objectReference: {fileID: 1301964712959564358}
-    - target: {fileID: 1616058226, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
-      propertyPath: move
-      value: 
-      objectReference: {fileID: 1301964712959564356}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
 --- !u!4 &1301964713987527582 stripped

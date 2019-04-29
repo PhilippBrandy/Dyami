@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69995939c3a0bf4aabf20e01e4fb2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 5
+  mass: 100
 --- !u!70 &1043489961
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  move: {fileID: 0}
 --- !u!60 &1616058225
 PolygonCollider2D:
   m_ObjectHideFlags: 0
