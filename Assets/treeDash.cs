@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BreakableEnvi : MonoBehaviour {
-
+public class treeDash : MonoBehaviour
+{
     public int health = 1;
     public GameObject breakingApartEffect;
     private Killable player;
     public AudioSource breakSound;
+    public Animator rotatingHinge;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         player = GameObject.Find("Avatar new").GetComponent<Killable>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         Debug.Log("update triggered");
         if (health < 1)
         {
@@ -29,7 +32,7 @@ public class BreakableEnvi : MonoBehaviour {
         }
     }
 
-     void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("collider triggered");
 
@@ -40,6 +43,8 @@ public class BreakableEnvi : MonoBehaviour {
             if (other.GetComponentInChildren<ShootArrow>().theForce == true)
             {
                 health = 0;
+                //rotatingHinge.Play("dashTree");
+                rotatingHinge.SetTrigger("Start");
             }
         }
         if (other.CompareTag("falling"))
@@ -47,5 +52,4 @@ public class BreakableEnvi : MonoBehaviour {
             health = 0;
         }
     }
-
 }
