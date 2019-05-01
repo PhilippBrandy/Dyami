@@ -16,7 +16,7 @@ public class BreakableEnvi : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("update triggered");
+
         if (health < 1)
         {
             gameObject.SetActive(false);
