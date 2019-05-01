@@ -68,8 +68,8 @@ SpriteShapeRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -297717993
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
@@ -78,8 +78,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: ef67a86d288643b4686d909511266f24, type: 3}
   - {fileID: 21300000, guid: a6c618ee39ac9394f83841761e7971a6, type: 3}
   m_LocalAABB:
-    m_Center: {x: 31.084372, y: -8.113845, z: -0.001}
-    m_Extent: {x: 9.844812, y: 13.493094, z: 0.001}
+    m_Center: {x: 2.940888, y: 6.395711, z: -0.001}
+    m_Extent: {x: 15.029121, y: 3.2079697, z: 0.001}
 --- !u!114 &7932121474146260640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Spline:
     m_IsOpenEnded: 1
     m_ControlPoints:
-    - position: {x: 23.968964, y: -21.57276, z: 0}
+    - position: {x: 17.836426, y: 7.2031555, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 0
-    - position: {x: 23.643555, y: 1.3077602, z: 0}
+    - position: {x: -9.333618, y: 5.6911774, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -136,8 +136,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0.06}
   m_EdgeRadius: 2.09
   m_Points:
-  - {x: 23.96896, y: -21.57276}
-  - {x: 23.64355, y: 1.30776}
+  - {x: 17.83642, y: 7.20315}
+  - {x: -9.33361, y: 5.69117}
 --- !u!111 &7945500653093103471
 Animation:
   m_ObjectHideFlags: 0
