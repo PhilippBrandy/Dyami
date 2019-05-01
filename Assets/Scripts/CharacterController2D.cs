@@ -51,21 +51,6 @@ public class CharacterController2D : MonoBehaviour
         normalRig.SetActive(!crawling);
         //crawlingRig.SetActive(crawling);
 
-        // keybindings based on user input
-        if (GameManager.instance != null)
-        {
-            if (Input.GetKeyDown(GameManager.instance.jump))
-            {
-               
-            }
-            if (Input.GetKeyDown(GameManager.instance.left))
-            {
-            }
-            if (Input.GetKeyDown(GameManager.instance.right))
-            { 
-            }
-        }
-
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
 

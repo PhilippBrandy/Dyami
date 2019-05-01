@@ -7,10 +7,9 @@ public class GameManager : MonoBehaviour
     private Vector3 startPosition;
     public static GameManager instance = null;
 
-    public KeyCode left { get; set; }
-    public KeyCode right { get; set; }
-    public KeyCode jump { get; set; }
-
+    //public KeyCode left { get; set; }
+    //public KeyCode right { get; set; }
+    //public KeyCode jump { get; set; }
 
     void Awake()
     {
@@ -25,16 +24,9 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        jump = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("jump", "Space"));
-        left = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("left", "A"));
-        right = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("right", "D"));
-
-        
-    }
-    
-    void Start()
-    {
-Debug.Log("HELLO");
+        //jump = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("jump", "Space"));
+        //left = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("left", "A"));
+        //right = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("right", "D"));
     }
 
     public void SetPlayerPos(Vector3 position)
