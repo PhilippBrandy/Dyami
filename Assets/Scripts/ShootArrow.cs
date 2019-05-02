@@ -42,6 +42,9 @@ public class ShootArrow : MonoBehaviour
     public AudioSource shootArrow;
     public AudioSource teleportSound;
 
+    //Shockwave
+    public float shockWaveLength;
+
     private void Start()
     {
         playerScale = player.transform.localScale;
@@ -218,7 +221,24 @@ public class ShootArrow : MonoBehaviour
     }
     private void playerTeleported()
     {
-        hasShot = false;
+        #region
+        //Dash-Shockwave
+        LayerMask layerMask = LayerMask.GetMask("Default");
+        RaycastHit2D shockWaveHit = Physics2D.Raycast(this.projectile.transform.position, this.projectile.transform.right, shockWaveLength, layerMask.value);
+        if (shockWaveHit.collider != null)
+        {
+            DashableObject dashed = shockWaveHit.collider.gameObject.GetComponentInParent<DashableObject>();
+            if (dashed != null)
+            {
+                dashed.triggerAnimation();
+            }
+        }
+        
+
+
+        #endregion
+
+            hasShot = false;
         Rigidbody2D playerRig = player.GetComponent<Rigidbody2D>();
         player.transform.position = new Vector2(projectile.transform.position.x, projectile.transform.position.y + 0.5f);
 
@@ -246,5 +266,7 @@ public class ShootArrow : MonoBehaviour
         }
         isTeleporting = false;
         eagle.SetActive(false);
+
+        
     }
 }
