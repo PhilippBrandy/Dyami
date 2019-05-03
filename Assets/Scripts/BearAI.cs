@@ -20,6 +20,9 @@ public class BearAI : MonoBehaviour {
     public Charging charging;
     private Slowingdown slowingdown;
 
+    //animator
+    private Animator animator;
+
     // raycasts
     public Transform groundDetection;
     public Transform wallDetection;
@@ -39,10 +42,13 @@ public class BearAI : MonoBehaviour {
         slowingdown = new Slowingdown();
         currentState = guarding;
         currentSpeed = 0;
+
+        animator = gameObject.GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
 	void Update () {
+
         //schau ob du wechseln musst
         // wenn guarding
         if (currentGuardState == GuardState.guarding)
@@ -96,7 +102,23 @@ public class BearAI : MonoBehaviour {
 
         // Update die jetzt eingestellte State
         currentState.UpdateState(this);
-	}
+
+        // tell the animator your current speed
+        animator.SetFloat("currentSpeed", currentSpeed);
+        if (currentSpeed == 0)
+        {
+            animator.speed = 1.0f;
+        } else if (currentSpeed < 5)
+        {
+            animator.speed = 0.5f;
+        } else if (currentSpeed >= 5 && currentSpeed < 20)
+        {
+            animator.speed = 1.0f;
+        } else if (currentSpeed >= 50)
+        {
+            animator.speed = 1.5f;
+        }
+    }
 
 
 
