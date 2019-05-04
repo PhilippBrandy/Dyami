@@ -8,7 +8,7 @@ public class Walljump : MonoBehaviour
 {
     public LayerMask m_WhatIsWall;
     public float playerWidth = 1.5f;
-    public float jumpStrength = 30;
+    public float jumpStrength = 25;
     public float slideSpeedDivisor = 6;
     private float baseGravity;
     private Rigidbody2D rb;
