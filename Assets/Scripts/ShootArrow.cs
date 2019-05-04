@@ -134,7 +134,7 @@ public class ShootArrow : MonoBehaviour
         }
 
         //Teleport
-        if (Input.GetMouseButtonDown(1) && projectile != null && canTeleport && learnedTeleporting && hasShot && !isTeleporting)
+        if (playerTeleports())
         {
             isTeleporting = true;
             player.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
@@ -268,5 +268,11 @@ public class ShootArrow : MonoBehaviour
         eagle.SetActive(false);
 
         
+    }
+
+    //Returns true if the player meets the requirements to teleport and rightclicks
+    public bool playerTeleports()
+    {
+        return (Input.GetMouseButtonDown(1) && projectile != null && canTeleport && learnedTeleporting && hasShot && !isTeleporting);
     }
 }
