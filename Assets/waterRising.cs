@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashableObject : MonoBehaviour
+public class waterRising : MonoBehaviour
 {
     public string triggerName;
-    private Animator animator;
- 
+    public Animator animator;
+    public Animator animatorWater;
+
     // Start is called before the first frame update
     void Start()
     {
+       
 
         animator = gameObject.GetComponent<Animator>();
     }
@@ -19,5 +21,6 @@ public class DashableObject : MonoBehaviour
     {
 
         animator.SetTrigger(triggerName);
+        animatorWater.SetTrigger(triggerName);
     }
 }

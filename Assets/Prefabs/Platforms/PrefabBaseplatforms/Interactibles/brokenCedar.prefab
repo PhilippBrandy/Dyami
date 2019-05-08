@@ -182,7 +182,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1108387008460640036}
   - component: {fileID: 1108387008460510630}
-  - component: {fileID: 1108387008460510613}
   m_Layer: 0
   m_Name: brokenCedar
   m_TagString: Untagged
@@ -226,19 +225,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1108387008460510613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1108387008460608260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ed9999c5bbb0f44e9658b26a39a0552, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerName: Dashed
 --- !u!1 &1108387008460608262
 GameObject:
   m_ObjectHideFlags: 0
