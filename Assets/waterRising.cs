@@ -2,25 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class waterRising : MonoBehaviour
+public class waterRising : DashableObject
 {
-    public string triggerName;
-    public Animator animator;
     public Animator animatorWater;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        Debug.Log("start");
 
-        animator = gameObject.GetComponent<Animator>();
+        animatorWater = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     public void triggerAnimation()
     {
-
-        animator.SetTrigger(triggerName);
-        animatorWater.SetTrigger(triggerName);
+        Debug.Log("triggerwater");
+        animatorWater.SetTrigger("Dashed");
     }
 }
