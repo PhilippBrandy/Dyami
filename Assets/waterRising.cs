@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class waterRising : DashableObject
+public class waterRising : MonoBehaviour
 {
     public Animator animatorWater;
 
