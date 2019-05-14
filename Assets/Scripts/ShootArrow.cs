@@ -148,7 +148,7 @@ public class ShootArrow : MonoBehaviour
             player.GetComponent<Killable>().enabled = false;
             player.GetComponent<PlayerMovement>().enabled = false;
             Rigidbody2D playerRB = player.GetComponent<Rigidbody2D>();
-            playerRB.velocity = Vector3.zero;
+            playerRB.velocity = Vector2.zero;
             playerRB.isKinematic = true;
             foreach (BoxCollider2D collider in player.GetComponents<BoxCollider2D>())
             {
@@ -164,7 +164,8 @@ public class ShootArrow : MonoBehaviour
         if (isTeleporting)
         {
             Vector3 playerPos = player.transform.position;
-            playerPos = Vector2.MoveTowards(new Vector2(playerPos.x, playerPos.y), projectile.transform.position, 50 * Time.deltaTime);
+            Vector2 movetowards = Vector2.MoveTowards(new Vector2(playerPos.x, playerPos.y), projectile.transform.position, 50 * Time.deltaTime);
+            playerPos = new Vector3(movetowards.x, movetowards.y, player.transform.position.z);
             player.transform.position = playerPos;
         }
 
@@ -233,15 +234,12 @@ public class ShootArrow : MonoBehaviour
                 dashed.triggerAnimation();
             }
         }
-        
+
 
 
         #endregion
-
-            hasShot = false;
+        hasShot = false;
         Rigidbody2D playerRig = player.GetComponent<Rigidbody2D>();
-        player.transform.position = new Vector2(projectile.transform.position.x, projectile.transform.position.y + 0.5f);
-
         if (hit)
         {
             playerRig.velocity = Vector3.zero;
@@ -257,6 +255,7 @@ public class ShootArrow : MonoBehaviour
 
         Destroy(projectile);
         player.transform.localScale = playerScale;
+        //player.transform.position = new Vector3(projectile.transform.position.x, projectile.transform.position.y + 0.5f, 0.0f);
         player.GetComponent<Killable>().enabled = true;
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponent<Rigidbody2D>().isKinematic = false;
