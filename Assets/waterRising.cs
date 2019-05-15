@@ -5,6 +5,7 @@ using UnityEngine;
 public class waterRising : MonoBehaviour
 {
     public Animator animatorWater;
+    public GameObject waterfall;
 
     // Start is called before the first frame update
     void Start()
@@ -19,5 +20,6 @@ public class waterRising : MonoBehaviour
     {
         Debug.Log("triggerwater");
         animatorWater.SetTrigger("Dashed");
+        waterfall.SetActive (false);
     }
 }
