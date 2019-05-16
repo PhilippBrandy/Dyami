@@ -15,15 +15,15 @@ public class waterRising : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("swag?" + triggerName);
 
         
     }
-
-    void OnTriggerEnter2D(Collider2D collision)
+    // only if the player revives at checkpoint
+    void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {Debug.Log("camera trigger");
+        Debug.Log("enter:"+triggerName);
+        if (collision.CompareTag("Player")&& triggerName=="reset")
+        {
         triggerAnimation();
            
         }
@@ -34,7 +34,7 @@ public class waterRising : MonoBehaviour
     // Update is called once per frame
     public void triggerAnimation()
     {
-        Debug.Log(""+triggerName);
+        Debug.Log("triggerAnimation:"+triggerName);
        
         animatorWater.SetTrigger(triggerName);
         waterfall.SetActive (false);
