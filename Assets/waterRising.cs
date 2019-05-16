@@ -17,10 +17,19 @@ public class waterRising : MonoBehaviour
     {
         Debug.Log("swag?" + triggerName);
 
-        animatorWater = gameObject.GetComponent<Animator>();
+        
     }
 
-    
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {Debug.Log("camera trigger");
+        triggerAnimation();
+           
+        }
+        
+        
+    }
 
     // Update is called once per frame
     public void triggerAnimation()

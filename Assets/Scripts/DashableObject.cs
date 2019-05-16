@@ -26,6 +26,7 @@ public class DashableObject : MonoBehaviour
 
             trigger.triggerAnimation();
         }
+        letWaterRise = false;
         animator.SetTrigger(triggerName);
     }
 }
