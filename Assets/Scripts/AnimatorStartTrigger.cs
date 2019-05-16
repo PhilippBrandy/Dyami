@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimatorStartTrigger : MonoBehaviour
 {
     public Animator animator;
+    public string triggerName;
     
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -12,7 +13,7 @@ public class AnimatorStartTrigger : MonoBehaviour
         Debug.Log("camera trigger");
         if (collision.CompareTag("Player"))
         {
-            animator.SetTrigger("Start");
+            animator.SetTrigger(triggerName);
         }
     }
 }
