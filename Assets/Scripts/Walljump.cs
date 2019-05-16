@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class Walljump : MonoBehaviour
 {
     public LayerMask m_WhatIsWall;
@@ -12,8 +10,9 @@ public class Walljump : MonoBehaviour
     public float slideSpeedDivisor = 6;
     private float baseGravity;
     private Rigidbody2D rb;
+    private bool grounded;
 
-    RaycastHit2D wallRight, wallLeft, edgeRight, edgeLeft;
+    RaycastHit2D wallRight, wallLeft, edgeRight, edgeLeft, nearGround;
 
 
     // Start is called before the first frame update
@@ -27,7 +26,7 @@ public class Walljump : MonoBehaviour
     void FixedUpdate()
     {
         //Is the player grounded?
-        bool grounded = this.GetComponent<CharacterController2D>().getGrounded();
+        grounded = this.GetComponent<CharacterController2D>().getGrounded();
 
         //Find walls to the left/right of the player
         wallRight = Physics2D.Raycast(transform.position, Vector2.right, playerWidth, m_WhatIsWall);
@@ -36,17 +35,20 @@ public class Walljump : MonoBehaviour
         edgeRight = Physics2D.Raycast(transform.position + new Vector3(0, 1, 0), Vector2.right, playerWidth, m_WhatIsWall);
         edgeLeft = Physics2D.Raycast(transform.position + new Vector3(0, 1, 0), Vector2.left, playerWidth, m_WhatIsWall);
 
+        nearGround = Physics2D.Raycast(transform.position + new Vector3(0, -2, 0), Vector2.down, 3, m_WhatIsWall);
+        Debug.Log(nearGround.collider);
+
         //-------------------------------------
         //Edge climb
         //-------------------------------------
 
-        //When the player is next to an edge (wall+air above) and not on the ground
-        if (((wallRight.collider != null && edgeRight.collider == null) || (wallLeft.collider != null && edgeLeft.collider == null)) && !grounded)
+        //When the player is falling, next to an edge (wall next to them and air above) and not near the ground
+        if (((wallRight.collider != null && edgeRight.collider == null) || (wallLeft.collider != null && edgeLeft.collider == null)) && rb.velocity.y <= 0 && nearGround.collider == null)
         {
             Debug.Log("I'm at an edge");
             //remove control and gravity
             this.GetComponent<PlayerMovement>().enabled = false;
-            rb.gravityScale = 0;
+            rb.gravityScale = 0.0f;
             rb.velocity = Vector3.zero;
 
             // When the player is moving against a wall to their right
@@ -63,14 +65,15 @@ public class Walljump : MonoBehaviour
                 else if (hugsWall())
                 {
                     Debug.Log("I would climb");
-                    Invoke("reset", 0.3f);
-                    rb.gravityScale = baseGravity;
+                    //Invoke("reset", 0.3f);
+                    //rb.gravityScale = baseGravity;
                 }
                 //or Fall down
                 else if (hatesWall())
                 {
                     rb.gravityScale = baseGravity;
-                    rb.AddForce(new Vector2(-jumpStrength * 10, 0));
+                    rb.AddForce(new Vector2(-jumpStrength * 40, 0));
+                    reset();
                 }
             }
 
@@ -88,14 +91,15 @@ public class Walljump : MonoBehaviour
                 else if (hugsWall())
                 {
                     Debug.Log("I would climb");
-                    Invoke("reset", 0.3f);
-                    rb.gravityScale = baseGravity;
+                    //Invoke("reset", 0.3f);
+                    //rb.gravityScale = baseGravity;
                 }
                 //or Fall down
                 else if (hatesWall())
                 {
                     rb.gravityScale = baseGravity;
-                    rb.AddForce(new Vector2(jumpStrength * 10, 0));
+                    rb.AddForce(new Vector2(jumpStrength * 40, 0));
+                    reset();
                 }
             }
         }
@@ -104,7 +108,7 @@ public class Walljump : MonoBehaviour
         //-------------------------------------
 
         //When the player is next to a wall and not on the ground and on near an edge (not full wall)
-        else if ((wallRight.collider != null || wallLeft.collider != null) && !grounded)
+        else if ((wallRight.collider != null || wallLeft.collider != null) && nearGround.collider == null)
         {
             Debug.Log("I'm at a wall");
             //remove control and reduce gravity
@@ -152,7 +156,7 @@ public class Walljump : MonoBehaviour
                 }
             }
         }
-        else if (grounded)
+        if (grounded)
         {
             reset();
             rb.gravityScale = baseGravity;
@@ -166,7 +170,7 @@ public class Walljump : MonoBehaviour
     //Enables the PlayerMovement Script again
     private void reset()
     {
-        if (!hugsWall())
+        if ((!hugsWall() && !grounded) || grounded)
         {
             this.GetComponent<PlayerMovement>().enabled = true;
         }
