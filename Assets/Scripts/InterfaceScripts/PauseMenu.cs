@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject settingsMenuUI;
 
     // for pausing the music in the menu
-    // public GameObject audioObject;
+    public GameObject audioObject;
 
 
     void Update()
@@ -34,7 +34,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        // audioObject.GetComponent<AudioSource>().enabled = false;
+        audioObject.GetComponent<AudioSource>().enabled = false;
         pauseMenuUI.SetActive(true);
         gameIsPausedText.enabled = true;
         Time.timeScale = 0f;
@@ -43,7 +43,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        //audioObject.GetComponent<AudioSource>().enabled = true;
+        audioObject.GetComponent<AudioSource>().enabled = true;
         pauseMenuUI.SetActive(false);
         gameIsPausedText.enabled = false;
         Time.timeScale = 1f;

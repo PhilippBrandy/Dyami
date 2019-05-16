@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StonePlatform : MonoBehaviour
 {
-
+    
     public GameObject platform;
     public GameObject sinkTarget;
     public GameObject origPosition;
@@ -17,7 +17,8 @@ public class StonePlatform : MonoBehaviour
     float seconds = 7f;
     float timer = 0.0f;
     bool timerIsActive = false;
-    
+
+    public GameObject moosPrefab;
 
     void Update()
     {
@@ -27,6 +28,7 @@ public class StonePlatform : MonoBehaviour
             if (timer >= seconds)
             {
                 timerIsActive = false;
+                timer = 0.0f;
             }
         }
 
@@ -50,9 +52,11 @@ public class StonePlatform : MonoBehaviour
     {
         if (col.CompareTag("Player") && moveStone)
         {
+            moosPrefab.transform.parent = platform.transform;
             moveStoneDown = true;
             moveStoneUp = false;
         }
+
         else
         {
             timerIsActive = true;

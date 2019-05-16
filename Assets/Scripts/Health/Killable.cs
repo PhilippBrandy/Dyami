@@ -15,9 +15,21 @@ public class Killable : MonoBehaviour
     public Transform spawnpoint;
     private int count = 10;
 
+    // Invulnerability after getting damaged
+    bool invincible = false;
+    public float secondsInvulnerable = 3f;
+    float timer = 0.0f;
+    bool timerIsActive = false;
+
+    // push player away from damaging source
+    Rigidbody2D rb;
+    public float knockDur = 0.01f;
+
     void Start()
     {
         health = numOfLives;
+        rb = GetComponent<Rigidbody2D>();
+        
     }
 
     void Update()
@@ -26,6 +38,17 @@ public class Killable : MonoBehaviour
         if (health > numOfLives)
         {
             health = numOfLives;
+        }
+
+        if (timerIsActive)
+        {
+            timer += Time.deltaTime;
+            if (timer >= secondsInvulnerable)
+            {
+                timerIsActive = false;
+                invincible = false;
+                timer = 0.0f;
+            }
         }
 
         for (int i = 0; i < lives.Length; i++)
@@ -49,15 +72,14 @@ public class Killable : MonoBehaviour
             }
         }
 
-
         if (health < 0)
         {
-            if (spawnpoint == null)
-            {
-                Application.LoadLevel(Application.loadedLevel);
-            }
-            transform.position = spawnpoint.position;
-            health = numOfLives;
+            //if (spawnpoint == null)
+            //{
+            //    Application.LoadLevel(Application.loadedLevel);
+            //}
+            //transform.position = spawnpoint.position;
+            //health = numOfLives;
         }
     }
 
@@ -66,7 +88,28 @@ public class Killable : MonoBehaviour
     {
         if (other.CompareTag("damaging"))
         {
-            health--;
+            if (!invincible && !timerIsActive)
+            {
+                health--;
+
+                // for invulnerability
+                invincible = true;
+                timerIsActive = true;
+                
+               // StartCoroutine(Knockback(240, transform.position));
+            }
         }
+    }
+
+    public IEnumerator Knockback(float knockbackPwr, Vector3 knockbackDir)
+    {
+        float timer = 0;
+        while (knockDur > timer)
+        {
+            timer += Time.deltaTime;
+            //rb.AddForce(new Vector3(knockbackDir.x * -100, knockbackDir.y * knockbackPwr * -1, transform.position.z));
+            //rb.AddForce(new Vector3(knockbackDir.x * -100, knockbackDir.y * knockbackPwr * -100, transform.position.z));
+        }
+        yield return 0;
     }
 }
