@@ -13,8 +13,7 @@ public class Walljump : MonoBehaviour
     private float baseGravity;
     private Rigidbody2D rb;
 
-    RaycastHit2D wallRight;
-    RaycastHit2D wallLeft;
+    RaycastHit2D wallRight, wallLeft, edgeRight, edgeLeft;
 
 
     // Start is called before the first frame update
@@ -34,9 +33,80 @@ public class Walljump : MonoBehaviour
         wallRight = Physics2D.Raycast(transform.position, Vector2.right, playerWidth, m_WhatIsWall);
         wallLeft = Physics2D.Raycast(transform.position, Vector2.left, playerWidth, m_WhatIsWall);
 
-        //When the player is next to a wall and not on the ground
-        if ((wallRight.collider != null || wallLeft.collider != null) && !grounded)
+        edgeRight = Physics2D.Raycast(transform.position + new Vector3(0, 1, 0), Vector2.right, playerWidth, m_WhatIsWall);
+        edgeLeft = Physics2D.Raycast(transform.position + new Vector3(0, 1, 0), Vector2.left, playerWidth, m_WhatIsWall);
+
+        //-------------------------------------
+        //Edge climb
+        //-------------------------------------
+
+        //When the player is next to an edge (wall+air above) and not on the ground
+        if (((wallRight.collider != null && edgeRight.collider == null) || (wallLeft.collider != null && edgeLeft.collider == null)) && !grounded)
         {
+            Debug.Log("I'm at an edge");
+            //remove control and gravity
+            this.GetComponent<PlayerMovement>().enabled = false;
+            rb.gravityScale = 0;
+            rb.velocity = Vector3.zero;
+
+            // When the player is moving against a wall to their right
+            if (wallRight.collider != null)
+            {
+                //They can jump
+                if (hInput.GetButtonDown("Jump"))
+                {
+                    rb.velocity = new Vector2(-jumpStrength, jumpStrength * 1.125f);
+                    Invoke("reset", 0.3f);
+                    rb.gravityScale = baseGravity;
+                }
+                //Climb
+                else if (hugsWall())
+                {
+                    Debug.Log("I would climb");
+                    Invoke("reset", 0.3f);
+                    rb.gravityScale = baseGravity;
+                }
+                //or Fall down
+                else if (hatesWall())
+                {
+                    rb.gravityScale = baseGravity;
+                    rb.AddForce(new Vector2(-jumpStrength * 10, 0));
+                }
+            }
+
+            //same for walls to their left
+            else if (wallLeft.collider != null)
+            {
+                //They can jump
+                if (hInput.GetButtonDown("Jump"))
+                {
+                    rb.velocity = new Vector2(jumpStrength, jumpStrength * 1.125f);
+                    Invoke("reset", 0.3f);
+                    rb.gravityScale = baseGravity;
+                }
+                //Climb
+                else if (hugsWall())
+                {
+                    Debug.Log("I would climb");
+                    Invoke("reset", 0.3f);
+                    rb.gravityScale = baseGravity;
+                }
+                //or Fall down
+                else if (hatesWall())
+                {
+                    rb.gravityScale = baseGravity;
+                    rb.AddForce(new Vector2(jumpStrength * 10, 0));
+                }
+            }
+        }
+        //-------------------------------------
+        //Wall Jump
+        //-------------------------------------
+
+        //When the player is next to a wall and not on the ground and on near an edge (not full wall)
+        else if ((wallRight.collider != null || wallLeft.collider != null) && !grounded)
+        {
+            Debug.Log("I'm at a wall");
             //remove control and reduce gravity
             this.GetComponent<PlayerMovement>().enabled = false;
 
@@ -50,14 +120,15 @@ public class Walljump : MonoBehaviour
             // When the player is moving against a wall to their right
             if (wallRight.collider != null)
             {
-                //They can jump
+                //They can jump away
                 if (hInput.GetButtonDown("Jump"))
                 {
                     rb.velocity = new Vector2(-jumpStrength, jumpStrength * 1.125f);
                     Invoke("reset", 0.3f);
                     rb.gravityScale = baseGravity;
                 }
-                if (hatesWall())
+                //Or let themselves fall
+                else if (hatesWall())
                 {
                     rb.gravityScale = baseGravity;
                     rb.AddForce(new Vector2(-jumpStrength * 10, 0));
@@ -73,7 +144,7 @@ public class Walljump : MonoBehaviour
                     Invoke("reset", 0.3f);
                     rb.gravityScale = baseGravity;
                 }
-                if (hatesWall())
+                else if (hatesWall())
                 {
                     Debug.Log("I hate walls");
                     rb.gravityScale = baseGravity;
