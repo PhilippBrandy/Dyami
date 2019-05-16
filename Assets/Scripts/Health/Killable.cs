@@ -74,12 +74,12 @@ public class Killable : MonoBehaviour
 
         if (health < 0)
         {
-            //if (spawnpoint == null)
-            //{
-            //    Application.LoadLevel(Application.loadedLevel);
-            //}
-            //transform.position = spawnpoint.position;
-            //health = numOfLives;
+            if (spawnpoint == null)
+            {
+                Application.LoadLevel(Application.loadedLevel);
+            }
+            transform.position = spawnpoint.position;
+            health = numOfLives;
         }
     }
 
