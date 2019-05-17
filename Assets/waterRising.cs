@@ -22,6 +22,7 @@ public class waterRising : MonoBehaviour
     void OnTriggerStay2D(Collider2D collision)
     {
         Debug.Log("enter:"+triggerName);
+        //nur wenn der spieler beim savepoint wiederbelebt wird soll triggeranimation mit reset akiviert werden
         if (collision.CompareTag("Player")&& triggerName=="reset")
         {
         triggerAnimation();
@@ -38,6 +39,7 @@ public class waterRising : MonoBehaviour
        
         animatorWater.SetTrigger(triggerName);
         waterfall.SetActive (false);
+        //wenn der spieler beimsavepoint wiederbelebt wird soll der waterfall wieder resetet werden
         if (triggerName == "reset")
         {
             waterfall.SetActive(true);
