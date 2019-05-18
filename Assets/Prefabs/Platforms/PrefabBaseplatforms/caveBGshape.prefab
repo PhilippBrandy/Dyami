@@ -50,7 +50,7 @@ SpriteShapeRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f721134ae6b691145b1d3bba5cb35aa0, type: 2}
+  - {fileID: 2100000, guid: 78d8cb7fb8e284996bd80973b835781f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,8 +87,8 @@ SpriteShapeRenderer:
   - {fileID: 0}
   - {fileID: 0}
   m_LocalAABB:
-    m_Center: {x: -58.467644, y: -8.565155, z: -0.002}
-    m_Extent: {x: 13.598162, y: 14.28331, z: 0.002}
+    m_Center: {x: -58.379135, y: -8.565346, z: -0.002}
+    m_Extent: {x: 13.686668, y: 14.287544, z: 0.002}
 --- !u!114 &3777510174533076262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Spline:
     m_IsOpenEnded: 0
     m_ControlPoints:
-    - position: {x: -48.708107, y: -17.802248, z: 0}
+    - position: {x: -48.082447, y: -18.115088, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
       bevelCutoff: 0
       bevelSize: 0
       spriteIndex: 0
-      corner: 0
+      corner: 1
     - position: {x: -68.66092, y: -19.455086, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
@@ -130,7 +130,7 @@ MonoBehaviour:
       bevelCutoff: 0
       bevelSize: 0
       spriteIndex: 0
-      corner: 0
+      corner: 1
     - position: {x: -48.17853, y: 2.4485948, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
