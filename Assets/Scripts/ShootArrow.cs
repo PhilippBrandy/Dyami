@@ -40,7 +40,9 @@ public class ShootArrow : MonoBehaviour
 
     //audiofiles for telport and shooting
     public AudioSource shootArrow;
-    public AudioSource teleportSound;
+    public AudioSource[] teleportSounds;
+    int soundsIndex;
+    AudioSource curSound;
 
     //Shockwave
     public float shockWaveLength;
@@ -154,7 +156,13 @@ public class ShootArrow : MonoBehaviour
             {
                 collider.enabled = false;
             }
-            teleportSound.Play();
+
+            // sound randomizer
+            soundsIndex = Random.Range(0, teleportSounds.Length);
+            curSound = teleportSounds[soundsIndex];
+            curSound.Play();
+
+
             eagle.SetActive(true);
             Vector3 range = player.transform.position - projectile.transform.position;
             speed = Mathf.Sqrt((Mathf.Pow(range.y, 2)) + (Mathf.Pow(range.x, 2)));
@@ -266,7 +274,7 @@ public class ShootArrow : MonoBehaviour
         isTeleporting = false;
         eagle.SetActive(false);
 
-        
+
     }
 
     //Returns true if the player meets the requirements to teleport and rightclicks
