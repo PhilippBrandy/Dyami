@@ -99,6 +99,17 @@ public class Killable : MonoBehaviour
                // StartCoroutine(Knockback(240, transform.position));
             }
         }
+
+        if (other.CompareTag("instantDeath"))
+        {
+            if (!invincible && !timerIsActive)
+            {
+                health =-1;
+            }
+        }
+
+
+
     }
 
     public IEnumerator Knockback(float knockbackPwr, Vector3 knockbackDir)

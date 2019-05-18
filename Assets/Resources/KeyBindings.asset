@@ -41,5 +41,19 @@ MonoBehaviour:
     Invert: 0
     Sensitivity: 20
     val: 0
+  - Name: Sprint
+    UniqueName: move_sprint
+    Type: 0
+    Positive:
+      Primary: 304
+      Secondary: 307
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1
+    val: 0
   rebindRemoveKey: 27
   forceResetInEditor: 1

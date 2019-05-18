@@ -15,10 +15,10 @@ public class PlayerMovement : MonoBehaviour
 
     public bool jump = false;
 
-    // Update is called once per frame
+ 
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (hInput.GetButton("Sprint"))
         {
             runSpeed = maxSpeed;
             horizontalMove = hInput.GetAxis("Horizontal") * runSpeed;
@@ -33,27 +33,11 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = true;
         }
-
-        //if (GameManager.instance != null)
-        //{
-        //    if (Input.GetKeyDown(GameManager.instance.jump))
-        //    {
-        //        jump = true;
-        //    }
-        //    if (Input.GetKeyDown(GameManager.instance.left))
-        //    {
-        //        jump = false;
-        //    }
-        //    if (Input.GetKeyDown(GameManager.instance.right))
-        //    {
-        //        jump = false;
-        //    }
-        //}
     }
 
     private void FixedUpdate()
     {
-        //Move the character
+
         controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
         jump = false;
     }
