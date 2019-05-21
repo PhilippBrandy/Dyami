@@ -29,7 +29,10 @@ public class ShootArrow : MonoBehaviour
     private bool isTeleporting = false;
     //Is true when player has to wait to shoot again
     private bool shootDelay = false;
+    //Arrow without glow effect
     public Sprite normal_arrow;
+    //Defines how many arrows can exist at once
+    public int maxArrows = 5;
 
     private Vector3 playerScale;
     private Vector3 arrowVelocity;
@@ -114,7 +117,7 @@ public class ShootArrow : MonoBehaviour
             NormalArms.SetActive(false);
             anim.SetTrigger(shootHash);
 
-            if (arrows.Count >= 5)
+            if (arrows.Count >= maxArrows)
             {
                 Destroy(arrows.Last.Value);
                 arrows.RemoveLast();
