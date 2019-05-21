@@ -123,6 +123,7 @@ public class ShootArrow : MonoBehaviour
             if (projectile != null) projectile.GetComponent<SpriteRenderer>().sprite = normal_arrow;
             projectile = Instantiate(arrow);
             arrows.AddFirst(projectile);
+            if (!canTeleport) projectile.GetComponent<SpriteRenderer>().sprite = normal_arrow;
             shootDelay = true;
             Invoke("rechargeBow", 1);
 
