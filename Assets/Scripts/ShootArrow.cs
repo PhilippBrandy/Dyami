@@ -25,11 +25,17 @@ public class ShootArrow : MonoBehaviour
     public Transform headLookAt;
     public GameObject AnimArms;
     public GameObject NormalArms;
+    //Is true when player is currently teleporting
     private bool isTeleporting = false;
+    //Is true when player has to wait to shoot again
+    private bool shootDelay = false;
+    public Sprite normal_arrow;
 
     private Vector3 playerScale;
     private Vector3 arrowVelocity;
     private float speed;
+
+    private LinkedList<GameObject> arrows = new LinkedList<GameObject>();
 
     bool facesRight = true;
     int shootHash = Animator.StringToHash("Shoot");
@@ -41,11 +47,12 @@ public class ShootArrow : MonoBehaviour
     //audiofiles for telport and shooting
     public AudioSource shootArrow;
     public AudioSource[] teleportSounds;
-    int soundsIndex;
+    int soundsIndex = 0;
     AudioSource curSound;
 
     //Shockwave
     public float shockWaveLength;
+
 
     private void Start()
     {
@@ -99,7 +106,7 @@ public class ShootArrow : MonoBehaviour
 
 
         //Shoot Arrow
-        if (Input.GetMouseButtonDown(0) && !isTeleporting)
+        if (Input.GetMouseButtonDown(0) && !isTeleporting && !shootDelay)
         {
             shootArrow.Play();
             if (canTeleport) hasShot = true;
@@ -107,9 +114,18 @@ public class ShootArrow : MonoBehaviour
             NormalArms.SetActive(false);
             anim.SetTrigger(shootHash);
 
-            Destroy(projectile);
+            if (arrows.Count >= 5)
+            {
+                Destroy(arrows.Last.Value);
+                arrows.RemoveLast();
+            }
             hit = false;
+            if (projectile != null) projectile.GetComponent<SpriteRenderer>().sprite = normal_arrow;
             projectile = Instantiate(arrow);
+            arrows.AddFirst(projectile);
+            shootDelay = true;
+            Invoke("rechargeBow", 1);
+
 
             //make arrow strength independent of distance:
             float div = 1f;
@@ -139,7 +155,7 @@ public class ShootArrow : MonoBehaviour
         if (playerTeleports())
         {
             isTeleporting = true;
-            player.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            player.transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
             Rigidbody2D arrowRB = projectile.GetComponent<Rigidbody2D>();
             if (arrowRB != null)
             {
@@ -262,6 +278,8 @@ public class ShootArrow : MonoBehaviour
         //end force-code
 
         Destroy(projectile);
+        arrows.Remove(projectile);
+
         player.transform.localScale = playerScale;
         //player.transform.position = new Vector3(projectile.transform.position.x, projectile.transform.position.y + 0.5f, 0.0f);
         player.GetComponent<Killable>().enabled = true;
@@ -281,5 +299,11 @@ public class ShootArrow : MonoBehaviour
     public bool playerTeleports()
     {
         return (Input.GetMouseButtonDown(1) && projectile != null && canTeleport && learnedTeleporting && hasShot && !isTeleporting);
+    }
+
+    //Makes player able to shoot an arrow again
+    private void rechargeBow()
+    {
+        shootDelay = false;
     }
 }
