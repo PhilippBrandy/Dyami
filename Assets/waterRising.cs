@@ -34,6 +34,7 @@ public class waterRising : MonoBehaviour
         if (triggerName == "reset")
         {
             waterfall.SetActive(true);
+            Debug.Log("trigger reset:" + TreesReset.name);
             TreesReset.SetTrigger("reset");
         }
     }

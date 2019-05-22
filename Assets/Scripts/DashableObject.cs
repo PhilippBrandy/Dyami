@@ -19,15 +19,10 @@ public class DashableObject : MonoBehaviour
     // Update is called once per frame
     public void triggerAnimation()
     {
-        Debug.Log("trigger water"+letWaterRise);
-        //letWaterRise soll überprüfen ob water schon getriggered wurde
-        if (letWaterRise == true)
-        {
-            Debug.Log("trigger water");
-
+        if (letWaterRise == true) { 
             trigger.triggerAnimation();
-        }
-        letWaterRise = false;
+       }
         animator.SetTrigger(triggerName);
+        
     }
 }
