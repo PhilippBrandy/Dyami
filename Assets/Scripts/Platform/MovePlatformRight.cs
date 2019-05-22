@@ -8,14 +8,15 @@ public class MovePlatformRight : MonoBehaviour
     public GameObject player;
     bool isMoving = false;
 
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player") && !isMoving)
         {
             player.transform.parent = platform.transform;
             isMoving = true;
-            platform.GetComponent<MovePlatform>().moveRight = true;
-            platform.GetComponent<MovePlatform>().moveLeft = false;
+            platform.GetComponent<MovePlatformByPlayer>().moveRight = true;
+            platform.GetComponent<MovePlatformByPlayer>().moveLeft = false;
             StartCoroutine(StartPlatform());
         }
     }
@@ -25,7 +26,7 @@ public class MovePlatformRight : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             player.transform.parent = null;
-            platform.GetComponent<MovePlatform>().moveRight = false;
+            platform.GetComponent<MovePlatformByPlayer>().moveRight = false;
             isMoving = false;
         }
     }
@@ -33,7 +34,7 @@ public class MovePlatformRight : MonoBehaviour
     {
         while (isMoving)
         {
-            yield return StartCoroutine(platform.GetComponent<MovePlatform>().MovePFRightByPlayer());
+            yield return StartCoroutine(platform.GetComponent<MovePlatformByPlayer>().MovePFRightByPlayer());
         }
     }
 }
