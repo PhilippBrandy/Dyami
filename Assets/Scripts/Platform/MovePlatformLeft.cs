@@ -14,8 +14,8 @@ public class MovePlatformLeft : MonoBehaviour
         {
             player.transform.parent = platform.transform;
             isMoving = true;
-            platform.GetComponent<MovePlatform>().moveLeft = true;
-            platform.GetComponent<MovePlatform>().moveRight = false;
+            platform.GetComponent<MovePlatformByPlayer>().moveLeft = true;
+            platform.GetComponent<MovePlatformByPlayer>().moveRight = false;
             StartCoroutine(StartPlatform());
         }
     }
@@ -25,7 +25,7 @@ public class MovePlatformLeft : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             player.transform.parent = null;
-            platform.GetComponent<MovePlatform>().moveLeft = false;
+            platform.GetComponent<MovePlatformByPlayer>().moveLeft = false;
             isMoving = false;
         }
     }
@@ -34,7 +34,7 @@ public class MovePlatformLeft : MonoBehaviour
     {
         while (isMoving)
         {
-            yield return StartCoroutine(platform.GetComponent<MovePlatform>().MovePFLeftByPlayer());
+            yield return StartCoroutine(platform.GetComponent<MovePlatformByPlayer>().MovePFLeftByPlayer());
         }
     }
 }
