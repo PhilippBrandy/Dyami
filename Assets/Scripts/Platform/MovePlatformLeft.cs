@@ -16,18 +16,19 @@ public class MovePlatformLeft : MonoBehaviour
             isMoving = true;
             platform.GetComponent<MovePlatformByPlayer>().moveLeft = true;
             platform.GetComponent<MovePlatformByPlayer>().moveRight = false;
+            platform.GetComponent<MoveToStart>().isPFMovingLeft(true);
+            platform.GetComponent<MoveToStart>().isPFMovingRight(false);
             StartCoroutine(StartPlatform());
         }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
-        {
-            player.transform.parent = null;
-            platform.GetComponent<MovePlatformByPlayer>().moveLeft = false;
-            isMoving = false;
-        }
+        player.transform.parent = null;
+        platform.GetComponent<MovePlatformByPlayer>().moveLeft = false;
+        platform.GetComponent<MoveToStart>().isPFMovingLeft(false);
+        platform.GetComponent<MoveToStart>().isPFMovingRight(false);
+        isMoving = false;
     }
 
     IEnumerator StartPlatform()

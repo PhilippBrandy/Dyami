@@ -8,7 +8,6 @@ public class MovePlatformRight : MonoBehaviour
     public GameObject player;
     bool isMoving = false;
 
-
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player") && !isMoving)
@@ -17,19 +16,21 @@ public class MovePlatformRight : MonoBehaviour
             isMoving = true;
             platform.GetComponent<MovePlatformByPlayer>().moveRight = true;
             platform.GetComponent<MovePlatformByPlayer>().moveLeft = false;
+            platform.GetComponent<MoveToStart>().isPFMovingRight(true);
+            platform.GetComponent<MoveToStart>().isPFMovingLeft(false);
             StartCoroutine(StartPlatform());
         }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
-        {
-            player.transform.parent = null;
-            platform.GetComponent<MovePlatformByPlayer>().moveRight = false;
-            isMoving = false;
-        }
+        player.transform.parent = null;
+        platform.GetComponent<MovePlatformByPlayer>().moveRight = false;
+        platform.GetComponent<MoveToStart>().isPFMovingRight(false);
+        platform.GetComponent<MoveToStart>().isPFMovingLeft(false);
+        isMoving = false;
     }
+
     IEnumerator StartPlatform()
     {
         while (isMoving)
