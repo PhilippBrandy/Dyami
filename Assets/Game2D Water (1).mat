@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Game2D Water Day
-  m_Shader: {fileID: 4800000, guid: 13121cb2798342840841b50208da77e6, type: 3}
-  m_ShaderKeywords: Water2D_ApplyEmissionColor Water2D_ColorGradient Water2D_Refraction
-    Water2D_WaterNoise Water2D_WaterTexture
+  m_Name: Game2D Water (1)
+  m_Shader: {fileID: 4800000, guid: 9f07c697d7337b748acd7568473a26ce, type: 3}
+  m_ShaderKeywords: Water2D_ApplyEmissionColor Water2D_Reflection Water2D_Refraction
+    Water2D_WaterNoise Water2D_WaterTexture Water2D_WaterTextureScroll
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -22,7 +22,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _NoiseTexture:
-        m_Texture: {fileID: 2800000, guid: 8352fe382042e69448062616a20d9e11, type: 2}
+        m_Texture: {fileID: 2800000, guid: 158ac9074a070ee48929f920ed2cf878, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ReflectionTexture:
@@ -46,21 +46,21 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _WaterTexture:
-        m_Texture: {fileID: 2800000, guid: afaf2fef58e660e44b422e0d7709854d, type: 3}
-        m_Scale: {x: 0.4, y: 0.4}
+        m_Texture: {fileID: 2800000, guid: edd25c26df1aeaf4f9abc7621c5daeca, type: 3}
+        m_Scale: {x: 0.18, y: 0.1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _DstBlend: 0
     - _Mode: 2000
-    - _ReflectionNoiseSpeed: 0.055
-    - _ReflectionNoiseStrength: 0.022
-    - _ReflectionVisibility: 0.65
+    - _ReflectionNoiseSpeed: 0.075
+    - _ReflectionNoiseStrength: 0.02
+    - _ReflectionVisibility: 0.43
     - _RefractionAmountOfBending: 0
     - _RefractionNoiseSpeed: 0.075
-    - _RefractionNoiseStrength: 0.015
+    - _RefractionNoiseStrength: 0.0197
     - _SrcBlend: 1
     - _SubmergeLevel: 0.95
-    - _SurfaceLevel: 0.975
+    - _SurfaceLevel: 0.9
     - _SurfaceNoiseSpeed: 0.025
     - _SurfaceNoiseStrength: 0.025
     - _SurfaceTextureOpacity: 0.5
@@ -70,24 +70,24 @@ Material:
     - _SurfaceTextureSheetInverseColumns: 1
     - _SurfaceTextureSheetInverseRows: 1
     - _SurfaceTextureSheetRows: 1
-    - _Water2D_IsColorGradientEnabled: 1
+    - _Water2D_IsColorGradientEnabled: 0
     - _Water2D_IsEmissionColorEnabled: 1
     - _Water2D_IsFakePerspectiveEnabled: 0
-    - _Water2D_IsReflectionEnabled: 0
+    - _Water2D_IsReflectionEnabled: 1
     - _Water2D_IsRefractionEnabled: 1
     - _Water2D_IsSurfaceEnabled: 0
     - _Water2D_IsSurfaceNoiseEnabled: 0
     - _Water2D_IsWaterNoiseEnabled: 1
     - _Water2D_IsWaterSurfaceTextureSheetEnabled: 0
     - _Water2D_IsWaterSurfaceTextureSheetWithLerpEnabled: 0
-    - _Water2D_IsWaterTextureScrollEnabled: 0
+    - _Water2D_IsWaterTextureScrollEnabled: 1
     - _Water2D_IsWaterTextureSheetEnabled: 0
     - _Water2D_IsWaterTextureSheetWithLerpEnabled: 0
-    - _WaterEmissionColorIntensity: 0.175
+    - _WaterEmissionColorIntensity: 0.578
     - _WaterNoiseSpeed: 0.05
-    - _WaterNoiseStrength: 0.246
+    - _WaterNoiseStrength: 0.163
     - _WaterTextureOpacity: 1
-    - _WaterTextureScrollSpeed: 1.11
+    - _WaterTextureScrollSpeed: 6.56
     - _WaterTextureSheetColumns: 1
     - _WaterTextureSheetFramesCount: 1
     - _WaterTextureSheetFramesPerSecond: 0
@@ -96,12 +96,12 @@ Material:
     - _WaterTextureSheetRows: 1
     - _ZWrite: 1
     m_Colors:
-    - _ReflectionNoiseScaleOffset: {r: 5, g: 15, b: 0, a: 0}
-    - _RefractionNoiseScaleOffset: {r: 5.5, g: 3, b: 0, a: 0}
+    - _ReflectionNoiseScaleOffset: {r: 5, g: 14, b: 0, a: 0}
+    - _RefractionNoiseScaleOffset: {r: 8, g: 5, b: 0, a: 0}
     - _SurfaceColor: {r: 0.14, g: 0.54, b: 0.85, a: 0.25}
     - _SurfaceNoiseScaleOffset: {r: 1, g: 1, b: 0, a: 0}
-    - _WaterColor: {r: 0.11, g: 0.64, b: 0.92, a: 0.25}
-    - _WaterColorGradientEnd: {r: 0.61898947, g: 1, b: 0.58823526, a: 0.1764706}
-    - _WaterColorGradientStart: {r: 0.6397059, g: 1, b: 0.9111382, a: 0.11764706}
-    - _WaterEmissionColor: {r: 0.44852942, g: 1, b: 0.9315415, a: 0}
-    - _WaterNoiseScaleOffset: {r: 17, g: 17, b: 0, a: 1.16}
+    - _WaterColor: {r: 0.2891153, g: 0.6464489, b: 0.6886792, a: 0.40784314}
+    - _WaterColorGradientEnd: {r: 0.4117647, g: 0.8039216, b: 1, a: 1}
+    - _WaterColorGradientStart: {r: 0.50980395, g: 0.69803923, b: 0.6431373, a: 1}
+    - _WaterEmissionColor: {r: 1, g: 1, b: 1, a: 0}
+    - _WaterNoiseScaleOffset: {r: 17, g: 17, b: 0, a: 3.29}

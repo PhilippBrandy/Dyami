@@ -93,6 +93,10 @@
 					float4 _WaterTexture_ST;
 					fixed _WaterTextureOpacity;
 
+					#if defined(Water2D_WaterTextureScroll)
+					half _WaterTextureScrollSpeed;
+					#endif
+
 					#if defined(Water2D_WaterNoise)
 						half _WaterNoiseSpeed;
 						half _WaterNoiseStrength;
@@ -254,7 +258,11 @@
 
 				#if Water2D_HasWaterTexture
 					o.waterTextureUV.xy = TRANSFORM_TEX(vertexPositionWorldSpace, _WaterTexture);
-					
+
+					#if defined(Water2D_WaterTextureScroll)
+						o.waterTextureUV.y += _Time.x * _WaterTextureScrollSpeed;
+					#endif
+
 					#if Water2D_HasWaterTextureSheet
 						half waterFrame = fmod(_Time.y * _WaterTextureSheetFramesPerSecond, _WaterTextureSheetFramesCount);
 						half waterCurrentFrame = floor(waterFrame);
@@ -325,9 +333,8 @@
 										float2 reflectionTextureCoordPartiallySubmergedObjects = float2(i.uv.x + reflectionDistortion, 1.0 - ((i.uv.w - _SurfaceLevel) / (_SubmergeLevel - _SurfaceLevel) + reflectionDistortion));
 										fixed4 reflectionColorPartiallySubmergedObjects = tex2D(_ReflectionTexturePartiallySubmergedObjects, reflectionTextureCoordPartiallySubmergedObjects);
 
-										//reflectionColor.rgb += reflectionColorPartiallySubmergedObjects.a * (reflectionColorPartiallySubmergedObjects.rgb - reflectionColor.rgb);
 										reflectionColor.rgb += reflectionColorPartiallySubmergedObjects.rgb - reflectionColor.rgb * reflectionColorPartiallySubmergedObjects.a;
-										reflectionColor.a = saturate(reflectionColor.a + reflectionColorPartiallySubmergedObjects.a); //is it needed??
+										reflectionColor.a = saturate(reflectionColor.a + reflectionColorPartiallySubmergedObjects.a);
 									}
 									
 									reflectionColor *= step(i.uv.z, _ReflectionLowerLimit);
@@ -396,6 +403,7 @@
 							#endif
 
 							#if Water2D_HasWaterTextureSheet
+							
 								i.waterTextureUV.xy = frac(i.waterTextureUV.xy) * float2(_WaterTextureSheetInverseColumns, _WaterTextureSheetInverseRows);
 								#if defined(Water2D_WaterTextureSheetWithLerp)
 									fixed4 currentFrameColor = tex2D(_WaterTexture, float2(i.waterTextureUV.x + i.waterTextureSheetUV.x, i.waterTextureUV.y + i.waterTextureSheetUV.y));

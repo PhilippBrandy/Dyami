@@ -7,6 +7,7 @@
 		[HideInInspector] _WaterColorGradientEnd ("Water Color Gradient End",color) = (1.0,1.0,1.0,0.25)
 		[HideInInspector] _WaterTexture ("Water Texture (RGBA)" , 2D) = "white" {}
 		[HideInInspector] _WaterTextureOpacity ("Water Texture Opacity",range(0,1)) = 0.5
+		[HideInInspector] _WaterTextureScrollSpeed ("Water Texture Scroll Speed", float) = 0.2
 		[HideInInspector] _WaterNoiseSpeed ("Water Noise Speed",float) = 0.025
 		[HideInInspector] _WaterNoiseScaleOffset ("Water Noise Scale Offset",vector) = (1,1,0,0)
 		[HideInInspector] _WaterNoiseStrength ("Water Noise Strength",Range(0.001,1.0)) = 0.025
@@ -70,6 +71,7 @@
 		[HideInInspector] _Water2D_IsWaterNoiseEnabled ("__waterNoiseState",float) = 0.0
 		[HideInInspector] _Water2D_IsWaterTextureSheetEnabled ("__waterTextureSheetState",float) = 0.0
 		[HideInInspector] _Water2D_IsWaterTextureSheetWithLerpEnabled("__waterTextureSheetWithLerpState",float) = 0.0
+		[HideInInspector] _Water2D_IsWaterTextureScrollEnabled("__waterTextureScrollState",float) = 0.0
 		[HideInInspector] _Water2D_IsSurfaceEnabled ("__surfaceState",float) = 0.0
 		[HideInInspector] _Water2D_IsWaterSurfaceTextureSheetEnabled ("__surfaceTextureSheetState",float) = 0.0
 		[HideInInspector] _Water2D_IsWaterSurfaceTextureSheetWithLerpEnabled("__waterSurfaceTextureSheetWithLerpState",float) = 0.0
@@ -106,6 +108,7 @@
 			#pragma shader_feature Water2D_Refraction
 			#pragma shader_feature Water2D_Reflection
 			#pragma shader_feature _ Water2D_WaterTexture Water2D_WaterTextureSheet Water2D_WaterTextureSheetWithLerp
+			#pragma shader_feature Water2D_WaterTextureScroll
 			#pragma shader_feature Water2D_WaterNoise
 			#pragma shader_feature Water2D_Surface
 			#pragma shader_feature _ Water2D_SurfaceTexture Water2D_SurfaceTextureSheet Water2D_SurfaceTextureSheetWithLerp

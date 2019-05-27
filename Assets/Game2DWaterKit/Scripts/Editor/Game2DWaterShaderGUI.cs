@@ -96,6 +96,7 @@ namespace Game2DWaterKit
             public static readonly string WaterTextureKeyword = "Water2D_WaterTexture";
             public static readonly string WaterTextureSheetKeyword = "Water2D_WaterTextureSheet";
             public static readonly string WaterTextureSheetWithLerpKeyword = "Water2D_WaterTextureSheetWithLerp";
+            public static readonly string WaterTextureScrollKeyword = "Water2D_WaterTextureScroll";
             public static readonly string WaterNoiseKeyword = "Water2D_WaterNoise";
             public static readonly string ColorGradientKeyword = "Water2D_ColorGradient";
 
@@ -124,6 +125,7 @@ namespace Game2DWaterKit
         MaterialProperty waterColorGradientEnd = null;
         MaterialProperty waterTexture = null;
         MaterialProperty waterTextureOpacity = null;
+        MaterialProperty waterTextureScrollSpeed = null;
         MaterialProperty waterNoiseSpeed = null;
         MaterialProperty waterNoiseScaleOffset = null;
         MaterialProperty waterNoiseStrength = null;
@@ -190,6 +192,7 @@ namespace Game2DWaterKit
         MaterialProperty surfaceNoiseKeywordState = null;
         MaterialProperty waterColorGradientKeywordState = null;
         MaterialProperty waterColorEmissionKeywordState = null;
+        MaterialProperty waterBodyTextureScrollSpeedKeywordState = null;
 
         #endregion
 
@@ -260,6 +263,7 @@ namespace Game2DWaterKit
             waterTextureSheetFramesCount = FindProperty("_WaterTextureSheetFramesCount", properties);
             waterTextureSheetInverseColumns = FindProperty("_WaterTextureSheetInverseColumns", properties);
             waterTextureSheetInverseRows = FindProperty("_WaterTextureSheetInverseRows", properties);
+            waterTextureScrollSpeed = FindProperty("_WaterTextureScrollSpeed", properties);
 
             //finding surface properties
             surfaceLevel = FindProperty("_SurfaceLevel", properties);
@@ -305,6 +309,7 @@ namespace Game2DWaterKit
             waterBodyNoiseKeywordState = FindProperty("_Water2D_IsWaterNoiseEnabled", properties);
             waterBodyTextureSheetKeywordState = FindProperty("_Water2D_IsWaterTextureSheetEnabled", properties);
             waterBodyTextureSheetWithLerpKeywordState = FindProperty("_Water2D_IsWaterTextureSheetWithLerpEnabled", properties);
+            waterBodyTextureScrollSpeedKeywordState = FindProperty("_Water2D_IsWaterTextureScrollEnabled", properties);
 
             surfaceKeywordState = FindProperty("_Water2D_IsSurfaceEnabled", properties);
             waterSurfaceTextureSheetKeywordState = FindProperty("_Water2D_IsWaterSurfaceTextureSheetEnabled", properties);
@@ -483,6 +488,19 @@ namespace Game2DWaterKit
                     showWaterBodyTextureSheetArea = new AnimBool(false);
                     showWaterBodyTextureSheetArea.valueChanged.AddListener(materialEditor.Repaint);
                 }
+
+                BeginBoxGroup(false, false);
+                EditorGUI.BeginChangeCheck();
+                bool scrollState = EditorGUILayout.ToggleLeft("Enable Texture Scrolling", waterBodyTextureScrollSpeedKeywordState.floatValue == 1.0f);
+                if (EditorGUI.EndChangeCheck())
+                {
+                    materialEditor.RegisterPropertyChangeUndo("enabling texture scrolling");
+                    waterBodyTextureScrollSpeedKeywordState.floatValue = scrollState ? 1.0f : 0.0f;
+                }
+
+                if (scrollState)
+                    materialEditor.FloatProperty(waterTextureScrollSpeed, "Scroll Speed");
+                EndBoxGroup();
 
                 BeginBoxGroup(false, false);
                 EditorGUI.BeginChangeCheck();
@@ -1166,6 +1184,7 @@ namespace Game2DWaterKit
             SetKeyword(material, Styles.WaterTextureSheetKeyword, hasWaterBodyTexture && isWaterBodyTextureSheetEnabled && !isWaterBodyTextureSheetWithLerpEnabled);
             SetKeyword(material, Styles.WaterTextureSheetWithLerpKeyword, hasWaterBodyTexture && isWaterBodyTextureSheetEnabled && isWaterBodyTextureSheetWithLerpEnabled);
             SetKeyword(material, Styles.WaterNoiseKeyword, hasWaterBodyTexture && material.GetFloat("_Water2D_IsWaterNoiseEnabled") == 1.0f);
+            SetKeyword(material, Styles.WaterTextureScrollKeyword, hasWaterBodyTexture && material.GetFloat("_Water2D_IsWaterTextureScrollEnabled") == 1.0f);
 
             //Refraction & Reflection Keywords
             bool isReflectionEnabled = !isRenderModeSetToTransparent && material.GetFloat("_Water2D_IsReflectionEnabled") == 1.0f;
