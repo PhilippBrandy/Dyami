@@ -6,7 +6,6 @@ public class Spawnpoint : MonoBehaviour
 {
 
     private long lastGameSave = 0;
-    public Killable player;
 
     // Use this for initialization
     void Start()
@@ -18,12 +17,7 @@ public class Spawnpoint : MonoBehaviour
     void Update()
     {
         
-            if (Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("e pressed");
-            player.health = 0;
-            
-        }
+          
 
     }
 

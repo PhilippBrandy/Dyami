@@ -14,7 +14,7 @@ public class Killable : MonoBehaviour
 
     public Transform spawnpoint;
     private int count = 10;
-
+    private IEnumerator coroutine;
     // Invulnerability after getting damaged
     bool invincible = false;
     public float secondsInvulnerable = 3f;
@@ -31,9 +31,24 @@ public class Killable : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         
     }
-
+    IEnumerator SetTimeDelayed(float delayTime)
+    {
+        Debug.Log("animation triggered");
+       
+        yield return new WaitForSeconds(delayTime);
+    }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("e pressed");
+           // numOfLives = -1;
+            health--;
+            
+            
+           // numOfLives =1;
+        }
+
 
         if (health > numOfLives)
         {
@@ -82,6 +97,8 @@ public class Killable : MonoBehaviour
             health = numOfLives;
         }
     }
+
+    
 
     // DamageTrigger
     private void OnTriggerEnter2D(Collider2D other)

@@ -159,7 +159,7 @@ public class ShootArrow : MonoBehaviour
         if (playerTeleports())
         {
             isTeleporting = true;
-            player.transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
+            player.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             Rigidbody2D arrowRB = projectile.GetComponent<Rigidbody2D>();
             if (arrowRB != null)
             {
