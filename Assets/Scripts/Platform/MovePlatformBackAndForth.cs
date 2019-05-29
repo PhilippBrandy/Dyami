@@ -74,10 +74,10 @@ public class MovePlatformBackAndForth : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
-        {
+        //if (col.CompareTag("Player"))
+        //{
             player.transform.parent = null;
-        }
+        //}
     }
 
     // if the PF should be stopped by a trigger

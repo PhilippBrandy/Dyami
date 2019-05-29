@@ -49,12 +49,9 @@ public class ShootArrow : MonoBehaviour
 
     //audiofiles for telport and shooting
     public AudioSource shootArrow;
-    //public AudioSource[] teleportSounds;
     public AudioSource audioSource;
     public AudioClip[] audioClips;
-
     int soundsIndex = 0;
-    AudioSource curSound;
 
     //Shockwave
     public float shockWaveLength;
@@ -106,9 +103,6 @@ public class ShootArrow : MonoBehaviour
             bowAimAt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             bowAimAt2.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
-
-
-
 
 
         //Shoot Arrow
@@ -185,21 +179,6 @@ public class ShootArrow : MonoBehaviour
             audioSource.PlayOneShot(audioClips[soundsIndex]);
             //curSound = teleportSounds[soundsIndex];
             //curSound.Play();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             eagle.SetActive(true);
             Vector3 range = player.transform.position - projectile.transform.position;
