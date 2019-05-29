@@ -49,7 +49,10 @@ public class ShootArrow : MonoBehaviour
 
     //audiofiles for telport and shooting
     public AudioSource shootArrow;
-    public AudioSource[] teleportSounds;
+    //public AudioSource[] teleportSounds;
+    public AudioSource audioSource;
+    public AudioClip[] audioClips;
+
     int soundsIndex = 0;
     AudioSource curSound;
 
@@ -178,9 +181,24 @@ public class ShootArrow : MonoBehaviour
             }
 
             // sound randomizer
-            soundsIndex = Random.Range(0, teleportSounds.Length);
-            curSound = teleportSounds[soundsIndex];
-            curSound.Play();
+            soundsIndex = Random.Range(0, audioClips.Length);
+            audioSource.PlayOneShot(audioClips[soundsIndex]);
+            //curSound = teleportSounds[soundsIndex];
+            //curSound.Play();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             eagle.SetActive(true);
