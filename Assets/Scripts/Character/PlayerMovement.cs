@@ -14,10 +14,13 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0f;
 
     public bool jump = false;
+    bool canMove = true;
 
- 
+
     void Update()
     {
+        Debug.Log(canMove);
+
         if (hInput.GetButton("Sprint"))
         {
             runSpeed = maxSpeed;
@@ -37,8 +40,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (canMove)
+        {
+            controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
+            jump = false;
+        }
+    }
 
-        controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
-        jump = false;
+    public void DisablePlayerMovement()
+    {
+        canMove = false;
+    }
+
+    public void EnablePlayerMovement()
+    {
+        canMove = true;
     }
 }
