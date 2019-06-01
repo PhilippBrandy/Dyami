@@ -14,29 +14,34 @@ public class Killable : MonoBehaviour
 
     public Transform spawnpoint;
     private int count = 10;
-    private IEnumerator coroutine;
 
     // Invulnerability after getting damaged
     bool invincible = false;
-    public float secondsInvulnerable = 3f;
+    public float secondsInvulnerable = 2f;
     float timer = 0.0f;
     bool timerIsActive = false;
 
     // push player away from damaging source
     Rigidbody2D rb;
-    public float knockDur = 0.01f;
+    public const int HORIZONTAL_FORCE = 10000;
+    public const int VERTICAL_FORCE = 5000;
+    // player can*t move during knockback
+    float knockBackTimer = 0.0f;
+    public float secondsKnockout = 2f;
+    bool knockoutTimerIsActive = false;
+
 
     void Start()
     {
         health = numOfLives;
         rb = GetComponent<Rigidbody2D>();
-        
+
     }
 
     IEnumerator SetTimeDelayed(float delayTime)
     {
         Debug.Log("animation triggered");
-       
+
         yield return new WaitForSeconds(delayTime);
     }
 
@@ -57,6 +62,22 @@ public class Killable : MonoBehaviour
                 timer = 0.0f;
             }
         }
+
+
+        if (knockoutTimerIsActive)
+        {
+            timer += Time.deltaTime;
+            this.GetComponent<PlayerMovement>().DisablePlayerMovement();
+            if (timer >= secondsKnockout)
+            {
+                knockoutTimerIsActive = false;
+                invincible = false;
+                timer = 0.0f;
+                this.GetComponent<PlayerMovement>().EnablePlayerMovement();
+            }
+        }
+
+
 
         for (int i = 0; i < lives.Length; i++)
         {
@@ -102,8 +123,7 @@ public class Killable : MonoBehaviour
                 // for invulnerability
                 invincible = true;
                 timerIsActive = true;
-                
-               // StartCoroutine(Knockback(240, transform.position));
+                Knockback(transform.position, other.transform.position);
             }
         }
 
@@ -111,7 +131,7 @@ public class Killable : MonoBehaviour
         {
             if (!invincible && !timerIsActive)
             {
-                health =-1;
+                health = -1;
             }
         }
     }
@@ -121,15 +141,20 @@ public class Killable : MonoBehaviour
         health--;
     }
 
-    public IEnumerator Knockback(float knockbackPwr, Vector3 knockbackDir)
+    public void Knockback(Vector3 playerPosition, Vector3 damagingObjPosition)
     {
-        float timer = 0;
-        while (knockDur > timer)
+        knockoutTimerIsActive = true;
+
+        if (playerPosition.x > damagingObjPosition.x)
         {
-            timer += Time.deltaTime;
-            //rb.AddForce(new Vector3(knockbackDir.x * -100, knockbackDir.y * knockbackPwr * -1, transform.position.z));
-            //rb.AddForce(new Vector3(knockbackDir.x * -100, knockbackDir.y * knockbackPwr * -100, transform.position.z));
+            rb.AddForce(new Vector3(HORIZONTAL_FORCE, VERTICAL_FORCE, 0));
+
         }
-        yield return 0;
+
+        else if (playerPosition.x < damagingObjPosition.x)
+        {
+            rb.AddForce(new Vector3(-HORIZONTAL_FORCE, VERTICAL_FORCE, 0));
+        }
+        this.GetComponent<CharacterController2D>().animBody.SetFloat("Speed", 0.0f);
     }
 }
