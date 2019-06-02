@@ -78,6 +78,9 @@
 		[HideInInspector] _Water2D_IsSurfaceNoiseEnabled ("__surfaceNoiseState",float) = 0.0
 		[HideInInspector] _Water2D_IsColorGradientEnabled ("__colorGradientState",float) = 0.0
 		[HideInInspector] _Water2D_IsEmissionColorEnabled("__emissionColorState",float) = 0.0
+
+		// Stencil Options
+		[Enum(None,0,Visible Inside Mask,4,Visible Outside Mask,5)] _SpriteMaskInteraction ("Sprite Mask Interaction", Int) = 0
 	}
 
 SubShader {
@@ -90,6 +93,12 @@ SubShader {
 		Blend [_SrcBlend] [_DstBlend]
 		ZWrite [_ZWrite]
 		Cull off
+		
+		Stencil
+		{
+			Ref 1
+			Comp [_SpriteMaskInteraction]
+		}
 
 	Pass {
 		Name "FORWARD"

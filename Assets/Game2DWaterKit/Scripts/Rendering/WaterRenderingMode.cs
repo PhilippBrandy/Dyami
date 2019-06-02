@@ -116,7 +116,7 @@
 
         private static RenderTexture GetTemporaryRenderTexture(int width, int height,FilterMode filterMode)
         {
-            RenderTexture renderTexture = RenderTexture.GetTemporary(width, height, 16);
+            RenderTexture renderTexture = RenderTexture.GetTemporary(width, height, 24);
             renderTexture.filterMode = filterMode;
             return renderTexture;
         }

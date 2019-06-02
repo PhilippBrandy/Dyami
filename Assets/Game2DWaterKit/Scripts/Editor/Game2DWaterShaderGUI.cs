@@ -178,6 +178,7 @@ namespace Game2DWaterKit
 
         // Blending state
         MaterialProperty blendMode = null;
+        MaterialProperty spriteMaskInteractionProperty = null;
 
         // Some of the water shader keywords state
         MaterialProperty fakePerspectiveWaterKeywordState = null;
@@ -300,6 +301,7 @@ namespace Game2DWaterKit
             //finding other properties
             noiseTexture = FindProperty("_NoiseTexture", properties);
             blendMode = FindProperty("_Mode", properties);
+            spriteMaskInteractionProperty = FindProperty("_SpriteMaskInteraction", properties);
 
             fakePerspectiveWaterKeywordState = FindProperty("_Water2D_IsFakePerspectiveEnabled", properties);
             waterColorGradientKeywordState = FindProperty("_Water2D_IsColorGradientEnabled", properties);
@@ -356,7 +358,15 @@ namespace Game2DWaterKit
 
             EditorGUI.BeginChangeCheck();
             {
-                DoBlendModePopup();
+                bool hasDistortionEffect = (!surfaceNoiseKeywordState.hasMixedValue && material.IsKeywordEnabled(Styles.SurfaceNoiseKeyword))
+                     || (!waterBodyNoiseKeywordState.hasMixedValue && material.IsKeywordEnabled(Styles.WaterNoiseKeyword))
+                     || (!refractionKeywordState.hasMixedValue && material.IsKeywordEnabled(Styles.RefractionKeyword))
+                     || (!reflectionKeywordState.hasMixedValue && material.IsKeywordEnabled(Styles.ReflectionKeyword));
+
+                if (hasDistortionEffect)
+                    DrawSaveNoiseTextureAsAssetBox(material);
+
+                DoBlendModePopup(material);
                 DoWaterBodyArea(material);
                 DoWaterSurfaceArea();
                 if (material.shader.name != "Game2DWaterKit/Unlit")
@@ -377,13 +387,9 @@ namespace Game2DWaterKit
                         DoWaterReflectionArea();
                     }
                 }
-                if ((!surfaceNoiseKeywordState.hasMixedValue && material.IsKeywordEnabled(Styles.SurfaceNoiseKeyword))
-                     || (!waterBodyNoiseKeywordState.hasMixedValue && material.IsKeywordEnabled(Styles.WaterNoiseKeyword))
-                     || (!refractionKeywordState.hasMixedValue && material.IsKeywordEnabled(Styles.RefractionKeyword))
-                     || (!reflectionKeywordState.hasMixedValue && material.IsKeywordEnabled(Styles.ReflectionKeyword)))
-                {
+
+                if (hasDistortionEffect)
                     DoNoiseTextureSettingsArea(material);
-                }
             }
 
             if (undoRedoPerformed)
@@ -432,9 +438,32 @@ namespace Game2DWaterKit
             EditorGUILayout.EndFadeGroup();
         }
 
-        void DoBlendModePopup()
+        private void DrawSaveNoiseTextureAsAssetBox(UnityEngine.Material material)
+        {
+            if (noiseTexture.textureValue != null)
+            {
+                bool textureAssetAlreadyExist = AssetDatabase.Contains(noiseTexture.textureValue);
+                bool materialAssetAlreadyExist = AssetDatabase.Contains(material);
+
+                if (materialAssetAlreadyExist && !textureAssetAlreadyExist)
+                {
+                    BeginBoxGroup(true,false);
+                    EditorGUILayout.HelpBox("The material is saved as an asset in your project. Please save the noise texture as well! Otherwise, the distortion effects might stop working at runtime!", MessageType.Warning);
+                    if (GUILayout.Button("Save Noise Texture"))
+                    {
+                        string materialPath = System.IO.Path.ChangeExtension(AssetDatabase.GetAssetPath(material), null);
+                        AssetDatabase.CreateAsset(noiseTexture.textureValue, materialPath + "_noiseTexture.asset");
+                    }
+                    EndBoxGroup();
+                }
+            }
+        }
+
+        void DoBlendModePopup(UnityEngine.Material material)
         {
             BeginBoxGroup(true, false);
+
+            // Rendering Mode
             EditorGUI.showMixedValue = blendMode.hasMixedValue;
             BlendMode mode = (BlendMode)blendMode.floatValue;
             EditorGUI.BeginChangeCheck();
@@ -445,6 +474,16 @@ namespace Game2DWaterKit
                 blendMode.floatValue = (float)mode;
             }
             EditorGUI.showMixedValue = false;
+
+            // Rendering Queue
+            materialEditor.RenderQueueField();
+
+            // Sprite Mask Interaction
+            materialEditor.ShaderProperty(spriteMaskInteractionProperty, "Mask Interaction");
+
+            if (material.renderQueue != 3000)
+                EditorGUILayout.HelpBox("Material render queue should be set to \"Transparent\" for the sprite mask interaction to work properly!", MessageType.Info);
+
             EndBoxGroup();
         }
 
@@ -1143,9 +1182,8 @@ namespace Game2DWaterKit
                     BeginBoxGroup(true, false);
                     if(GUILayout.Button("Fix Noise Texture"))
                     {
-                        string materialName = System.IO.Path.GetFileNameWithoutExtension(AssetDatabase.GetAssetPath(material));
-                        string prefabsPath = EditorPrefs.GetString("Water2D_Paths_PrefabUtility_Path");
-                        AssetDatabase.CreateAsset(noiseTex, prefabsPath + materialName + "_noiseTexture.asset");
+                        string materialPath = System.IO.Path.ChangeExtension(AssetDatabase.GetAssetPath(material), null);
+                        AssetDatabase.CreateAsset(noiseTexture.textureValue, materialPath + "_noiseTexture.asset");
                     }
                     EndBoxGroup();
                 }
@@ -1161,7 +1199,7 @@ namespace Game2DWaterKit
                 material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
                 material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
                 material.SetInt("_ZWrite", 0);
-                material.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
+                //material.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
             }
             else
             {
@@ -1169,7 +1207,7 @@ namespace Game2DWaterKit
                 material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
                 material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
                 material.SetInt("_ZWrite", 1);
-                material.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Geometry;
+                //material.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Geometry;
             }
         }
 
