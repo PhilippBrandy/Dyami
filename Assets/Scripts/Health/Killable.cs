@@ -47,6 +47,11 @@ public class Killable : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            health--;
+        }
+
         if (health > numOfLives)
         {
             health = numOfLives;
