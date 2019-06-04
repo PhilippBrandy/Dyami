@@ -865,9 +865,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb37248bcbb50b4eaef6932a7d113b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vignette: {fileID: 5725817860110514004}
+  openEye: {fileID: 5725817860110514004}
   eyeGlow: {fileID: 1418832426}
   eyehandler: {fileID: 616017125}
+  stoneEye: {fileID: 1673726405}
+  eyeTarget: {fileID: 938356033}
 --- !u!1 &1869085591
 GameObject:
   m_ObjectHideFlags: 0
