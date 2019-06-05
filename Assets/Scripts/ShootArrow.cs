@@ -220,6 +220,7 @@ public class ShootArrow : MonoBehaviour
                     {
                         projectile.GetComponent<Transform>().SetParent(iHitThis[0].GetComponent<Transform>());
                     }
+                    projectile.GetComponent<Transform>().localScale = new Vector3(2, 2, 2);
                     Destroy(projectile.GetComponent<Rigidbody2D>());
                     Collider2D[] colliders = projectile.GetComponents<Collider2D>();
                     for (int i = 0; i < colliders.Length; i++)
@@ -306,5 +307,10 @@ public class ShootArrow : MonoBehaviour
     private void rechargeBow()
     {
         shootDelay = false;
+    }
+
+    public LinkedList<GameObject> getArrows()
+    {
+        return arrows;
     }
 }

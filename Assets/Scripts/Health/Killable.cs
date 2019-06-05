@@ -15,6 +15,9 @@ public class Killable : MonoBehaviour
     public Transform spawnpoint;
     private int count = 10;
 
+    //Shows if player is in the death anymation or not (true = no in death animation)
+    private bool respawned = true;
+
     // Invulnerability after getting damaged
     bool invincible = false;
     public float secondsInvulnerable = 2f;
@@ -105,14 +108,12 @@ public class Killable : MonoBehaviour
             }
         }
 
-        if (health < 0)
+        if (health < 0 && respawned)
         {
-            if (spawnpoint == null)
-            {
-                Application.LoadLevel(Application.loadedLevel);
-            }
-            transform.position = spawnpoint.position;
-            health = numOfLives;
+            respawned = false;
+            GetComponentInParent<PlayerMovement>().enabled = false;
+            Invoke("respawn",1);
+
         }
     }
 
@@ -161,5 +162,24 @@ public class Killable : MonoBehaviour
             rb.AddForce(new Vector3(-HORIZONTAL_FORCE, VERTICAL_FORCE, 0));
         }
         this.GetComponent<CharacterController2D>().animBody.SetFloat("Speed", 0.0f);
+    }
+
+    private void respawn()
+    {
+        if (spawnpoint == null)
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+        LinkedList<GameObject> arrows = GetComponentInParent<ShootArrow>().getArrows();
+        foreach (GameObject arrow in arrows)
+        {
+            Destroy(arrow);
+        }
+        arrows.Clear();
+
+        transform.position = spawnpoint.position;
+        health = numOfLives;
+        GetComponentInParent<PlayerMovement>().enabled = true;
+        respawned = true;
     }
 }

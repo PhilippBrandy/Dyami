@@ -12,6 +12,8 @@ public class Walljump : MonoBehaviour
     private Rigidbody2D rb;
     private bool grounded;
 
+    private bool wasOnWall;
+
     RaycastHit2D wallRight, wallLeft, edgeRight, edgeLeft, nearGround;
 
 
@@ -46,6 +48,7 @@ public class Walljump : MonoBehaviour
         if (((wallRight.collider != null && edgeRight.collider == null) || (wallLeft.collider != null && edgeLeft.collider == null)) && rb.velocity.y <= 0 && nearGround.collider == null)
         {
             Debug.Log("I'm at an edge");
+            wasOnWall = true;
             //remove control and gravity
             this.GetComponent<PlayerMovement>().enabled = false;
             rb.gravityScale = 0.0f;
@@ -111,6 +114,7 @@ public class Walljump : MonoBehaviour
         else if ((wallRight.collider != null || wallLeft.collider != null) && nearGround.collider == null)
         {
             Debug.Log("I'm at a wall");
+            wasOnWall = true;
             //remove control and reduce gravity
             this.GetComponent<PlayerMovement>().enabled = false;
 
@@ -156,9 +160,9 @@ public class Walljump : MonoBehaviour
                 }
             }
         }
-        if (grounded)
-        {
+        else if (wasOnWall) {
             reset();
+            wasOnWall = false;
             rb.gravityScale = baseGravity;
         }
         if (this.GetComponent<ShootArrow>().playerTeleports())
