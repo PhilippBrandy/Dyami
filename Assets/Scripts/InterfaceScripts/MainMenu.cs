@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("TUTORIAL+1LVL");
+        SceneManager.LoadScene("Tutorial_Rework");
     }
 
     public void LoadGameUI()
