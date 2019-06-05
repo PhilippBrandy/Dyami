@@ -10,6 +10,8 @@ public class ActivateAbility : MonoBehaviour
     public Animator featherAnim;
     private bool featherpower;
     public GameObject textObject;
+    public GameObject playerPointLight;
+    public string featherTrigger;
   
     // Start is called before the first frame update
     void Start()
@@ -34,19 +36,20 @@ void Update()
             characterWeapon.learnedTeleporting = true;
              if (featherpower == true)
         {
-            featherAnim.SetTrigger("Start");
+            featherAnim.SetTrigger(featherTrigger);
 
         }
 
         }
-       
+       Invoke("removeText", 20);
     }
     void OnTriggerExit2D(Collider2D collision)
     {
         feather.SetActive(false);
+        playerPointLight.SetActive(true);
         featherpower = false;
         textObject.SetActive(true);
-        Invoke("removeText", 20);
+        
 
         // Destroy(feather);
     }
