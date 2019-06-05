@@ -36,20 +36,21 @@ void Update()
             characterWeapon.learnedTeleporting = true;
              if (featherpower == true)
         {
+                Debug.Log("feather");
             featherAnim.SetTrigger(featherTrigger);
 
         }
 
         }
-       Invoke("removeText", 20);
+       
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        feather.SetActive(false);
+        
         playerPointLight.SetActive(true);
         featherpower = false;
         textObject.SetActive(true);
-        
+        Invoke("removeText", 20);
 
         // Destroy(feather);
     }
@@ -57,5 +58,6 @@ void Update()
     private void removeText()
     {
         textObject.SetActive(false);
+        feather.SetActive(false);
     }
 }
