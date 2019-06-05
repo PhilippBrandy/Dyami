@@ -50,6 +50,8 @@ void Update()
         playerPointLight.SetActive(true);
         featherpower = false;
         textObject.SetActive(true);
+        feather.SetActive(false);
+
         Invoke("removeText", 20);
 
         // Destroy(feather);
@@ -58,6 +60,5 @@ void Update()
     private void removeText()
     {
         textObject.SetActive(false);
-        feather.SetActive(false);
     }
 }
