@@ -18,13 +18,11 @@ public class ShootArrow : MonoBehaviour
     private GameObject projectile = null;
     bool hit = false;
     [SerializeField] private LayerMask getsStuckIn;
-    public Animator anim;
+    public Animator animHead;
     public Animator animBody;
+    public Animator animArms;
     public Transform bowAimAt;
-    public Transform bowAimAt2;
     public Transform headLookAt;
-    public GameObject AnimArms;
-    public GameObject NormalArms;
     //Is true when player is currently teleporting
     private bool isTeleporting = false;
     //Is true when player has to wait to shoot again
@@ -94,14 +92,12 @@ public class ShootArrow : MonoBehaviour
             headLookAt.localRotation = Quaternion.AngleAxis(angle / 2, Vector3.back);
             //angle += 90;
             bowAimAt.localRotation = Quaternion.AngleAxis(angle, Vector3.back);
-            bowAimAt2.localRotation = Quaternion.AngleAxis(angle, Vector3.back);
         }
         else
         {
             rp.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             headLookAt.localRotation = Quaternion.AngleAxis(angle / 2, Vector3.forward);
             bowAimAt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            bowAimAt2.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
 
 
@@ -110,9 +106,7 @@ public class ShootArrow : MonoBehaviour
         {
             shootArrow.Play();
             if (canTeleport) hasShot = true;
-            AnimArms.SetActive(true);
-            NormalArms.SetActive(false);
-            anim.SetTrigger(shootHash);
+            animArms.SetTrigger(shootHash);
 
             if (arrows.Count >= maxArrows)
             {
@@ -153,7 +147,7 @@ public class ShootArrow : MonoBehaviour
             projectile.transform.position = transform.position;
             rb = projectile.GetComponent<Rigidbody2D>();
             rb.velocity = diff * strength;
-            Invoke("resetArms", 1);
+            //Invoke("resetArms", 1);
         }
 
         //Teleport
@@ -265,11 +259,13 @@ public class ShootArrow : MonoBehaviour
         else facesRight = false;
         animBody.SetBool(facingHash, facesRight);
     }
-    private void resetArms()
+
+    /*private void resetArms()
     {
         AnimArms.SetActive(false);
         NormalArms.SetActive(true);
-    }
+    }*/
+
     private void playerTeleported()
     {
         #region
