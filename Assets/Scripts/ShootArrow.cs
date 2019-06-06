@@ -18,13 +18,11 @@ public class ShootArrow : MonoBehaviour
     private GameObject projectile = null;
     bool hit = false;
     [SerializeField] private LayerMask getsStuckIn;
-    public Animator anim;
+    public Animator animHead;
     public Animator animBody;
+    public Animator animArms;
     public Transform bowAimAt;
-    public Transform bowAimAt2;
     public Transform headLookAt;
-    public GameObject AnimArms;
-    public GameObject NormalArms;
     //Is true when player is currently teleporting
     private bool isTeleporting = false;
     //Is true when player has to wait to shoot again
@@ -49,9 +47,9 @@ public class ShootArrow : MonoBehaviour
 
     //audiofiles for telport and shooting
     public AudioSource shootArrow;
-    public AudioSource[] teleportSounds;
+    public AudioSource audioSource;
+    public AudioClip[] audioClips;
     int soundsIndex = 0;
-    AudioSource curSound;
 
     //Shockwave
     public float shockWaveLength;
@@ -94,18 +92,13 @@ public class ShootArrow : MonoBehaviour
             headLookAt.localRotation = Quaternion.AngleAxis(angle / 2, Vector3.back);
             //angle += 90;
             bowAimAt.localRotation = Quaternion.AngleAxis(angle, Vector3.back);
-            bowAimAt2.localRotation = Quaternion.AngleAxis(angle, Vector3.back);
         }
         else
         {
             rp.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             headLookAt.localRotation = Quaternion.AngleAxis(angle / 2, Vector3.forward);
             bowAimAt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            bowAimAt2.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
-
-
-
 
 
         //Shoot Arrow
@@ -113,9 +106,7 @@ public class ShootArrow : MonoBehaviour
         {
             shootArrow.Play();
             if (canTeleport) hasShot = true;
-            AnimArms.SetActive(true);
-            NormalArms.SetActive(false);
-            anim.SetTrigger(shootHash);
+            animArms.SetTrigger(shootHash);
 
             if (arrows.Count >= maxArrows)
             {
@@ -123,7 +114,11 @@ public class ShootArrow : MonoBehaviour
                 arrows.RemoveLast();
             }
             hit = false;
-            if (projectile != null) projectile.GetComponent<SpriteRenderer>().sprite = normal_arrow;
+            if (projectile != null)
+            {
+                projectile.GetComponent<SpriteRenderer>().sprite = normal_arrow;
+                projectile.GetComponentInChildren<Light>().enabled = false;
+            }
             projectile = Instantiate(arrow);
             arrows.AddFirst(projectile);
             if (!canTeleport) projectile.GetComponent<SpriteRenderer>().sprite = normal_arrow;
@@ -152,14 +147,14 @@ public class ShootArrow : MonoBehaviour
             projectile.transform.position = transform.position;
             rb = projectile.GetComponent<Rigidbody2D>();
             rb.velocity = diff * strength;
-            Invoke("resetArms", 1);
+            //Invoke("resetArms", 1);
         }
 
         //Teleport
         if (playerTeleports())
         {
             isTeleporting = true;
-            player.transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
+            player.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             Rigidbody2D arrowRB = projectile.GetComponent<Rigidbody2D>();
             if (arrowRB != null)
             {
@@ -178,10 +173,10 @@ public class ShootArrow : MonoBehaviour
             }
 
             // sound randomizer
-            soundsIndex = Random.Range(0, teleportSounds.Length);
-            curSound = teleportSounds[soundsIndex];
-            curSound.Play();
-
+            soundsIndex = Random.Range(0, audioClips.Length);
+            audioSource.PlayOneShot(audioClips[soundsIndex]);
+            //curSound = teleportSounds[soundsIndex];
+            //curSound.Play();
 
             eagle.SetActive(true);
             Vector3 range = player.transform.position - projectile.transform.position;
@@ -221,8 +216,29 @@ public class ShootArrow : MonoBehaviour
                     rb.OverlapCollider(filter, iHitThis);
                     if (iHitThis[0] != null)
                     {
+
                         projectile.GetComponent<Transform>().SetParent(iHitThis[0].GetComponent<Transform>());
+
+                        /*  ParentConstraint Test
+                        UnityEngine.Animations.ParentConstraint parentconstraint = projectile.GetComponent<UnityEngine.Animations.ParentConstraint>();
+
+                        //dummy source
+                        UnityEngine.Animations.ConstraintSource source = new UnityEngine.Animations.ConstraintSource();
+                        //add parent transform as source
+                        source.sourceTransform = iHitThis[0].GetComponent<Transform>();
+
+                        //Child moves like parent:
+                        parentconstraint.weight = 1f;
+                        source.weight = 1f;
+
+                        //Activate constraint
+                        parentconstraint.AddSource(source);
+                        parentconstraint.constraintActive = true;
+                        */
                     }
+
+                    Vector3 parentScale = iHitThis[0].GetComponent<Transform>().lossyScale;
+                    projectile.GetComponent<Transform>().localScale = new Vector3(2/parentScale.x, 2 / parentScale.y, 2 / parentScale.z);
                     Destroy(projectile.GetComponent<Rigidbody2D>());
                     Collider2D[] colliders = projectile.GetComponents<Collider2D>();
                     for (int i = 0; i < colliders.Length; i++)
@@ -243,11 +259,13 @@ public class ShootArrow : MonoBehaviour
         else facesRight = false;
         animBody.SetBool(facingHash, facesRight);
     }
-    private void resetArms()
+
+    /*private void resetArms()
     {
         AnimArms.SetActive(false);
         NormalArms.SetActive(true);
-    }
+    }*/
+
     private void playerTeleported()
     {
         #region
@@ -309,5 +327,10 @@ public class ShootArrow : MonoBehaviour
     private void rechargeBow()
     {
         shootDelay = false;
+    }
+
+    public LinkedList<GameObject> getArrows()
+    {
+        return arrows;
     }
 }
