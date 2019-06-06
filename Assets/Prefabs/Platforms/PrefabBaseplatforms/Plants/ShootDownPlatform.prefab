@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1043489964}
   - component: {fileID: 1043489963}
   - component: {fileID: 1043489962}
-  - component: {fileID: 10654069767383113}
+  - component: {fileID: 5291865512045936297}
   m_Layer: 0
   m_Name: ShootDownPlatform
   m_TagString: Untagged
@@ -94,10 +94,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69995939c3a0bf4aabf20e01e4fb2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 100
-  gravity: 0
---- !u!68 &10654069767383113
-EdgeCollider2D:
+  cuttable: {fileID: 1616058223}
+  mass: 20
+  gravity: 1
+--- !u!70 &5291865512045936297
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -109,14 +110,9 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -1.4884949, y: -0.9562195}
-  - {x: -1.1072648, y: 0.49678499}
-  - {x: 1.197612, y: 0.5}
-  - {x: 1.5188278, y: -0.9422936}
-  - {x: -1.4712327, y: -0.93345183}
+  m_Offset: {x: -0.02, y: -0.16}
+  m_Size: {x: 3, y: 1.83}
+  m_Direction: 1
 --- !u!1 &1616058223
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,8 +233,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.1456688, y: -2.488092}
-      - {x: -0.5989342, y: -2.4785094}
+    - - {x: -0.32359815, y: -2.7481918}
+      - {x: -0.7084076, y: -2.5880284}
       - {x: 0.33893204, y: -1.865381}
       - {x: 0.41677016, y: -0.41020513}
       - {x: -0.33410263, y: -0.21792603}

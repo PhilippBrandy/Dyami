@@ -12,6 +12,15 @@ public class BreakableEnvi : MonoBehaviour {
         waitTime = 1.0f;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("falling"))
+        {
+            gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            triggerBreaking();
+        }
+    }
+
     public void triggerBreaking()
     {
         StartCoroutine(wait());

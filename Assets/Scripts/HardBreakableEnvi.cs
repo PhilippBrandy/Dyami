@@ -24,7 +24,7 @@ public class HardBreakableEnvi : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("falling"))
+        if (other.gameObject.CompareTag("falling"))
         {
             health = 0;
         }
