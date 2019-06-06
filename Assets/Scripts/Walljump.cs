@@ -13,8 +13,6 @@ public class Walljump : MonoBehaviour
     private bool grounded;
 
     private bool wasOnWall;
-<<<<<<< HEAD
-=======
     private bool resetControl;
 
     public Animator animHead;
@@ -23,7 +21,6 @@ public class Walljump : MonoBehaviour
 
     int hangingHash, climbHash, airHash, wallHash;
     bool inAir, atWall = false;
->>>>>>> Animations
 
     RaycastHit2D wallRight, wallLeft, edgeRight, edgeLeft, nearGround;
 
@@ -81,7 +78,7 @@ public class Walljump : MonoBehaviour
             animHead.SetTrigger(hangingHash);
             animArms.SetBool(wallHash, true);
 
-            if (wallLeft.collider != null || wallRight.collider != null) 
+            if (wallLeft.collider != null || wallRight.collider != null)
             {
                 //They can jump
                 if (hInput.GetButtonDown("Jump"))
@@ -98,11 +95,11 @@ public class Walljump : MonoBehaviour
                     animArms.SetTrigger(climbHash);
                     atWall = false;
 
-                    rb.velocity = new Vector2(0, jumpStrength * 1.125f);
+                    rb.velocity = new Vector2(0, jumpStrength * 1.3f);
                     animArms.SetTrigger(climbHash);
                     animBody.SetTrigger(climbHash);
                     animHead.SetTrigger(climbHash);
-                    reset();
+                    resetControls();
                     //rb.gravityScale = baseGravity;
                 }
                 //or Fall down
@@ -160,12 +157,9 @@ public class Walljump : MonoBehaviour
                 reset();
             }
         }
-        else if (wasOnWall) {
-<<<<<<< HEAD
-            reset();
-=======
+        else if (wasOnWall)
+        {
             Invoke("reset", 0.8f);
->>>>>>> Animations
             wasOnWall = false;
             rb.gravityScale = baseGravity;
         }

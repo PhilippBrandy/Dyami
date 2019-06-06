@@ -107,7 +107,7 @@ public class ShootArrow : MonoBehaviour
             shootArrow.Play();
             if (canTeleport) hasShot = true;
             animArms.SetTrigger(shootHash);
-
+            
             if (arrows.Count >= maxArrows)
             {
                 Destroy(arrows.Last.Value);
@@ -235,16 +235,15 @@ public class ShootArrow : MonoBehaviour
                         parentconstraint.AddSource(source);
                         parentconstraint.constraintActive = true;
                         */
-                    }
-
-                    Vector3 parentScale = iHitThis[0].GetComponent<Transform>().lossyScale;
-                    projectile.GetComponent<Transform>().localScale = new Vector3(2/parentScale.x, 2 / parentScale.y, 2 / parentScale.z);
-                    Destroy(projectile.GetComponent<Rigidbody2D>());
-                    Collider2D[] colliders = projectile.GetComponents<Collider2D>();
-                    for (int i = 0; i < colliders.Length; i++)
-                    {
-                        Destroy(colliders[i]);
-                    }
+                        Vector3 parentScale = iHitThis[0].GetComponent<Transform>().lossyScale;
+                        projectile.GetComponent<Transform>().localScale = new Vector3(2 / parentScale.x, 2 / parentScale.y, 2 / parentScale.z);
+                        Destroy(projectile.GetComponent<Rigidbody2D>());
+                        Collider2D[] colliders = projectile.GetComponents<Collider2D>();
+                        for (int i = 0; i < colliders.Length; i++)
+                        {
+                            Destroy(colliders[i]);
+                        }
+                    }                 
                 }
             }
         }

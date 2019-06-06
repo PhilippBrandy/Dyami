@@ -190,7 +190,8 @@ MonoBehaviour:
   emptyLive: {fileID: 0}
   spawnpoint: {fileID: 0}
   secondsInvulnerable: 3
-  knockDur: 0.01
+  secondsKnockout: 2
+  animBody: {fileID: 2637089286614337315}
 --- !u!114 &356382743219650195
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -32,6 +32,7 @@ public class Killable : MonoBehaviour
     float knockBackTimer = 0.0f;
     public float secondsKnockout = 2f;
     bool knockoutTimerIsActive = false;
+    public Animator animBody;
 
 
     void Start()
@@ -112,6 +113,8 @@ public class Killable : MonoBehaviour
         {
             respawned = false;
             GetComponentInParent<PlayerMovement>().enabled = false;
+            GetComponentInParent<ShootArrow>().enabled = false;
+            animBody.SetTrigger("Die");
             Invoke("respawn",1);
 
         }
@@ -180,6 +183,7 @@ public class Killable : MonoBehaviour
         transform.position = spawnpoint.position;
         health = numOfLives;
         GetComponentInParent<PlayerMovement>().enabled = true;
+        GetComponentInParent<ShootArrow>().enabled = true;
         respawned = true;
     }
 }
