@@ -120,7 +120,11 @@ public class ShootArrow : MonoBehaviour
                 arrows.RemoveLast();
             }
             hit = false;
-            if (projectile != null) projectile.GetComponent<SpriteRenderer>().sprite = normal_arrow;
+            if (projectile != null)
+            {
+                projectile.GetComponent<SpriteRenderer>().sprite = normal_arrow;
+                projectile.GetComponentInChildren<Light>().enabled = false;
+            }
             projectile = Instantiate(arrow);
             arrows.AddFirst(projectile);
             if (!canTeleport) projectile.GetComponent<SpriteRenderer>().sprite = normal_arrow;
@@ -218,9 +222,29 @@ public class ShootArrow : MonoBehaviour
                     rb.OverlapCollider(filter, iHitThis);
                     if (iHitThis[0] != null)
                     {
+
                         projectile.GetComponent<Transform>().SetParent(iHitThis[0].GetComponent<Transform>());
+
+                        /*  ParentConstraint Test
+                        UnityEngine.Animations.ParentConstraint parentconstraint = projectile.GetComponent<UnityEngine.Animations.ParentConstraint>();
+
+                        //dummy source
+                        UnityEngine.Animations.ConstraintSource source = new UnityEngine.Animations.ConstraintSource();
+                        //add parent transform as source
+                        source.sourceTransform = iHitThis[0].GetComponent<Transform>();
+
+                        //Child moves like parent:
+                        parentconstraint.weight = 1f;
+                        source.weight = 1f;
+
+                        //Activate constraint
+                        parentconstraint.AddSource(source);
+                        parentconstraint.constraintActive = true;
+                        */
                     }
-                    projectile.GetComponent<Transform>().localScale = new Vector3(2, 2, 2);
+
+                    Vector3 parentScale = iHitThis[0].GetComponent<Transform>().lossyScale;
+                    projectile.GetComponent<Transform>().localScale = new Vector3(2/parentScale.x, 2 / parentScale.y, 2 / parentScale.z);
                     Destroy(projectile.GetComponent<Rigidbody2D>());
                     Collider2D[] colliders = projectile.GetComponents<Collider2D>();
                     for (int i = 0; i < colliders.Length; i++)
@@ -259,13 +283,7 @@ public class ShootArrow : MonoBehaviour
             {
                 dashed.triggerAnimation();
             }
-            BreakableEnvi broken = shockWaveHit.collider.gameObject.GetComponentInParent<BreakableEnvi>();
-            if (broken != null)
-            {
-                broken.triggerBreaking();
-            }
         }
-        
 
 
 
