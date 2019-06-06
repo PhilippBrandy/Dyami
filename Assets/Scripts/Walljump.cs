@@ -42,7 +42,7 @@ public class Walljump : MonoBehaviour
     {
         //Is the player grounded?
         grounded = this.GetComponent<CharacterController2D>().getGrounded();
-        Debug.Log(grounded);
+        //Debug.Log(grounded);
 
         //Find walls to the left/right of the player
         wallRight = Physics2D.Raycast(transform.position, Vector2.right, playerWidth, m_WhatIsWall);
@@ -52,7 +52,7 @@ public class Walljump : MonoBehaviour
         edgeLeft = Physics2D.Raycast(transform.position + new Vector3(0, 1, 0), Vector2.left, playerWidth, m_WhatIsWall);
 
         nearGround = Physics2D.Raycast(transform.position + new Vector3(0, -2, 0), Vector2.down, 3, m_WhatIsWall);
-        Debug.Log(nearGround.collider);
+        //Debug.Log(nearGround.collider);
 
         //-------------------------------------
         //Edge climb
@@ -67,7 +67,7 @@ public class Walljump : MonoBehaviour
 
         if (((wallRight.collider != null && edgeRight.collider == null) || (wallLeft.collider != null && edgeLeft.collider == null)) && rb.velocity.y <= 0 && nearGround.collider == null)
         {
-            Debug.Log("I'm at an edge");
+            //Debug.Log("I'm at an edge");
             wasOnWall = true;
             //remove control and gravity
             this.GetComponent<PlayerMovement>().enabled = false;
@@ -91,7 +91,7 @@ public class Walljump : MonoBehaviour
                 //Climb
                 else if (hugsWall(direction))
                 {
-                    Debug.Log("I would climb");
+                    //Debug.Log("I would climb");
                     animArms.SetTrigger(climbHash);
                     atWall = false;
 
@@ -119,7 +119,7 @@ public class Walljump : MonoBehaviour
         //When the player is next to a wall and not on the ground and on near an edge (not full wall)
         else if ((wallRight.collider != null || wallLeft.collider != null) && nearGround.collider == null)
         {
-            Debug.Log("I'm at a wall");
+            //Debug.Log("I'm at a wall");
             wasOnWall = true;
             //remove control and reduce gravity
             this.GetComponent<PlayerMovement>().enabled = false;
@@ -143,7 +143,7 @@ public class Walljump : MonoBehaviour
             //Slide
             else if (hugsWall(direction))
             {
-                Debug.Log("I slide");
+                //Debug.Log("I slide");
                 animArms.SetTrigger(climbHash);
                 atWall = true;
                 reset();

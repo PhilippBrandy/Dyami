@@ -26,7 +26,7 @@ public class CharacterController2D : MonoBehaviour
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private Vector3 m_Velocity = Vector3.zero;
     private bool canMove = true;
-
+    
     [Header("Events")]
     [Space]
 
@@ -122,7 +122,7 @@ public class CharacterController2D : MonoBehaviour
         {
             // Add a vertical force to the player.
             m_Grounded = false;
-            animBody.SetTrigger(jumpHash);
+            //animBody.SetTrigger(jumpHash);
             //Springen auf slippy bzw. nicht slippy
             if (canMove) m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce);
             else m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce * 0.75f);

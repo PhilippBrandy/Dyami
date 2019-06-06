@@ -102,8 +102,12 @@ public class ShootArrow : MonoBehaviour
 
 
         //Shoot Arrow
+        Debug.Log("isTeleporintg: " + isTeleporting);
+        Debug.Log("shootDelay: " + shootDelay);
+        Debug.Log("mousdown: " + Input.GetMouseButtonDown(0));
         if (Input.GetMouseButtonDown(0) && !isTeleporting && !shootDelay)
         {
+            Debug.Log("hi");
             shootArrow.Play();
             if (canTeleport) hasShot = true;
             animArms.SetTrigger(shootHash);
