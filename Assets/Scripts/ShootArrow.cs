@@ -278,7 +278,13 @@ public class ShootArrow : MonoBehaviour
             {
                 dashed.triggerAnimation();
             }
+            BreakableEnvi destroyed = shockWaveHit.collider.gameObject.GetComponentInParent<BreakableEnvi>();
+            if (destroyed != null)
+            {
+                destroyed.triggerBreaking();
+            }
         }
+
 
 
 
