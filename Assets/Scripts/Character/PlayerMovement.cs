@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(canMove);
+        //Debug.Log(canMove);
 
         if (hInput.GetButton("Sprint"))
         {
