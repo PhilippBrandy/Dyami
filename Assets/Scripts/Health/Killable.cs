@@ -26,8 +26,8 @@ public class Killable : MonoBehaviour
 
     // push player away from damaging source
     Rigidbody2D rb;
-    public const int HORIZONTAL_FORCE = 10000;
-    public const int VERTICAL_FORCE = 5000;
+    public const int HORIZONTAL_FORCE = 7000;
+    public const int VERTICAL_FORCE = 4000;
     // player can*t move during knockback
     float knockBackTimer = 0.0f;
     public float secondsKnockout = 2f;
