@@ -283,6 +283,11 @@ public class ShootArrow : MonoBehaviour
             {
                 destroyed.triggerBreaking();
             }
+            Keystone keystone = shockWaveHit.collider.gameObject.GetComponentInParent<Keystone>();
+            if (keystone != null)
+            {
+                keystone.activateKey();
+            }
         }
 
 

@@ -20,6 +20,28 @@ public class Keystone : MonoBehaviour
         activated = false;
     }
 
+    public void activateKey()
+    {
+        if (activated == false)
+        {
+            if (once)
+            {
+                    camera.applyRootMotion = false;
+                    coroutine = SetTimeDelayed(2f, camera);
+                    StartCoroutine(coroutine);
+
+                    camera.Play("showActivationOnce");
+                    once = false;
+                    camera.applyRootMotion = true;
+
+            }
+            activeEyes.SetActive(true);
+            notactiveEyes.SetActive(false);
+            activated = true;
+            owner.collectedPassword += key;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
 
