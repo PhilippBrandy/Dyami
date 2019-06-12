@@ -26,8 +26,8 @@ public class Killable : MonoBehaviour
 
     // push player away from damaging source
     Rigidbody2D rb;
-    public const int HORIZONTAL_FORCE = 7000;
-    public const int VERTICAL_FORCE = 4000;
+    public int horizontalForce = 7000;
+    public int verticalForce = 4000;
     // player can*t move during knockback
     float knockBackTimer = 0.0f;
     public float secondsKnockout = 2f;
@@ -156,13 +156,13 @@ public class Killable : MonoBehaviour
 
         if (playerPosition.x > damagingObjPosition.x)
         {
-            rb.AddForce(new Vector3(HORIZONTAL_FORCE, VERTICAL_FORCE, 0));
+            rb.AddForce(new Vector3(horizontalForce, verticalForce, 0));
 
         }
 
         else if (playerPosition.x < damagingObjPosition.x)
         {
-            rb.AddForce(new Vector3(-HORIZONTAL_FORCE, VERTICAL_FORCE, 0));
+            rb.AddForce(new Vector3(-horizontalForce, verticalForce, 0));
         }
         this.GetComponent<CharacterController2D>().animBody.SetFloat("Speed", 0.0f);
     }

@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public TMPro.TextMeshProUGUI gameIsPausedText;
     public GameObject settingsMenuUI;
+    bool shouldPause = true;
 
     // for pausing the music in the menu
     public GameObject audioObject;
@@ -19,16 +20,9 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && shouldPause)
         {
-            if (gameIsPause)
-            {
-                Resume();
-            }
-            else
-            {
                 Pause();
-            }
         }
     }
 
@@ -48,6 +42,7 @@ public class PauseMenu : MonoBehaviour
         gameIsPausedText.enabled = false;
         Time.timeScale = 1f;
         gameIsPause = false;
+        shouldPause = true;
     }
 
     public void MainMenu()
@@ -57,6 +52,7 @@ public class PauseMenu : MonoBehaviour
 
     public void SettingsMenu()
     {
+        shouldPause = false;
         pauseMenuUI.SetActive(false);
         gameIsPausedText.enabled = false;
         settingsMenuUI.SetActive(true);
@@ -66,5 +62,11 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void SetTimeScaleActive()
+    {
+        Time.timeScale = 1f;
+        gameIsPause = false;
     }
 }
