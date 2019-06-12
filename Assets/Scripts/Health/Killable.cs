@@ -51,7 +51,7 @@ public class Killable : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             health--;
         }
@@ -115,8 +115,7 @@ public class Killable : MonoBehaviour
             GetComponentInParent<PlayerMovement>().enabled = false;
             GetComponentInParent<ShootArrow>().enabled = false;
             animBody.SetTrigger("Die");
-            Invoke("respawn",1);
-
+            Invoke("respawn", 1);
         }
     }
 
@@ -132,7 +131,9 @@ public class Killable : MonoBehaviour
                 // for invulnerability
                 invincible = true;
                 timerIsActive = true;
+
                 Knockback(transform.position, other.transform.position);
+                StartCoroutine((this.GetComponent<PlayerFlashing>().StartFlasher()));
             }
         }
 
