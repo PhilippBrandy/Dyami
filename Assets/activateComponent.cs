@@ -6,6 +6,7 @@ public class activateComponent : MonoBehaviour
 {
     //public BuoyancyEffector2D comp;
     public Rigidbody2D rigidbody;
+   // public RigidbodyConstraints2D t;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +31,6 @@ public class activateComponent : MonoBehaviour
             /// comp = GetComponent<BuoyancyEffector2D> ();
             // comp.enabled = comp.enabled;
         }
+        
     }
 }
