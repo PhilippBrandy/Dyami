@@ -80,7 +80,7 @@ public class ShootArrow : MonoBehaviour
             //Disable indicator that the player can telepor with their next shot
             if (teleportIndicator != null)
             {
-                teleportIndicator.enabled = false;
+                teleportIndicator.SetActive(false);
             }
 
         }
@@ -89,7 +89,7 @@ public class ShootArrow : MonoBehaviour
             //Enable indicator that the player can telepor with their next shot
             if (teleportIndicator != null)
             {
-                teleportIndicator.enabled = true;
+                teleportIndicator.SetActive(true);
             }
         }
 
