@@ -14,6 +14,7 @@ public class ShootArrow : MonoBehaviour
     private Rigidbody2D rb = null;
     private bool canTeleport = true;
     private bool hasShot = true;
+    public GameObject teleportIndicator;
     public bool learnedTeleporting = false;
     private GameObject projectile = null;
     bool hit = false;
@@ -63,9 +64,9 @@ public class ShootArrow : MonoBehaviour
     private void FixedUpdate()
     {
 
-        //makes the player able to teleport again when they are on the ground
         if (!canTeleport)
         {
+            //makes the player able to teleport again when they are on the ground
             if (player.GetComponent<CharacterController2D>().getGrounded())
             {
                 //TODO: Abprüfen ob er nochmal geschossen hat nachdem er gelandet ist
@@ -75,7 +76,23 @@ public class ShootArrow : MonoBehaviour
                 theForce = false;
                 //end force-code
             }
+
+            //Disable indicator that the player can telepor with their next shot
+            if (teleportIndicator != null)
+            {
+                teleportIndicator.enabled = false;
+            }
+
         }
+        else
+        {
+            //Enable indicator that the player can telepor with their next shot
+            if (teleportIndicator != null)
+            {
+                teleportIndicator.enabled = true;
+            }
+        }
+
 
         //Rotate Bow towards direction of mouse
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
