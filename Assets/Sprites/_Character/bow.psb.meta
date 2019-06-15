@@ -3,20 +3,28 @@ guid: dba3bc31f947b9e42ab0e88ba90194e9
 ScriptedImporter:
   fileIDToRecycleName:
     100000: bow_GO/bow_GO
-    100002: bow_GO/bow_GO/Bow
-    100004: bow_GO/bow_GO/Bow Kopie
+    100002: bow_GO/bow_GO/Kurven 1
     100006: bow_GO/bow_GO/Ebene 1
+    100008: bow_GO/bow_GO/Bow blur and stroke
+    100010: bow_GO/bow_GO/Bow Kopie 4
+    100012: bow_GO/bow_GO/original bow
     400000: bow_GO/bow_GO/Transform
-    400002: bow_GO/bow_GO/Bow/Transform
-    400004: bow_GO/bow_GO/Bow Kopie/Transform
+    400002: bow_GO/bow_GO/Kurven 1/Transform
     400006: bow_GO/bow_GO/Ebene 1/Transform
+    400008: bow_GO/bow_GO/Bow blur and stroke/Transform
+    400010: bow_GO/bow_GO/Bow Kopie 4/Transform
+    400012: bow_GO/bow_GO/original bow/Transform
     2800000: bow
-    21200000: bow_GO/bow_GO/Bow/SpriteRenderer
-    21200002: bow_GO/bow_GO/Bow Kopie/SpriteRenderer
+    21200000: bow_GO/bow_GO/Kurven 1/SpriteRenderer
     21200004: bow_GO/bow_GO/Ebene 1/SpriteRenderer
+    21200006: bow_GO/bow_GO/Bow blur and stroke/SpriteRenderer
+    21200008: bow_GO/bow_GO/Bow Kopie 4/SpriteRenderer
+    21200010: bow_GO/bow_GO/original bow/SpriteRenderer
     21300000: Ebene 1
-    21300002: Bow Kopie
-    21300004: Bow
+    21300002: Kurven 1
+    21300006: Bow Kopie 4
+    21300008: original bow
+    21300010: Bow blur and stroke
     100100000: bow_GO
   externalObjects: {}
   userData: 
@@ -121,18 +129,18 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 4}
-  - name: Bow Kopie
+  - name: Bow Kopie 4
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1837
+      x: 1903
       y: 4
       width: 1775
       height: 1358
-    spriteID: bfb292e3163f2d4479e0f3cfc14e8f76
+    spriteID: 32352f92a934e804787c186d8043fec8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,8 +149,29 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1787, y: -232}
-  - name: Bow
+    uvTransform: {x: 1853, y: -232}
+  - name: original bow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1903
+      y: 1370
+      width: 1775
+      height: 1358
+    spriteID: 1b2c8669b745df649ba6504941669543
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1853, y: 1134}
+  - name: Bow blur and stroke
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -151,9 +180,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 2178
-      width: 1825
-      height: 1472
-    spriteID: d374aa39b1782434ca7e9fda39e2dc0f
+      width: 1827
+      height: 1410
+    spriteID: 87893f67d51be9d439b30aef4f419aec
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -162,7 +191,28 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 1999}
+    uvTransform: {x: -10, y: 1979}
+  - name: Kurven 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3686
+      y: 4
+      width: 0
+      height: 0
+    spriteID: 6d7a80ec7dd3e7740a81979ed92a901e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1795, y: -2162}
   platformSettings: []
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
@@ -170,7 +220,7 @@ ScriptedImporter:
   importHiddenLayers: 0
   importedTextureWidth: 2048
   importedTextureHeight: 2048
-  documentSize: {x: 1825, y: 2166}
+  documentSize: {x: 1891, y: 2166}
   textureActualWidth: 4096
   textureActualHeight: 4096
   spritePackingTag: 
@@ -178,6 +228,20 @@ ScriptedImporter:
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
+  - name: Kurven 1
+    spriteName: Kurven 1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6d7a80ec7dd3e7740a81979ed92a901e
+    layerID: 183
+    mosaicPosition: {x: 3686, y: 4}
+  - name: Bow Kopie 4
+    spriteName: Bow Kopie 4
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 32352f92a934e804787c186d8043fec8
+    layerID: 181
+    mosaicPosition: {x: 1903, y: 4}
   - name: Ebene 1
     spriteName: Ebene 1
     isGroup: 0
@@ -185,19 +249,26 @@ ScriptedImporter:
     spriteID: b383a1e850df36243abc9a7e566cc088
     layerID: 174
     mosaicPosition: {x: 4, y: 4}
-  - name: Bow Kopie
-    spriteName: Bow Kopie
-    isGroup: 0
+  - name: Gruppe 1
+    spriteName: 
+    isGroup: 1
     parentIndex: -1
-    spriteID: bfb292e3163f2d4479e0f3cfc14e8f76
-    layerID: 175
-    mosaicPosition: {x: 1837, y: 4}
-  - name: Bow
-    spriteName: Bow
+    spriteID: 00000000000000000000000000000000
+    layerID: 178
+    mosaicPosition: {x: 0, y: 0}
+  - name: original bow
+    spriteName: original bow
     isGroup: 0
-    parentIndex: -1
-    spriteID: d374aa39b1782434ca7e9fda39e2dc0f
-    layerID: 31
+    parentIndex: 3
+    spriteID: 1b2c8669b745df649ba6504941669543
+    layerID: 180
+    mosaicPosition: {x: 1903, y: 1370}
+  - name: Bow blur and stroke
+    spriteName: Bow blur and stroke
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 87893f67d51be9d439b30aef4f419aec
+    layerID: 177
     mosaicPosition: {x: 4, y: 2178}
   characterData:
     bones: []

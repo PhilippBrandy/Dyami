@@ -38,7 +38,7 @@ public class FalldownTree : MonoBehaviour {
     {
         if (falling == true)
         {
-            coroutine = WaitAndPrint(10.0f);
+            coroutine = WaitAndPrint(2.0f);
             StartCoroutine(coroutine);
         }
     }
