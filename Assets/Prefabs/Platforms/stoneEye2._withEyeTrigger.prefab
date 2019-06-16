@@ -760,7 +760,7 @@ GameObject:
   - component: {fileID: 3040714706453512252}
   - component: {fileID: 2377888787202623577}
   - component: {fileID: 8698291302180842747}
-  - component: {fileID: 3405504848691795740}
+  - component: {fileID: 4260809935196327753}
   m_Layer: 2
   m_Name: stoneEye2.1
   m_TagString: Untagged
@@ -831,7 +831,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 33.814316, y: 18.05912}
   m_EdgeRadius: 0
---- !u!114 &3405504848691795740
+--- !u!114 &4260809935196327753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -840,11 +840,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9046416382786150462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb37248bcbb50b4eaef6932a7d113b0, type: 3}
+  m_Script: {fileID: 11500000, guid: f4468f57580d3ef418f37013b3a2aa13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   openEye: {fileID: 4535460681527586340}
   eyeGlow: {fileID: 4651555306437047907}
   eyehandler: {fileID: 590581714502431651}
   stoneEye: {fileID: 9046416382786150462}
-  eyeTarget: {fileID: 3156077152178709220}
+  eyeTarget: {fileID: 0}
