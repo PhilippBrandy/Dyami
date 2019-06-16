@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2278663786213266409}
-  m_LocalRotation: {x: -0, y: -0, z: -0.85745513, w: -0.5145588}
+  m_LocalRotation: {x: -0, y: -0, z: -0.8574594, w: -0.5145515}
   m_LocalPosition: {x: 0.5, y: -0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3649233059380570137}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 478.064}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 478.065}
 --- !u!1 &3649233059274022629
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3649233059548526076}
-  m_LocalRotation: {x: 0, y: 0, z: 0.022807026, w: 0.9997399}
+  m_LocalRotation: {x: 0, y: 0, z: 0.02279852, w: 0.9997401}
   m_LocalPosition: {x: 0.47397965, y: -0.000000074321505, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -377,8 +377,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3649233059918345182}
   - component: {fileID: 3649233059918345183}
-  - component: {fileID: 3649233059918345177}
   - component: {fileID: 3050461330746265659}
+  - component: {fileID: 3359742979862221360}
   m_Layer: 2
   m_Name: stoneEye2.2
   m_TagString: Untagged
@@ -433,23 +433,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 26.164421, y: 29.344025}
   m_EdgeRadius: 0
---- !u!114 &3649233059918345177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3649233059918345176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4468f57580d3ef418f37013b3a2aa13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openEye: {fileID: 0}
-  eyeGlow: {fileID: 0}
-  eyehandler: {fileID: 0}
-  stoneEye: {fileID: 0}
-  eyeTarget: {fileID: 0}
 --- !u!114 &3050461330746265659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,6 +448,22 @@ MonoBehaviour:
   m_Solvers:
   - {fileID: 8324456331631765305}
   m_Weight: 1
+--- !u!114 &3359742979862221360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649233059918345176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8f2df98a8ff5744b358088db953084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openEye: {fileID: 3649233060237758294}
+  eyeGlow: {fileID: 3649233059274022629}
+  eyehandler: {fileID: 7830869102077220751}
+  stoneEye: {fileID: 3649233059918345176}
 --- !u!1 &3649233059962849846
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +689,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5108464749039872660
 Transform:
   m_ObjectHideFlags: 0
