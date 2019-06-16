@@ -453,7 +453,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6778439643230146170}
-  m_LocalRotation: {x: 0, y: 0, z: -0.03485306, w: 0.99939245}
+  m_LocalRotation: {x: 0, y: 0, z: -0.034842413, w: 0.99939287}
   m_LocalPosition: {x: 0.47397965, y: -0.000000074321505, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -474,6 +474,7 @@ GameObject:
   - component: {fileID: 5107115753448582077}
   - component: {fileID: 606393351383749721}
   - component: {fileID: 606393351383749720}
+  - component: {fileID: 3380012404271099589}
   m_Layer: 2
   m_Name: StoneEye_MovingBackAndForth
   m_TagString: Untagged
@@ -579,6 +580,22 @@ MonoBehaviour:
   target: {fileID: 606393350214228517}
   player: {fileID: 0}
   speedOfPF: 10
+--- !u!114 &3380012404271099589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6778439643531806814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8f2df98a8ff5744b358088db953084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openEye: {fileID: 6778439643885843664}
+  eyeGlow: {fileID: 6778439642984949091}
+  eyehandler: {fileID: 7214060689812489}
+  stoneEye: {fileID: 6778439643531806814}
 --- !u!1 &6778439643640263088
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,13 +828,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8298450172545935471}
-  m_LocalRotation: {x: -0, y: -0, z: -0.93684244, w: -0.3497519}
+  m_LocalRotation: {x: -0, y: -0, z: -0.9368386, w: -0.34976187}
   m_LocalPosition: {x: 0.46, y: -0.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6778439643023365023}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 499.056}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 499.05402}
 --- !u!1001 &606393351773223094
 PrefabInstance:
   m_ObjectHideFlags: 0
