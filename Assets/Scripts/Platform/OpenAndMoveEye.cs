@@ -8,7 +8,6 @@ public class OpenAndMoveEye : MonoBehaviour
     public GameObject eyeGlow;
     public GameObject eyehandler;
     public GameObject stoneEye;
-    public Transform eyeTarget;
     Vector3 origPosition;
 
     void Start()
@@ -25,7 +24,7 @@ public class OpenAndMoveEye : MonoBehaviour
             openEye.SetTrigger("Start");
             eyehandler.transform.parent = collision.transform;
             eyeGlow.SetActive(true);
-            eyehandler.transform.position = eyeTarget.transform.position;
+            eyehandler.transform.position = collision.transform.position;
         }
     }
 
