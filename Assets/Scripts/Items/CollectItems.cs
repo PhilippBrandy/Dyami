@@ -8,21 +8,30 @@ public class CollectItems : MonoBehaviour
 {
 
     public GameObject[] items;
+    string[] itemNames;
+
     int collectedItems = 0;
     public TMPro.TextMeshProUGUI itemText;
     public GameObject itemsCanvas;
     int itemsNumber;
     int curItemNumber = 0;
     bool showItemsText = false;
+    string curItemName;
 
 
     void Start()
     {
         itemsNumber = items.Length;
+        for (int i = 0; i< items.Length; i++)
+        {
+            itemNames[i] = items[i].name;
+        }
     }
 
     void Update()
     {
+
+
         if (showItemsText)
         {
             itemsCanvas.SetActive(true);
@@ -36,8 +45,9 @@ public class CollectItems : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("CollectableItem"))
+        if (other.CompareTag("CollectableItem") && curItemName!=other.name)
         {
+            curItemName = other.name;
             curItemNumber++;
             showItemsText = true;
             itemText.text = curItemNumber.ToString() + " / " + itemsNumber.ToString();
@@ -66,5 +76,5 @@ public class CollectItems : MonoBehaviour
         showItemsText = false;
         itemsCanvas.SetActive(false);
     }
-        
+
 }
