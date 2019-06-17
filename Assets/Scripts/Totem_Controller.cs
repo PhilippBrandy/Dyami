@@ -26,7 +26,7 @@ public class Totem_Controller : MonoBehaviour {
             activeTotem.SetActive(true);
             coroutine = WaitAndWatch(TimertoActivateActiveTotem2);
             StartCoroutine(coroutine);
-            videoPlayer.Play();
+            //videoPlayer.Play();
           passiveTotem.SetActive(false);
             isActive = true;
         }
