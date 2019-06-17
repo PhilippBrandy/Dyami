@@ -71,6 +71,7 @@ public class ShootArrow : MonoBehaviour
             {
                 //TODO: Abprüfen ob er nochmal geschossen hat nachdem er gelandet ist
                 canTeleport = true;
+                teleportIndicator.SetActive(true);
 
                 //start force-code
                 theForce = false;
@@ -78,18 +79,9 @@ public class ShootArrow : MonoBehaviour
             }
 
             //Disable indicator that the player can telepor with their next shot
-            if (teleportIndicator != null)
+            else if (teleportIndicator != null)
             {
                 teleportIndicator.SetActive(false);
-            }
-
-        }
-        else
-        {
-            //Enable indicator that the player can telepor with their next shot
-            if (teleportIndicator != null)
-            {
-                teleportIndicator.SetActive(true);
             }
         }
 
@@ -253,7 +245,7 @@ public class ShootArrow : MonoBehaviour
                         parentconstraint.constraintActive = true;
                         */
                         Vector3 parentScale = iHitThis[0].GetComponent<Transform>().lossyScale;
-                        projectile.GetComponent<Transform>().localScale = new Vector3(2 / parentScale.x, 2 / parentScale.y, 2 / parentScale.z);
+                        projectile.GetComponent<Transform>().localScale = new Vector3(2 / parentScale.x, 2 / parentScale.y, parentScale.z);
                         Destroy(projectile.GetComponent<Rigidbody2D>());
                         Collider2D[] colliders = projectile.GetComponents<Collider2D>();
                         for (int i = 0; i < colliders.Length; i++)
