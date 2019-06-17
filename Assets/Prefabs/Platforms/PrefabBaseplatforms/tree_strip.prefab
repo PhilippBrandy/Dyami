@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7932121474146260640}
   - component: {fileID: 5091146368408313448}
   - component: {fileID: 7945500653093103471}
+  - component: {fileID: 7883470299614130011}
   m_Layer: 0
   m_Name: tree_strip
   m_TagString: Untagged
@@ -51,7 +52,7 @@ SpriteShapeRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: efb8b555393defe4188a655f95cedd4f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -154,3 +155,17 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &7883470299614130011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6988605513447705561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caeb618eedbf4ed4d955b29bc58ec71f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxIntensity: 1.5
+  damping: 0.1

@@ -7,7 +7,11 @@ public class Totem_Controller : MonoBehaviour {
     public VideoPlayer videoPlayer;
     public GameObject passiveTotem;
     public GameObject activeTotem;
+    public GameObject activeTotem2;
     private bool isActive;
+    private IEnumerator coroutine;
+    public float TimertoActivateActiveTotem2;
+
     // Use this for initialization
     void Start () {
         videoPlayer = activeTotem.GetComponent<VideoPlayer>();
@@ -20,9 +24,18 @@ public class Totem_Controller : MonoBehaviour {
         {
             collision.GetComponent<Killable>().spawnpoint = gameObject.transform;
             activeTotem.SetActive(true);
+            coroutine = WaitAndWatch(TimertoActivateActiveTotem2);
+            StartCoroutine(coroutine);
             videoPlayer.Play();
-            passiveTotem.SetActive(false);
+          passiveTotem.SetActive(false);
             isActive = true;
         }
+    }
+    private IEnumerator WaitAndWatch(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        activeTotem2.SetActive(true);
+        activeTotem2.GetComponent<EmissionPulse>().enabled = true;
+
     }
 }
