@@ -24,7 +24,7 @@ public class CollectItems : MonoBehaviour
         itemsNumber = items.Length;
         for (int i = 0; i< items.Length; i++)
         {
-            itemNames[i] = items[i].name;
+            //itemNames[i] = items[i].name;
         }
     }
 
