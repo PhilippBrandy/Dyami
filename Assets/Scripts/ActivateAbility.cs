@@ -11,6 +11,10 @@ public class ActivateAbility : MonoBehaviour
     private bool featherpower;
     public GameObject textObject;
     public GameObject playerPointLight;
+  
+    public GameObject[] glowingAssets5;
+
+
     public string featherTrigger;
   
     // Start is called before the first frame update
@@ -23,11 +27,6 @@ public class ActivateAbility : MonoBehaviour
 
 }
 
-// Update is called once per frame
-void Update()
-    {
-        
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -51,6 +50,11 @@ void Update()
         featherpower = false;
         textObject.SetActive(true);
         feather.SetActive(false);
+
+        for(int i=0; i < glowingAssets5.Length; i++)
+        {
+            glowingAssets5[i].SetActive(true);
+        }
 
         Invoke("removeText", 20);
 
