@@ -27,7 +27,6 @@ public class LoadGame : MonoBehaviour
         {
             button1.enabled = true;
             button1Text.text = saveGames[0].Date + " " + saveGames[0].CurrentScene;
-            Debug.Log(saveGames[0].CurrentScene);
         }
         else
         {
@@ -61,6 +60,7 @@ public class LoadGame : MonoBehaviour
     public void LoadCurGame(int index)
     {
         GameManager.instance.SetPlayerPos(saveGames[index].SavePosition);
+        GameManager.instance.SetIsGameLoaded(true);
         SceneManager.LoadScene(saveGames[index].CurrentScene);
     }
 }

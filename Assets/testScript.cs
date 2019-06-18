@@ -18,13 +18,13 @@ public class testScript : MonoBehaviour
 
     void Awake()
     {
-       // Debug.Log("awake");
+       Debug.Log("awake");
 
         spline = spriteShapeController.spline;
     }
     private void Update()
     {
-       0 Debug.Log("update");
+       Debug.Log("update");
         spline.SetSpriteIndex(1, 1);
         Invoke("changeIndex1", 1f);
     }

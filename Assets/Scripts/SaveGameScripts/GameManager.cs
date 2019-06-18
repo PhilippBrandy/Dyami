@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     private Vector3 startPosition;
     public static GameManager instance = null;
     public GameObject playerStartposition;
+    bool isGameLoaded = false;
 
     void Awake()
     {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+
 
     public void Start()
     {
@@ -41,5 +43,15 @@ public class GameManager : MonoBehaviour
             startPosition.z = 0.0f;
         }
         return startPosition;
+    }
+
+   public void SetIsGameLoaded(bool flag)
+    {
+        isGameLoaded = flag;
+    }
+
+    public bool IsGameLoaded()
+    {
+        return isGameLoaded;
     }
 }

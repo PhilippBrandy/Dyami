@@ -54,7 +54,6 @@ public static class SaveGameManager
         {
             return null;
         }
-
         saveGame.Date = date;
         saveGame.CurrentScene = PlayerPrefs.GetString("CurrentScene" + gameIndex, null); ;
         saveGame.SavePosition = new Vector3(PlayerPrefs.GetFloat("PlayerX" + gameIndex), PlayerPrefs.GetFloat("PlayerY" + gameIndex), PlayerPrefs.GetFloat("PlayerZ" + gameIndex));

@@ -5,6 +5,7 @@ using UnityEngine;
 public class NewGameSetTimeScale : MonoBehaviour
 {
 
+
     void Awake()
     {
         Time.timeScale = 1f;
