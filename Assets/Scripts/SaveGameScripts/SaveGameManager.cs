@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public static class SaveGameManager
 {
@@ -32,7 +33,6 @@ public static class SaveGameManager
         {
             saveGames[i] = LoadSavedGame(i);
         }
-
         return saveGames;
     }
 
@@ -42,6 +42,7 @@ public static class SaveGameManager
         PlayerPrefs.SetFloat("PlayerY" + index, saveGame.SavePosition.y);
         PlayerPrefs.SetFloat("PlayerZ" + index, saveGame.SavePosition.z);
         PlayerPrefs.SetString("Date" + index, saveGame.Date);
+        PlayerPrefs.SetString("CurrentScene" + index, saveGame.CurrentScene);
     }
 
     private static SaveGame LoadSavedGame(int gameIndex)
@@ -55,8 +56,8 @@ public static class SaveGameManager
         }
 
         saveGame.Date = date;
+        saveGame.CurrentScene = PlayerPrefs.GetString("CurrentScene" + gameIndex, null); ;
         saveGame.SavePosition = new Vector3(PlayerPrefs.GetFloat("PlayerX" + gameIndex), PlayerPrefs.GetFloat("PlayerY" + gameIndex), PlayerPrefs.GetFloat("PlayerZ" + gameIndex));
-
         return saveGame;
     }
 }

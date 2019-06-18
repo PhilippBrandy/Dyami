@@ -1,25 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Spawnpoint : MonoBehaviour
 {
 
     private long lastGameSave = 0;
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-          
-
-    }
+    private int saveDelay = 10;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -27,13 +15,13 @@ public class Spawnpoint : MonoBehaviour
         {
             other.GetComponent<Killable>().spawnpoint = gameObject.transform;
 
-            if (lastGameSave + 5000 < System.DateTime.Now.Millisecond)
+            if (lastGameSave + saveDelay < System.DateTime.Now.Millisecond)
             {
                 SaveGame saveGame = new SaveGame();
                 saveGame.Date = System.DateTime.Now.ToString("dd.MM.yyyy HH:mm");
                 saveGame.SavePosition = gameObject.transform.position;
+                saveGame.CurrentScene = SceneManager.GetActiveScene().name;
                 SaveGameManager.AddSaveGame(saveGame);
-
                 lastGameSave = System.DateTime.Now.Millisecond;
             }
         }

@@ -6,4 +6,5 @@ public class SaveGame
 {
     public string Date { get; set; }
     public Vector3 SavePosition { get; set; }
+    public string CurrentScene { get; set; }
 }

@@ -26,7 +26,8 @@ public class LoadGame : MonoBehaviour
         if (saveGames[0] != null)
         {
             button1.enabled = true;
-            button1Text.text = saveGames[0].Date;
+            button1Text.text = saveGames[0].Date + " " + saveGames[0].CurrentScene;
+            Debug.Log(saveGames[0].CurrentScene);
         }
         else
         {
@@ -35,7 +36,7 @@ public class LoadGame : MonoBehaviour
         if (saveGames[1] != null)
         {
             button2.enabled = true;
-            button2Text.text = saveGames[1].Date;
+            button2Text.text = saveGames[1].Date + " " + saveGames[1].CurrentScene;
         }
         else
         {
@@ -44,7 +45,7 @@ public class LoadGame : MonoBehaviour
         if (saveGames[2] != null)
         {
             button3.enabled = true;
-            button3Text.text = saveGames[2].Date;
+            button3Text.text = saveGames[2].Date + " " + saveGames[2].CurrentScene;
         }
         else
         {
@@ -52,9 +53,14 @@ public class LoadGame : MonoBehaviour
         }
     }
 
+    void OnGUI()
+    {
+        GUI.skin.button.wordWrap = true;
+    }
+
     public void LoadCurGame(int index)
     {
         GameManager.instance.SetPlayerPos(saveGames[index].SavePosition);
-        SceneManager.LoadScene("TUTORIAL+1LVL");
+        SceneManager.LoadScene(saveGames[index].CurrentScene);
     }
 }
