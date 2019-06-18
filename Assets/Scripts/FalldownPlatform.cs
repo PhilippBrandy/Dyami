@@ -7,6 +7,7 @@ public class FalldownPlatform : MonoBehaviour {
     public float mass = 5;
     private bool isHanging = true;
     public float gravity;
+    private Rigidbody2D myRigidbody = null;
 
     // Use this for initialization
     void Start () {
@@ -14,9 +15,9 @@ public class FalldownPlatform : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (cuttable == null)
+		if (cuttable == null && myRigidbody == null)
         {
-            Rigidbody2D myRigidbody = gameObject.AddComponent<Rigidbody2D>(); // Add the rigidbody.
+            myRigidbody = gameObject.AddComponent(typeof(Rigidbody2D)) as Rigidbody2D; // Add the rigidbody.
             myRigidbody.mass = mass;
             myRigidbody.gravityScale = gravity;
             isHanging = false;
