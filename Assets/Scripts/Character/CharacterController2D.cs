@@ -47,8 +47,8 @@ public class CharacterController2D : MonoBehaviour
     private void FixedUpdate()
     {
        
-        animBody.SetBool("Crawl", crawling);
-        normalRig.SetActive(!crawling);
+        //animBody.SetBool("Crawl", crawling);
+        //normalRig.SetActive(!crawling);
         //crawlingRig.SetActive(crawling);
 
         bool wasGrounded = m_Grounded;
