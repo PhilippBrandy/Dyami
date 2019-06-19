@@ -9,7 +9,8 @@ public class SwitchToWalking : MonoBehaviour
     public GameObject crawlingRig;
     public GameObject armsRig;
     public GameObject headRig;
-    public GameObject bodyRig;
+    public SpriteRenderer [] bodyRigSprites;
+    public AnimationClip reviveAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,9 @@ public class SwitchToWalking : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         crawlAnimator.SetTrigger("reachForTotem");
-        
+        float animDuration = reviveAnim.length - 0.1f;
+
+        StartCoroutine(wait(animDuration));
     }
 
 
@@ -29,5 +32,20 @@ public class SwitchToWalking : MonoBehaviour
     void Update()
     {
         
+    }
+
+    IEnumerator wait(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        
+        foreach (SpriteRenderer current in bodyRigSprites)
+        {
+            current.enabled = true;
+        }
+        armsRig.SetActive(true);
+        headRig.SetActive(true);
+        crawlAnimator.SetBool("crawling", false);
+        crawlingRig.SetActive(false);
+        mainAnimator.SetFloat("Speed", 0.0f);
     }
 }
