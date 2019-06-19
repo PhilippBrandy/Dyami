@@ -8,6 +8,7 @@ public class CollectItems : MonoBehaviour
 {
 
     public GameObject[] items;
+    public int numberOfCollItemsInAllScenes = 6;
     string[] itemNames;
 
     int collectedItems = 0;
@@ -26,12 +27,11 @@ public class CollectItems : MonoBehaviour
         {
             //itemNames[i] = items[i].name;
         }
+        GameManager.instance.SetNumberOfAllCollectableItems(numberOfCollItemsInAllScenes);
     }
 
     void Update()
     {
-
-
         if (showItemsText)
         {
             itemsCanvas.SetActive(true);
@@ -52,6 +52,8 @@ public class CollectItems : MonoBehaviour
             showItemsText = true;
             itemText.text = curItemNumber.ToString() + " / " + itemsNumber.ToString();
             other.gameObject.SetActive(false);
+
+            GameManager.instance.IncreaseNumberOfCollectedItems();
         }
     }
 

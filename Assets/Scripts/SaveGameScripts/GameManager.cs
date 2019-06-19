@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public GameObject playerStartposition;
     bool isGameLoaded = false;
 
+    int numberOfAllCollectableItems = 0;
+    int numberOfCollectedItems = 0;
+
     void Awake()
     {
         if (instance == null)
@@ -22,7 +25,6 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
-
 
     public void Start()
     {
@@ -53,5 +55,20 @@ public class GameManager : MonoBehaviour
     public bool IsGameLoaded()
     {
         return isGameLoaded;
+    }
+
+    public void SetNumberOfAllCollectableItems(int number)
+    {
+        numberOfAllCollectableItems = number;
+    }
+
+    public int GetNumberOfAllCollectableItems()
+    {
+        return numberOfAllCollectableItems;
+    }
+
+    public void IncreaseNumberOfCollectedItems()
+    {
+        numberOfCollectedItems++;
     }
 }
