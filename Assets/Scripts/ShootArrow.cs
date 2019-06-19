@@ -115,8 +115,8 @@ public class ShootArrow : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isTeleporting && !shootDelay)
         {
             //plays the shootArrow sound fx
-            audioSource.PlayOneShot(characterSoundFx[0]);
-          //  shootArrow.Play();
+           // audioSource.PlayOneShot(characterSoundFx[0]);
+           shootArrow.Play();
             if (canTeleport) hasShot = true;
             animArms.SetTrigger(shootHash);
             

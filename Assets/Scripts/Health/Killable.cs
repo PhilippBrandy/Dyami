@@ -15,7 +15,7 @@ public class Killable : MonoBehaviour
     public Transform spawnpoint;
     private int count = 10;
     public AudioSource audioSource;
-
+    public AudioSource grunt;
     //Shows if player is in the death anymation or not (true = no in death animation)
     private bool respawned = true;
 
@@ -129,7 +129,7 @@ public class Killable : MonoBehaviour
             {
                 health--;
                 audioSource.PlayOneShot(characterSoundFx[0]);
-
+                grunt.Play();
                 // for invulnerability
                 invincible = true;
                 timerIsActive = true;
