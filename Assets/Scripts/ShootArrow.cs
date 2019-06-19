@@ -49,7 +49,8 @@ public class ShootArrow : MonoBehaviour
     //audiofiles for telport and shooting
     public AudioSource shootArrow;
     public AudioSource audioSource;
-    public AudioClip[] audioClips;
+    public AudioClip[] characterSoundFx;
+    public AudioClip[] teleportfx;
     int soundsIndex = 0;
 
     //Shockwave
@@ -113,7 +114,9 @@ public class ShootArrow : MonoBehaviour
         //Shoot Arrow
         if (Input.GetMouseButtonDown(0) && !isTeleporting && !shootDelay)
         {
-            shootArrow.Play();
+            //plays the shootArrow sound fx
+            audioSource.PlayOneShot(characterSoundFx[0]);
+          //  shootArrow.Play();
             if (canTeleport) hasShot = true;
             animArms.SetTrigger(shootHash);
             
@@ -182,8 +185,8 @@ public class ShootArrow : MonoBehaviour
             }
 
             // sound randomizer
-            soundsIndex = Random.Range(0, audioClips.Length);
-            audioSource.PlayOneShot(audioClips[soundsIndex]);
+            soundsIndex = Random.Range(0, teleportfx.Length);
+            audioSource.PlayOneShot(teleportfx[soundsIndex]);
             //curSound = teleportSounds[soundsIndex];
             //curSound.Play();
 

@@ -11,9 +11,10 @@ public class Killable : MonoBehaviour
     public Image[] lives;
     public Sprite fullLive;
     public Sprite emptyLive;
-
+    public AudioClip[] characterSoundFx;
     public Transform spawnpoint;
     private int count = 10;
+    public AudioSource audioSource;
 
     //Shows if player is in the death anymation or not (true = no in death animation)
     private bool respawned = true;
@@ -127,6 +128,7 @@ public class Killable : MonoBehaviour
             if (!invincible && !timerIsActive)
             {
                 health--;
+                audioSource.PlayOneShot(characterSoundFx[0]);
 
                 // for invulnerability
                 invincible = true;
