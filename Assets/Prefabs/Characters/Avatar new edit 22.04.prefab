@@ -240,9 +240,9 @@ MonoBehaviour:
   characterSoundFx:
   - {fileID: 8300000, guid: 355ecebdfd840aa4590c7e45d511af53, type: 3}
   teleportfx:
-  - {fileID: 8300000, guid: d7a7c5f1a8b4d9445996be9785ee726e, type: 3}
-  - {fileID: 8300000, guid: d19365948bc2e5549bbe72296d7ed8db, type: 3}
-  - {fileID: 8300000, guid: a230cf0e56ff47e429f9acce9e97e8b7, type: 3}
+  - {fileID: 8300000, guid: 31ae009d57bbdf047b2fda22b5e3ac1c, type: 3}
+  - {fileID: 8300000, guid: 40e093992c7198a458fb981160d0eb43, type: 3}
+  - {fileID: 8300000, guid: 27c0cbe7178d73746964275a6721700e, type: 3}
   shockWaveLength: 15
 --- !u!82 &356382743219650194
 AudioSource:
@@ -1667,7 +1667,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2120,14 +2120,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 752635813aa3097448ba131af68858ca,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 5c9fb489d5204654c9e842e9d0a32c0c, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.471
+  m_PlayOnAwake: 0
+  m_Volume: 0.337
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 107
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
