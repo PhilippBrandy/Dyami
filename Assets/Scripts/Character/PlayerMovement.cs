@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //Debug.Log(canMove);
 
+
         if (hInput.GetButton("Sprint"))
         {
             runSpeed = maxSpeed;

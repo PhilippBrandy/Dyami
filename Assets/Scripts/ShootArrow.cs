@@ -45,6 +45,7 @@ public class ShootArrow : MonoBehaviour
 
     //forceemitter while in air after teleport
     public bool theForce = false;
+    private bool canShoot = true;
 
     //audiofiles for telport and shooting
     public AudioSource shootArrow;
@@ -86,80 +87,86 @@ public class ShootArrow : MonoBehaviour
             }
         }
 
-
-        //Rotate Bow towards direction of mouse
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 diff = mousePos - rp.transform.position;
-        if (mousePos.x > rp.transform.position.x) playerFaces(0);
-        else playerFaces(1);
-        float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-
-        if (!facesRight)
+        if (canShoot)
         {
-            if (mousePos.y < rp.transform.position.y) angle += 180;
-            else angle -= 180;
-            rp.transform.rotation = Quaternion.AngleAxis(angle + 135, Vector3.forward);
-            headLookAt.localRotation = Quaternion.AngleAxis(angle / 2, Vector3.back);
-            //angle += 90;
-            bowAimAt.localRotation = Quaternion.AngleAxis(angle, Vector3.back);
-        }
-        else
-        {
-            rp.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            headLookAt.localRotation = Quaternion.AngleAxis(angle / 2, Vector3.forward);
-            bowAimAt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        }
+            //Rotate Bow towards direction of mouse
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 diff = mousePos - rp.transform.position;
+            if (mousePos.x > rp.transform.position.x) playerFaces(0);
+            else playerFaces(1);
+            float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
 
-
-        //Shoot Arrow
-        if (Input.GetMouseButtonDown(0) && !isTeleporting && !shootDelay)
-        {
-            //plays the shootArrow sound fx
-           // audioSource.PlayOneShot(characterSoundFx[0]);
-           shootArrow.Play();
-            if (canTeleport) hasShot = true;
-            animArms.SetTrigger(shootHash);
-            
-            if (arrows.Count >= maxArrows)
+            if (!facesRight)
             {
-                Destroy(arrows.Last.Value);
-                arrows.RemoveLast();
-            }
-            hit = false;
-            if (projectile != null)
-            {
-                projectile.GetComponent<SpriteRenderer>().sprite = normal_arrow;
-                projectile.GetComponentInChildren<Light>().enabled = false;
-            }
-            projectile = Instantiate(arrow);
-            arrows.AddFirst(projectile);
-            if (!canTeleport) projectile.GetComponent<SpriteRenderer>().sprite = normal_arrow;
-            shootDelay = true;
-            Invoke("rechargeBow", 1);
-
-
-            //make arrow strength independent of distance:
-            float div = 1f;
-            if (Mathf.Abs(diff.x) > Mathf.Abs(diff.y))
-            {
-                div = Mathf.Abs(diff.x);
+                if (mousePos.y < rp.transform.position.y) angle += 180;
+                else angle -= 180;
+                rp.transform.rotation = Quaternion.AngleAxis(angle + 135, Vector3.forward);
+                headLookAt.localRotation = Quaternion.AngleAxis(angle / 2, Vector3.back);
+                //angle += 90;
+                bowAimAt.localRotation = Quaternion.AngleAxis(angle, Vector3.back);
             }
             else
             {
-                div = Mathf.Abs(diff.y);
+                rp.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                headLookAt.localRotation = Quaternion.AngleAxis(angle / 2, Vector3.forward);
+                bowAimAt.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             }
 
-            diff.x = diff.x / div;
-            diff.y = diff.y / div;
 
-            diff.y *= 1.10f;
-            diff.x /= 1.05f;
+            //Shoot Arrow
+            if (Input.GetMouseButtonDown(0) && !isTeleporting && !shootDelay)
+            {
+                //plays the shootArrow sound fx
+                // audioSource.PlayOneShot(characterSoundFx[0]);
+                shootArrow.Play();
+                if (canTeleport) hasShot = true;
+                animArms.SetTrigger(shootHash);
 
-            //Move arrow
-            projectile.transform.position = transform.position;
-            rb = projectile.GetComponent<Rigidbody2D>();
-            rb.velocity = diff * strength;
-            //Invoke("resetArms", 1);
+                if (arrows.Count >= maxArrows)
+                {
+                    Destroy(arrows.Last.Value);
+                    arrows.RemoveLast();
+                }
+                hit = false;
+                if (projectile != null)
+                {
+                    projectile.GetComponent<SpriteRenderer>().sprite = normal_arrow;
+                    projectile.GetComponentInChildren<Light>().enabled = false;
+                }
+                projectile = Instantiate(arrow);
+                arrows.AddFirst(projectile);
+                if (!canTeleport || !learnedTeleporting)
+                {
+                    projectile.GetComponent<SpriteRenderer>().sprite = normal_arrow;
+                    projectile.GetComponentInChildren<Light>().enabled = false;
+                }
+                shootDelay = true;
+                Invoke("rechargeBow", 1);
+
+
+                //make arrow strength independent of distance:
+                float div = 1f;
+                if (Mathf.Abs(diff.x) > Mathf.Abs(diff.y))
+                {
+                    div = Mathf.Abs(diff.x);
+                }
+                else
+                {
+                    div = Mathf.Abs(diff.y);
+                }
+
+                diff.x = diff.x / div;
+                diff.y = diff.y / div;
+
+                diff.y *= 1.10f;
+                diff.x /= 1.05f;
+
+                //Move arrow
+                projectile.transform.position = transform.position;
+                rb = projectile.GetComponent<Rigidbody2D>();
+                rb.velocity = diff * strength;
+                //Invoke("resetArms", 1);
+            }
         }
 
         //Teleport
@@ -200,6 +207,19 @@ public class ShootArrow : MonoBehaviour
         {
             Vector3 playerPos = player.transform.position;
             Vector2 movetowards = Vector2.MoveTowards(new Vector2(playerPos.x, playerPos.y), projectile.transform.position, 50 * Time.deltaTime);
+
+            Vector2 eagleDir = projectile.transform.position - eagle.transform.position;
+            eagle.transform.right = eagleDir;
+
+            if(!facesRight)
+            {
+                eagle.transform.localScale = new Vector3(16, -16, 16);
+            }
+            else
+            {
+                eagle.transform.localScale = new Vector3(16, 16, 16);
+            }
+
             playerPos = new Vector3(movetowards.x, movetowards.y, player.transform.position.z);
             player.transform.position = playerPos;
         }
@@ -260,7 +280,7 @@ public class ShootArrow : MonoBehaviour
             }
         }
     }
-    private void playerFaces(int i)
+    public void playerFaces(int i)
     {
         // Multiply the player's x local scale by -1.
         Quaternion theRotation = player.transform.localRotation;
@@ -345,6 +365,11 @@ public class ShootArrow : MonoBehaviour
         return (Input.GetMouseButtonDown(1) && projectile != null && canTeleport && learnedTeleporting && hasShot && !isTeleporting);
     }
 
+    public bool isPlayerTeleporting()
+    {
+        return isTeleporting;
+    }
+
     //Makes player able to shoot an arrow again
     private void rechargeBow()
     {
@@ -354,5 +379,16 @@ public class ShootArrow : MonoBehaviour
     public LinkedList<GameObject> getArrows()
     {
         return arrows;
+    }
+
+
+    public bool getCanShoot()
+    {
+        return canShoot;
+    }
+
+    public void setCanShoot(bool shoot)
+    {
+        canShoot = shoot;
     }
 }
