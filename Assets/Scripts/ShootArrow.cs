@@ -12,7 +12,7 @@ public class ShootArrow : MonoBehaviour
     public GameObject eagle;
     public GameObject rp; //rotation point
     private Rigidbody2D rb = null;
-    private bool canTeleport = true;
+    private bool canTeleport = false;
     private bool hasShot = true;
     public GameObject teleportIndicator;
     public bool learnedTeleporting = false;
@@ -24,6 +24,7 @@ public class ShootArrow : MonoBehaviour
     public Animator animArms;
     public Transform bowAimAt;
     public Transform headLookAt;
+    public GameObject crawlRig;
     //Is true when player is currently teleporting
     private bool isTeleporting = false;
     //Is true when player has to wait to shoot again
@@ -32,6 +33,8 @@ public class ShootArrow : MonoBehaviour
     public Sprite normal_arrow;
     //Defines how many arrows can exist at once
     public int maxArrows = 5;
+    //Defines if a player shot an arrow after learning how to teleport
+    private bool firstTeleportShot = false;
 
     private Vector3 playerScale;
     private Vector3 arrowVelocity;
@@ -65,11 +68,10 @@ public class ShootArrow : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         if (!canTeleport)
         {
             //makes the player able to teleport again when they are on the ground
-            if (player.GetComponent<CharacterController2D>().getGrounded())
+            if (player.GetComponent<CharacterController2D>().getGrounded() && firstTeleportShot)
             {
                 //TODO: Abprüfen ob er nochmal geschossen hat nachdem er gelandet ist
                 canTeleport = true;
@@ -114,12 +116,15 @@ public class ShootArrow : MonoBehaviour
 
 
             //Shoot Arrow
-            if (Input.GetMouseButtonDown(0) && !isTeleporting && !shootDelay)
+            bool crawls = crawlRig.activeSelf;
+
+            if (Input.GetMouseButtonDown(0) && !isTeleporting && !shootDelay && !crawls)
             {
                 //plays the shootArrow sound fx
                 // audioSource.PlayOneShot(characterSoundFx[0]);
                 shootArrow.Play();
                 if (canTeleport) hasShot = true;
+                if (learnedTeleporting) firstTeleportShot = true;
                 animArms.SetTrigger(shootHash);
 
                 if (arrows.Count >= maxArrows)

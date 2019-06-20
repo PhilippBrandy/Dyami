@@ -70,8 +70,8 @@ public class Walljump : MonoBehaviour
         
         if (!arrowScript.isPlayerTeleporting())
         {
-            if (wallRight.collider != null) arrowScript.playerFaces(0);
-            if (wallLeft.collider != null) arrowScript.playerFaces(-1);
+            if (wallRight.collider != null && !grounded) arrowScript.playerFaces(0);
+            if (wallLeft.collider != null && !grounded) arrowScript.playerFaces(-1);
             if (((wallRight.collider != null && edgeRight.collider == null) || (wallLeft.collider != null && edgeLeft.collider == null)) && rb.velocity.y <= 0 && nearGround.collider == null)
             {
                 wasOnWall = true;
@@ -175,7 +175,6 @@ public class Walljump : MonoBehaviour
                 arrowScript.setCanShoot(true);
             }
         }
-        Debug.Log(arrowScript.getCanShoot());
     }
     //Enables the PlayerMovement Script again
     private void reset()

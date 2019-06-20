@@ -10,9 +10,11 @@ public class PlayerMovement : MonoBehaviour
     float runSpeed = 120;
     public float maxSpeed = 200;
     public float minSpeed = 120;
+    public float crawlSpeed = 60;
 
     float horizontalMove = 0f;
 
+    public GameObject crawlingRig;
     public bool jump = false;
     bool canMove = true;
 
@@ -21,19 +23,24 @@ public class PlayerMovement : MonoBehaviour
     {
         //Debug.Log(canMove);
 
+        bool crawling = crawlingRig.activeSelf;
 
-        if (hInput.GetButton("Sprint"))
+        if (hInput.GetButton("Sprint") && !crawling)
         {
             runSpeed = maxSpeed;
-            horizontalMove = hInput.GetAxis("Horizontal") * runSpeed;
+        }
+        else if (crawling)
+        {
+            runSpeed = crawlSpeed;
         }
         else
         {
             runSpeed = minSpeed;
-            horizontalMove = hInput.GetAxis("Horizontal") * runSpeed;
         }
 
-        if (hInput.GetButtonDown("Jump"))
+        horizontalMove = hInput.GetAxis("Horizontal") * runSpeed;
+
+        if (hInput.GetButtonDown("Jump") && !crawling)
         {
             jump = true;
         }
