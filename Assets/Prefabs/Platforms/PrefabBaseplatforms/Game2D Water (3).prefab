@@ -220,16 +220,17 @@ MonoBehaviour:
   constantRipplesRandomizeRipplesSourcesCount: 3
   constantRipplesAllowDuplicateRipplesSourcesPositions: 0
   constantRipplesSourcePositions: []
-  constantRipplesActivateSoundEffect: 0
+  constantRipplesActivateSoundEffect: 1
   constantRipplesUseConstantAudioPitch: 0
-  constantRipplesAudioClip: {fileID: 0}
+  constantRipplesAudioClip: {fileID: 8300000, guid: 8a54086aa55544246be99c526a22f224,
+    type: 3}
   constantRipplesAudioPitch: 1
   constantRipplesMinimumAudioPitch: 0.75
   constantRipplesMaximumAudioPitch: 1.25
   constantRipplesSoundEffectPoolSize: 10
   constantRipplesSoundEffectPoolExpandIfNecessary: 1
   constantRipplesAudioVolume: 1
-  constantRipplesActivateParticleEffect: 0
+  constantRipplesActivateParticleEffect: 1
   constantRipplesParticleEffect: {fileID: 0}
   constantRipplesParticleEffectSpawnOffset: {x: 0, y: 0, z: 0}
   constantRipplesParticleEffectStopAction:

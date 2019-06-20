@@ -132,37 +132,37 @@ MonoBehaviour:
     value: 31
   mixerRedOutRedIn:
     overrideState: 1
-    value: 53
+    value: 110
   mixerRedOutGreenIn:
     overrideState: 1
-    value: 65
+    value: 0
   mixerRedOutBlueIn:
     overrideState: 1
-    value: -21
+    value: 0
   mixerGreenOutRedIn:
     overrideState: 1
-    value: 0
+    value: 44
   mixerGreenOutGreenIn:
     overrideState: 1
-    value: 86
+    value: 74
   mixerGreenOutBlueIn:
     overrideState: 1
-    value: -5
+    value: 0
   mixerBlueOutRedIn:
     overrideState: 1
-    value: -52
+    value: -0
   mixerBlueOutGreenIn:
     overrideState: 1
     value: 0
   mixerBlueOutBlueIn:
     overrideState: 1
-    value: 79
+    value: 95
   lift:
     overrideState: 0
     value: {x: 0.3889097, y: 0.34007502, z: 1, w: 0}
   gamma:
     overrideState: 1
-    value: {x: 0.88808346, y: 0.94860727, z: 1, w: 0}
+    value: {x: 0.9021936, y: 0.93247557, z: 1, w: 0}
   gain:
     overrideState: 1
     value: {x: 0.18164605, y: 0.4212019, z: 1, w: 0}
@@ -803,11 +803,38 @@ MonoBehaviour:
       - 0.984375
       - 0.9921875
   hueVsHueCurve:
-    overrideState: 0
+    overrideState: 1
     value:
       curve:
         serializedVersion: 2
-        m_Curve: []
+        m_Curve:
+        - serializedVersion: 3
+          time: 0.03943662
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.12957746
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.91830987
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -1425,7 +1452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6050e2d5de785ce4d931e4dbdbf2d755, type: 3}
   m_Name: ChromaticAberration
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -1435,7 +1462,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 1
+    value: 0.072
   fastMode:
     overrideState: 0
     value: 0
