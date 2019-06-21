@@ -21,7 +21,7 @@ public class SwitchToWalking : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        crawlAnimator.SetTrigger("reachForTotem");
+        crawlAnimator.SetBool("reachForTotem", true);
         float animDuration = reviveAnim.length - 0.1f;
 
         StartCoroutine(wait(animDuration));
@@ -45,6 +45,7 @@ public class SwitchToWalking : MonoBehaviour
         armsRig.SetActive(true);
         headRig.SetActive(true);
         crawlAnimator.SetBool("crawling", false);
+        crawlAnimator.SetBool("reachForTotem", false);
         crawlingRig.SetActive(false);
         mainAnimator.SetFloat("Speed", 0.0f);
     }
