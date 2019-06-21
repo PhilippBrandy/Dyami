@@ -74,7 +74,8 @@ public class CharacterController2D : MonoBehaviour
                     if (!GetComponent<PlayerMovement>().crawlingRig.activeSelf)
                     {
                         walkSoundTimer += Time.deltaTime;
-                        if (walkSoundTimer >= 1)
+                        if (walkSoundTimer > 1) walkSoundTimer = 0;
+                        if (walkSoundTimer == 0)
                         {
                             string name = colliders[i].gameObject.name;
                             //if player is on stone
@@ -91,9 +92,12 @@ public class CharacterController2D : MonoBehaviour
                             {
                                 Debug.Log("I make wood sounds");
                             }
-                            walkSoundTimer = 0;
                         }
                     }
+                }
+                else
+                {
+                    walkSoundTimer = 0;
                 }
             }
         }
