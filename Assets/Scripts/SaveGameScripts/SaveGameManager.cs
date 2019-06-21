@@ -43,6 +43,8 @@ public static class SaveGameManager
         PlayerPrefs.SetFloat("PlayerZ" + index, saveGame.SavePosition.z);
         PlayerPrefs.SetString("Date" + index, saveGame.Date);
         PlayerPrefs.SetString("CurrentScene" + index, saveGame.CurrentScene);
+        PlayerPrefs.SetInt("ItemsCollected" + index, saveGame.ItemsCollected);
+        PlayerPrefs.SetInt("ItemsToCollect" + index, saveGame.ItemsToCollect);
     }
 
     private static SaveGame LoadSavedGame(int gameIndex)
@@ -55,7 +57,9 @@ public static class SaveGameManager
             return null;
         }
         saveGame.Date = date;
-        saveGame.CurrentScene = PlayerPrefs.GetString("CurrentScene" + gameIndex, null); ;
+        saveGame.CurrentScene = PlayerPrefs.GetString("CurrentScene" + gameIndex, null);
+        saveGame.ItemsCollected = PlayerPrefs.GetInt("ItemsCollected" + gameIndex);
+        saveGame.ItemsToCollect = PlayerPrefs.GetInt("ItemsToCollect" + gameIndex);
         saveGame.SavePosition = new Vector3(PlayerPrefs.GetFloat("PlayerX" + gameIndex), PlayerPrefs.GetFloat("PlayerY" + gameIndex), PlayerPrefs.GetFloat("PlayerZ" + gameIndex));
         return saveGame;
     }

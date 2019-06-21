@@ -21,6 +21,8 @@ public class Spawnpoint : MonoBehaviour
                 saveGame.Date = System.DateTime.Now.ToString("dd.MM.yyyy HH:mm");
                 saveGame.SavePosition = gameObject.transform.position;
                 saveGame.CurrentScene = SceneManager.GetActiveScene().name;
+                saveGame.ItemsCollected = GameManager.instance.GetNumberOfCollectedItems();
+                saveGame.ItemsToCollect = GameManager.instance.GetNumberOfAllCollectableItems();
                 SaveGameManager.AddSaveGame(saveGame);
                 lastGameSave = System.DateTime.Now.Millisecond;
             }

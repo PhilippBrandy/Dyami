@@ -67,6 +67,11 @@ public class GameManager : MonoBehaviour
         return numberOfAllCollectableItems;
     }
 
+    public int GetNumberOfCollectedItems()
+    {
+        return numberOfCollectedItems;
+    }
+
     public void IncreaseNumberOfCollectedItems()
     {
         numberOfCollectedItems++;
