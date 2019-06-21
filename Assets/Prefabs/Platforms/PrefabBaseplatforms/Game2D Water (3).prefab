@@ -167,7 +167,8 @@ MonoBehaviour:
   onCollisionRipplesOnWaterEnterParticleEffectPoolSize: 10
   onCollisionRipplesOnWaterEnterParticleEffectPoolExpandIfNecessary: 1
   onCollisionRipplesActivateOnWaterEnterSoundEffect: 1
-  onCollisionRipplesOnWaterEnterAudioClip: {fileID: 0}
+  onCollisionRipplesOnWaterEnterAudioClip: {fileID: 8300000, guid: d9c0e1e8673bdcc4891f0309e06fd97b,
+    type: 3}
   onCollisionRipplesUseConstantOnWaterEnterAudioPitch: 0
   onCollisionRipplesOnWaterEnterAudioPitch: 1
   onCollisionRipplesOnWaterEnterMinimumAudioPitch: 0.75
@@ -186,7 +187,8 @@ MonoBehaviour:
   onCollisionRipplesOnWaterExitParticleEffectPoolSize: 10
   onCollisionRipplesOnWaterExitParticleEffectPoolExpandIfNecessary: 1
   onCollisionRipplesActivateOnWaterExitSoundEffect: 0
-  onCollisionRipplesOnWaterExitAudioClip: {fileID: 0}
+  onCollisionRipplesOnWaterExitAudioClip: {fileID: 8300000, guid: d9c0e1e8673bdcc4891f0309e06fd97b,
+    type: 3}
   onCollisionRipplesUseConstantOnWaterExitAudioPitch: 0
   onCollisionRipplesOnWaterExitAudioPitch: 1
   onCollisionRipplesOnWaterExitMinimumAudioPitch: 0.75
