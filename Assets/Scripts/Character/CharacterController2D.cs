@@ -16,6 +16,8 @@ public class CharacterController2D : MonoBehaviour
     public GameObject normalRig;
     public GameObject crawlingRig;
 
+    public 
+
     //int jumpHash = Animator.StringToHash("Jump");
 
 
@@ -26,6 +28,7 @@ public class CharacterController2D : MonoBehaviour
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private Vector3 m_Velocity = Vector3.zero;
     private bool canMove = true;
+    private float walkSoundTimer = 0;
 
     [Header("Events")]
     [Space]
@@ -62,8 +65,36 @@ public class CharacterController2D : MonoBehaviour
             if (colliders[i].gameObject != gameObject)
             {
                 m_Grounded = true;
-                if (!wasGrounded)
-                    OnLandEvent.Invoke();
+                if (!wasGrounded) OnLandEvent.Invoke();
+
+                //if player moves
+                if (Input.GetAxis("Horizontal") != 0)
+                {
+                    //and is not crawling
+                    if (!GetComponent<PlayerMovement>().crawlingRig.activeSelf)
+                    {
+                        walkSoundTimer += Time.deltaTime;
+                        if (walkSoundTimer >= 1)
+                        {
+                            string name = colliders[i].gameObject.name;
+                            //if player is on stone
+                            if (name.Contains("cave") || name.Contains("stone") || name.Contains("Stone"))
+                            {
+                                Debug.Log("I make stone sounds");
+                            }
+                            //if player is on grass
+                            else if (name.Contains("Grass") || name.Contains("Moos") || name.Contains("Moss") || name.Contains("ShootDownPlatform"))
+                            {
+                                Debug.Log("I make grass sounds");
+                            }
+                            else
+                            {
+                                Debug.Log("I make wood sounds");
+                            }
+                            walkSoundTimer = 0;
+                        }
+                    }
+                }
             }
         }
     }
