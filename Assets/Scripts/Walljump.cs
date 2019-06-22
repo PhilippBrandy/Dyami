@@ -169,7 +169,7 @@ public class Walljump : MonoBehaviour
                 controlTimer += Time.deltaTime;
                 if (controlTimer >= 0.8) resetControls(); 
             }
-            if (grounded)
+            if (grounded && wasOnWall)
             {
                 resetControls();
                 arrowScript.setCanShoot(true);
