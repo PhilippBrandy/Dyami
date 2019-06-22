@@ -7,6 +7,7 @@ public class AudioTrigger : MonoBehaviour
     public GameObject audioObj;
     public bool activate;
     public bool deactivation;
+    public float fadeTime;
 
 
     // Start is called before the first frame update
@@ -33,4 +34,13 @@ public class AudioTrigger : MonoBehaviour
             audioObj.SetActive(false);
         }
     }
+}
+
+
+
+public abstract class FadeState
+{
+    public abstract void EnterState(AudioTrigger owner);
+    public abstract void ExitState(AudioTrigger owner);
+    public abstract void UpdateState(AudioTrigger owner);
 }
