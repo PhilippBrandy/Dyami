@@ -94,6 +94,7 @@ public class Walljump : MonoBehaviour
 
                         rb.velocity = new Vector2(0, jumpStrength * 1.3f);
                         GetComponent<PlayerMovement>().enabled = true;
+                        rb.gravityScale = baseGravity;
                         animArms.SetTrigger(climbHash);
                         animBody.SetTrigger(climbHash);
                         arrowScript.setCanShoot(true);
@@ -104,6 +105,7 @@ public class Walljump : MonoBehaviour
                     {
                         rb.gravityScale = baseGravity;
                         rb.AddForce(new Vector2(jumpStrength * 40 * direction, 0));
+                        arrowScript.setCanShoot(true);
                         reset();
                         atWall = false;
                     }
@@ -149,15 +151,17 @@ public class Walljump : MonoBehaviour
                 {
                     rb.gravityScale = baseGravity;
                     rb.AddForce(new Vector2(jumpStrength * 10 * direction, 0));
+                    arrowScript.setCanShoot(true);
                     reset();
                 }
             }
-            else if (wasOnWall)
+            else if ((wallRight.collider != null || wallLeft.collider != null) && grounded)
             {
-                reset();
-                wasOnWall = false;
+                resetControls();
                 rb.gravityScale = baseGravity;
+                arrowScript.setCanShoot(true);
             }
+
             if (arrowScript.playerTeleports())
             {
                 rb.gravityScale = baseGravity;
@@ -171,6 +175,7 @@ public class Walljump : MonoBehaviour
             }
             if (grounded && wasOnWall)
             {
+                wasOnWall = false;
                 resetControls();
                 arrowScript.setCanShoot(true);
             }
