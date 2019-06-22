@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Spawnpoint : MonoBehaviour
 {
+    GameObject checkpointManager;
+    string checkpointsReached;
 
-    private long lastGameSave = 0;
-    private int saveDelay = 10;
+    private void Start()
+    {
+        checkpointManager = GameObject.Find("CheckpointManager");
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,7 +19,9 @@ public class Spawnpoint : MonoBehaviour
         {
             other.GetComponent<Killable>().spawnpoint = gameObject.transform;
 
-            if (lastGameSave + saveDelay < System.DateTime.Now.Millisecond)
+            checkpointsReached = checkpointManager.GetComponent<CheckpointManager>().GetNamesOfReachedCheckpoints();
+
+            if (!checkpointsReached.Contains(this.gameObject.name))
             {
                 SaveGame saveGame = new SaveGame();
                 saveGame.Date = System.DateTime.Now.ToString("dd.MM.yyyy HH:mm");
@@ -24,7 +30,7 @@ public class Spawnpoint : MonoBehaviour
                 saveGame.ItemsCollected = GameManager.instance.GetNumberOfCollectedItems();
                 saveGame.ItemsToCollect = GameManager.instance.GetNumberOfAllCollectableItems();
                 SaveGameManager.AddSaveGame(saveGame);
-                lastGameSave = System.DateTime.Now.Millisecond;
+                checkpointManager.GetComponent<CheckpointManager>().AddReachedCheckpoint(this.gameObject.name);
             }
         }
     }
