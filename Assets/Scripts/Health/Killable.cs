@@ -16,7 +16,7 @@ public class Killable : MonoBehaviour
     private int count = 10;
     public AudioSource audioSource;
     public AudioSource grunt;
-    //Shows if player is in the death anymation or not (true = no in death animation)
+    //Shows if player is in the death anymation or not (true = not in death animation)
     private bool respawned = true;
 
     // Invulnerability after getting damaged
@@ -33,7 +33,7 @@ public class Killable : MonoBehaviour
     float knockBackTimer = 0.0f;
     public float secondsKnockout = 2f;
     bool knockoutTimerIsActive = false;
-    public Animator animBody;
+    public GameObject DeathAnim;
 
 
     void Start()
@@ -115,7 +115,16 @@ public class Killable : MonoBehaviour
             respawned = false;
             GetComponentInParent<PlayerMovement>().enabled = false;
             GetComponentInParent<ShootArrow>().enabled = false;
-            animBody.SetTrigger("Die");
+            DeathAnim.SetActive(true);
+
+            SpriteRenderer[] renderers;
+            renderers = GetComponentsInChildren<SpriteRenderer>();
+            foreach (SpriteRenderer renderer in renderers)
+            {
+                renderer.enabled = false;
+            }
+            DeathAnim.GetComponent<SpriteRenderer>().enabled = true;
+
             Invoke("respawn", 1);
         }
     }
@@ -188,5 +197,20 @@ public class Killable : MonoBehaviour
         GetComponentInParent<PlayerMovement>().enabled = true;
         GetComponentInParent<ShootArrow>().enabled = true;
         respawned = true;
+        DeathAnim.GetComponent<Animator>().SetTrigger("Respawn");
+        Invoke("removeAnim", 2);
+        Debug.Log("respawning");
+    }
+
+    private void removeAnim()
+    {
+        SpriteRenderer[] renderers;
+        renderers = GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer renderer in renderers)
+        {
+            renderer.enabled = true;
+        }
+        DeathAnim.GetComponent<SpriteRenderer>().enabled = false;
+        DeathAnim.SetActive(false);
     }
 }
