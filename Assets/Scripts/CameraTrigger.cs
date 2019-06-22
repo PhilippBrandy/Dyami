@@ -18,6 +18,8 @@ public class CameraTrigger : MonoBehaviour
         Debug.Log("camera trigger");
         if (collision.CompareTag("Player")&&triggerAnimation)
         {
+            Debug.Log("camera trigger hello");
+
             camera.GetComponent<CameraBehaviour>().enabled = false;
             avatarController.GetComponent<PlayerMovement>().enabled = false;
 
