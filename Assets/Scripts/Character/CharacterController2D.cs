@@ -73,8 +73,6 @@ public class CharacterController2D : MonoBehaviour
                     //and is not crawling
                     if (!GetComponent<PlayerMovement>().crawlingRig.activeSelf)
                     {
-                        walkSoundTimer += Time.deltaTime;
-                        if (walkSoundTimer > 1) walkSoundTimer = 0;
                         if (walkSoundTimer == 0)
                         {
                             string name = colliders[i].gameObject.name;
@@ -93,6 +91,8 @@ public class CharacterController2D : MonoBehaviour
                                 Debug.Log("I make wood sounds");
                             }
                         }
+                        walkSoundTimer += Time.deltaTime;
+                        if (walkSoundTimer > 1) walkSoundTimer = 0;
                     }
                 }
                 else
