@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AudioTrigger : MonoBehaviour
 {
+    public bool playOnTrigger;
+
     public AudioSource source;
     public float fadeTime;
 
@@ -66,6 +68,10 @@ public class AudioTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (playOnTrigger)
+        {
+            source.Play();
+        }
         //Berechne notwendige Schrittgröße
         if (currentState == FadeState.sleeping)
         {
