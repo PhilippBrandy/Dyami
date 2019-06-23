@@ -15,13 +15,13 @@ public class SwitchScene : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.CompareTag("Player"))
-        //{
+        if (collision.gameObject.CompareTag("Player"))
+        {
             Debug.Log("collision");
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
             SceneManager.LoadScene(nextSceneName);
             SceneManager.SetActiveScene(nextScene);
-        //}
+        }
         
     }
     
