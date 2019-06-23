@@ -19,6 +19,7 @@ public class ShootArrow : MonoBehaviour
     private GameObject projectile = null;
     bool hit = false;
     [SerializeField] private LayerMask getsStuckIn;
+    [SerializeField] private LayerMask bouncesOf;
     public Animator animHead;
     public Animator animBody;
     public Animator animArms;
@@ -75,7 +76,6 @@ public class ShootArrow : MonoBehaviour
             {
                 //TODO: Abprüfen ob er nochmal geschossen hat nachdem er gelandet ist
                 canTeleport = true;
-                teleportIndicator.SetActive(true);
 
                 //start force-code
                 theForce = false;
@@ -139,9 +139,11 @@ public class ShootArrow : MonoBehaviour
                     projectile.GetComponentInChildren<Light>().enabled = false;
                 }
                 projectile = Instantiate(arrow);
+                teleportIndicator.SetActive(true);
                 arrows.AddFirst(projectile);
                 if (!canTeleport || !learnedTeleporting)
                 {
+                    teleportIndicator.SetActive(false);
                     projectile.GetComponent<SpriteRenderer>().sprite = normal_arrow;
                     projectile.GetComponentInChildren<Light>().enabled = false;
                 }
@@ -282,9 +284,28 @@ public class ShootArrow : MonoBehaviour
                         }
                     }                 
                 }
+
+                else if (rb.IsTouchingLayers(bouncesOf))
+                {
+                    Collider2D[] iHitThis = new Collider2D[1];
+                    ContactFilter2D filter = new ContactFilter2D();
+                    filter.SetLayerMask(bouncesOf);
+                    rb.OverlapCollider(filter, iHitThis);
+                    if (iHitThis[0] != null)
+                    {
+                        Debug.Log("hi");
+                        rb.GetComponent<CircleCollider2D>().enabled = true;
+                        Invoke("stopBounce", 0.1f);
+                    }
+                }
             }
         }
     }
+    private void stopBounce()
+    {
+        rb.GetComponent<CircleCollider2D>().enabled = false;
+    }
+
     public void playerFaces(int i)
     {
         // Multiply the player's x local scale by -1.

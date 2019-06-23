@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 50336618800050542}
   - component: {fileID: 61532260151155660}
   - component: {fileID: 114797200876402420}
-  - component: {fileID: 5239286298944258986}
-  m_Layer: 10
+  - component: {fileID: 3513618379291036990}
+  m_Layer: 2
   m_Name: arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,8 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyEffect: {fileID: 1345728375354208, guid: 2052a91a84e07d742b645a578b9b0d41,
     type: 3}
---- !u!61 &5239286298944258986
-BoxCollider2D:
+--- !u!58 &3513618379291036990
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -154,23 +154,13 @@ BoxCollider2D:
   m_GameObject: {fileID: 1600528414436316}
   m_Enabled: 0
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5324ec99c1a32cb4f8d3c956180e9b29, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.28, y: 0.009418488}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.49, y: 1.39}
-    newSize: {x: 6.47, y: 3.1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.04, y: 0.03}
-  m_EdgeRadius: 0
+  m_Radius: 0.03
 --- !u!1 &1306056190005037832
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6099328828033956437}
   - component: {fileID: 8189915089307222615}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
