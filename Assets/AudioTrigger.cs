@@ -57,6 +57,7 @@ public class AudioTrigger : MonoBehaviour
                         changeState(FadeState.active);
                     }
                 }
+                source.volume = currentVol;
                 break;
             case FadeState.active:
                 break;
