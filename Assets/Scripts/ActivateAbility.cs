@@ -11,7 +11,8 @@ public class ActivateAbility : MonoBehaviour
     private bool featherpower;
     public GameObject textObject;
     public GameObject playerPointLight;
-  
+    public GameObject textObject1;
+    public GameObject textObject2;
     public GameObject[] glowingAssets5;
 
 
@@ -24,21 +25,26 @@ public class ActivateAbility : MonoBehaviour
         characterWeapon.learnedTeleporting = false;
         featherpower = true;
         textObject.SetActive(false);
+        textObject1.SetActive(false);
+        textObject2.SetActive(false);
 
-}
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            
+            Invoke("showText1", 7);
+            Invoke("showText2", 14);
+
             characterWeapon.learnedTeleporting = true;
              if (featherpower == true)
         {
                 Debug.Log("feather");
             featherAnim.SetTrigger(featherTrigger);
 
-        }
+            }
+
 
         }
        
@@ -64,5 +70,25 @@ public class ActivateAbility : MonoBehaviour
     private void removeText()
     {
         textObject.SetActive(false);
+    }
+
+    //egale text
+    private void removeText1()
+    {
+        textObject1.SetActive(false);
+    }
+    private void removeText2()
+    {
+        textObject2.SetActive(false);
+    }
+    private void showText1()
+    {
+        textObject1.SetActive(true);
+        Invoke("removeText1", 7);
+    }
+    private void showText2()
+    {
+        Invoke("removeText2", 10);
+        textObject2.SetActive(true);
     }
 }

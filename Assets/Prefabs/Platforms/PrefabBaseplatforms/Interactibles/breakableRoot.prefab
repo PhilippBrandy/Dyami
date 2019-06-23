@@ -51,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a66f169cc561862479f9962bcd63eb2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 58f256b172d03b444ba9def494b7582d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 276f0c1c38649e2479e86546146e8964, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,7 +146,4 @@ PolygonCollider2D:
       - {x: -3.2524414, y: -1.7592773}
       - {x: -3.2287598, y: -1.41996}
       - {x: -3.1086426, y: -1.2611847}
-      - {x: 2.1694336, y: -1.1008301}
-      - {x: 2.215088, y: 1.7692947}
-      - {x: 2.7045898, y: 1.4952774}
-      - {x: 3.3100586, y: 0.9255371}
+      - {x: 3.2148438, y: -1.1125793}
