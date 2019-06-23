@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 225.29997, y: 2.8}
+  m_AnchoredPosition: {x: 225.29997, y: -47}
   m_SizeDelta: {x: 133.3, y: 32.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &446591258495448140
@@ -337,7 +337,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 225.29997, y: 54.9}
+  m_AnchoredPosition: {x: 225.29997, y: 104.700005}
   m_SizeDelta: {x: 133.3, y: 32.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6648463012495549370
@@ -680,7 +680,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6648463013188108329}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 258.92358, y: 88.33894, z: -5.8575144}
+  m_LocalPosition: {x: 258.92358, y: 111.03895, z: -5.8575144}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6648463014216276541}
@@ -816,7 +816,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -165.1, y: -25.4}
+  m_AnchoredPosition: {x: -165.1, y: -6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6648463013447182164
@@ -981,7 +981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 225.3, y: -101.3}
+  m_AnchoredPosition: {x: 225.3, y: -122.4}
   m_SizeDelta: {x: 133.3, y: 32.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6648463013746922483
@@ -1201,7 +1201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 225.29997, y: -49.3}
+  m_AnchoredPosition: {x: 225.29997, y: 29.700003}
   m_SizeDelta: {x: 133.3, y: 32.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6648463014222914467
@@ -1560,8 +1560,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 21.9
+  m_fontSizeBase: 21.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
