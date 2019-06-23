@@ -4,43 +4,90 @@ using UnityEngine;
 
 public class AudioTrigger : MonoBehaviour
 {
-    public GameObject audioObj;
-    public bool activate;
-    public bool deactivation;
+    public AudioSource source;
     public float fadeTime;
 
+    //fade-in or out?
+    private bool increase;
+
+    //Volume
+    public float maxVol;
+    private float currentVol;
+    private float startVol;
+
+    public enum FadeState { sleeping, fading, active};
+    private FadeState currentState = FadeState.sleeping;
+
+    //Volumesteps for fade
+    private float volumeStep;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        startVol = source.volume;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        switch (currentState)
+        {
+            case FadeState.sleeping:
+                break;
+            case FadeState.fading:
+                if (increase)
+                {
+                    if (currentVol < maxVol)
+                    {
+                        currentVol += volumeStep * Time.deltaTime;
+                    }
+                    else
+                    {
+                        changeState(FadeState.active);
+                    }
+                }
+                else
+                {
+                    if (currentVol > maxVol)
+                    {
+                        currentVol += volumeStep * Time.deltaTime;
+                    }
+                    else
+                    {
+                        changeState(FadeState.active);
+                    }
+                }
+                break;
+            case FadeState.active:
+                break;
+        }
     }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("audio trigger");
-        if (collision.CompareTag("Player") && activate)
+        //Berechne notwendige Schrittgröße
+        if (currentState == FadeState.sleeping)
         {
-            audioObj.SetActive(true);
+            currentVol = source.volume;
+            if (currentVol < maxVol)
+            {
+                increase = true;
+            }
+            else
+            {
+                increase = false;
+            }
+            volumeStep = (float)(maxVol - currentVol / fadeTime);
+            changeState(FadeState.fading);
         }
+            Debug.Log("audio trigger");
+    }
 
-        if (collision.CompareTag("Player") && deactivation)
-        {
-            audioObj.SetActive(false);
-        }
+    void changeState(FadeState nextState)
+    {
+        currentState = nextState;
     }
 }
 
 
 
-public abstract class FadeState
-{
-    public abstract void EnterState(AudioTrigger owner);
-    public abstract void ExitState(AudioTrigger owner);
-    public abstract void UpdateState(AudioTrigger owner);
-}
