@@ -10,7 +10,7 @@ public class FalldownTree : MonoBehaviour {
     public string comparatorTag;
     private bool falling;
     private IEnumerator coroutine;
-
+    public AudioSource crack;
     private void Awake()
     {
         falling = false;
@@ -30,6 +30,7 @@ public class FalldownTree : MonoBehaviour {
             {
                 rigidBody.bodyType = RigidbodyType2D.Dynamic;
             }
+            crack.Play();
             falling = true;
         }
     }

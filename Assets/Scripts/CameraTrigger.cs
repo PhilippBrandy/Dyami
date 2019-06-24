@@ -22,6 +22,8 @@ public class CameraTrigger : MonoBehaviour
 
             camera.GetComponent<CameraBehaviour>().enabled = false;
             avatarController.GetComponent<PlayerMovement>().enabled = false;
+            avatarController.GetComponent<PlayerMovement>().maxSpeed = 0;
+            avatarController.GetComponent<PlayerMovement>().minSpeed = 0;
 
             camAnimator.SetTrigger(triggerName);
             coroutine = WaitAndWatch(waitTime);
@@ -42,6 +44,8 @@ public class CameraTrigger : MonoBehaviour
 
         camera.GetComponent<CameraBehaviour>().enabled = true;
         avatarController.GetComponent<PlayerMovement>().enabled = true;
+        avatarController.GetComponent<PlayerMovement>().maxSpeed = 200;
+        avatarController.GetComponent<PlayerMovement>().minSpeed = 120;
 
     }
 }

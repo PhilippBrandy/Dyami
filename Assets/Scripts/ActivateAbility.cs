@@ -14,7 +14,8 @@ public class ActivateAbility : MonoBehaviour
     public GameObject textObject1;
     public GameObject textObject2;
     public GameObject[] glowingAssets5;
-
+    public bool playOnce;
+    public AudioSource eagleScream;
 
     public string featherTrigger;
   
@@ -27,6 +28,7 @@ public class ActivateAbility : MonoBehaviour
         textObject.SetActive(false);
         textObject1.SetActive(false);
         textObject2.SetActive(false);
+        playOnce = true;
 
     }
 
@@ -34,15 +36,15 @@ public class ActivateAbility : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Invoke("showText1", 7);
-            Invoke("showText2", 14);
+            
 
             characterWeapon.learnedTeleporting = true;
-             if (featherpower == true)
-        {
+             if (featherpower == true && playOnce)
+        {Invoke("showText1", 7);
+            Invoke("showText2", 14);
                 Debug.Log("feather");
             featherAnim.SetTrigger(featherTrigger);
-
+                playOnce = false;
             }
 
 
@@ -83,11 +85,14 @@ public class ActivateAbility : MonoBehaviour
     }
     private void showText1()
     {
+        eagleScream.Play();
         textObject1.SetActive(true);
         Invoke("removeText1", 7);
     }
     private void showText2()
     {
+        eagleScream.Play();
+
         Invoke("removeText2", 10);
         textObject2.SetActive(true);
     }
