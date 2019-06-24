@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class WaterDamage : MonoBehaviour
 {
-    // script has to be assigned to the damaging water
-
+    // script has to be assigned to the damaging water, damaging water should be untagged
     public float secondsInvulnerableInWater = 3f;
     float waterTimer = 0.0f;
     bool waterTimerIsActive = false;
@@ -22,6 +21,7 @@ public class WaterDamage : MonoBehaviour
                 waterTimerIsActive = false;
                 waterTimer = 0.0f;
                 player.GetComponent<Killable>().reduceHealthOfPlayer();
+                StartCoroutine(player.GetComponent<PlayerFlashing>().StartFlasher());
                 waterTimerIsActive = true;
             }
         }
@@ -44,6 +44,7 @@ public class WaterDamage : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerIsInWater = false;
+            waterTimerIsActive = false;
         }
     }
 }
