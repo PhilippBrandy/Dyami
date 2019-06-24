@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8904960369583727876}
   - component: {fileID: 8904960369583727879}
+  - component: {fileID: 1457087099595072308}
   m_Layer: 0
-  m_Name: MovingPlattformPivot
+  m_Name: MovingPlattformPivot-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,6 +52,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1457087099595072308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8904960369583727877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87fe228f6844640468190ff3f975a233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platform: {fileID: 8904960371239267545}
+  player: {fileID: 0}
 --- !u!1001 &8904960370600822897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -161,6 +176,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53638c9980c016b4c9f1c60473c57781, type: 3}
+--- !u!1 &8904960371239267545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1043489960, guid: 53638c9980c016b4c9f1c60473c57781,
+    type: 3}
+  m_PrefabInstance: {fileID: 8904960370600822897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8904960371239267549 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1043489964, guid: 53638c9980c016b4c9f1c60473c57781,
