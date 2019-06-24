@@ -23,6 +23,7 @@ public class BreakableEnvi : MonoBehaviour {
 
     public void triggerBreaking()
     {
+        gameObject.GetComponent<Collider2D>().enabled = false;
         StartCoroutine(wait());
         destroyAnimation.SetTrigger("break");
     }
