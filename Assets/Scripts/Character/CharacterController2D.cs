@@ -20,8 +20,7 @@ public class CharacterController2D : MonoBehaviour
     public AudioSource grassWalk;
     public AudioSource stoneWalk;
     public AudioSource woodWalk;
-
-    public 
+    public AudioSource landingAndWalljump;
 
     //int jumpHash = Animator.StringToHash("Jump");
 
