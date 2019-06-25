@@ -68,27 +68,32 @@ public class AudioTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //Berechne notwendige Schrittgröße
-        if (currentState == FadeState.sleeping)
+        if (collision.CompareTag("Player"))
         {
-            if (playOnTrigger)
+            //Berechne notwendige Schrittgröße
+            if (currentState == FadeState.sleeping)
             {
-                source.Play();
+                if (playOnTrigger)
+                {
+                    source.Play();
+                }
+                currentVol = source.volume;
+                if (currentVol < maxVol)
+                {
+                    increase = true;
+                }
+                else
+                {
+                    increase = false;
+                }
+                volumeStep = (double)((maxVol - currentVol) / fadeTime);
+                changeState(FadeState.fading);
             }
-            currentVol = source.volume;
-            if (currentVol < maxVol)
-            {
-                increase = true;
-            }
-            else
-            {
-                increase = false;
-            }
-            volumeStep = (double)((maxVol - currentVol) / fadeTime);
-            changeState(FadeState.fading);
+            Debug.Log("audio trigger");
+            Debug.Log("Volume Step: " + volumeStep);
+
         }
-        Debug.Log("audio trigger");
-        Debug.Log("Volume Step: " + volumeStep);
+        
     }
 
     void changeState(FadeState nextState)
