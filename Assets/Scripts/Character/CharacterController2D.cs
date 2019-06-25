@@ -139,7 +139,7 @@ public class CharacterController2D : MonoBehaviour
                             }
                         }
                         walkSoundTimer += Time.deltaTime;
-                        //if (walkSoundTimer > 1) walkSoundTimer = 0;
+                        if (walkSoundTimer > 1) walkSoundTimer = 0;
                     }
                 }
                 else
