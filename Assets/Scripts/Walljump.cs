@@ -20,6 +20,7 @@ public class Walljump : MonoBehaviour
     public Animator animHead;
     public Animator animBody;
     public Animator animArms;
+    public AudioSource landingAndWalljump;
 
     int hangingHash, climbHash, airHash, wallHash;
     bool inAir, atWall = false;
@@ -150,6 +151,7 @@ public class Walljump : MonoBehaviour
                     arrowScript.setCanShoot(true);
                     atWall = false;
                     rb.gravityScale = baseGravity;
+					landingAndWalljump.Play();
                 }
                 //Slide
                 else if (hugsWall(direction))

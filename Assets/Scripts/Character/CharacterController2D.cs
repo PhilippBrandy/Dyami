@@ -75,8 +75,10 @@ public class CharacterController2D : MonoBehaviour
             if (colliders[i].gameObject != gameObject)
             {
                 m_Grounded = true;
-                if (!wasGrounded) OnLandEvent.Invoke();
-
+                if (!wasGrounded) {
+                    landingAndWalljump.Play();
+					OnLandEvent.Invoke();
+				}
                 //if player moves
                 if (Input.GetAxis("Horizontal") != 0)
                 {
