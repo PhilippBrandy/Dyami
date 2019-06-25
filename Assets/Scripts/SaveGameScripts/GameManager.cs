@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     public GameObject playerStartposition;
     bool isGameLoaded = false;
+    bool playerCanTeleport = false;
 
     int numberOfAllCollectableItems = 0;
     int numberOfCollectedItems = 0;
@@ -75,5 +76,15 @@ public class GameManager : MonoBehaviour
     public void IncreaseNumberOfCollectedItems()
     {
         numberOfCollectedItems++;
+    }
+
+    public void ActivateTeleporting()
+    {
+        playerCanTeleport = true;
+    }
+
+    public bool CanPlayerTeleport()
+    {
+        return playerCanTeleport;
     }
 }

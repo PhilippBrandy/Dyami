@@ -11,6 +11,7 @@ public class SetLoadedGame : MonoBehaviour
         if (GameManager.instance.IsGameLoaded())
         {
             player.transform.position = GameManager.instance.GetPlayerPos();
+            player.GetComponent<ShootArrow>().learnedTeleporting = GameManager.instance.CanPlayerTeleport();
             GameManager.instance.SetIsGameLoaded(false);
         }
     }

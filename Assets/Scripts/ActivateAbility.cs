@@ -36,7 +36,7 @@ public class ActivateAbility : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            
+            GameManager.instance.ActivateTeleporting();
 
             characterWeapon.learnedTeleporting = true;
              if (featherpower == true && playOnce)
