@@ -16,6 +16,11 @@ public class CharacterController2D : MonoBehaviour
     public GameObject normalRig;
     public GameObject crawlingRig;
 
+    //Walksound_Sources
+    public AudioSource grassWalk;
+    public AudioSource stoneWalk;
+    public AudioSource woodWalk;
+
     public 
 
     //int jumpHash = Animator.StringToHash("Jump");
@@ -45,6 +50,13 @@ public class CharacterController2D : MonoBehaviour
 
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
+    }
+
+    private void stopWalkSounds()
+    {
+        stoneWalk.Stop();
+        grassWalk.Stop();
+        woodWalk.Stop();
     }
 
     private void FixedUpdate()
@@ -80,24 +92,61 @@ public class CharacterController2D : MonoBehaviour
                             if (name.Contains("cave") || name.Contains("stone") || name.Contains("Stone"))
                             {
                                 Debug.Log("I make stone sounds");
+                                if (!stoneWalk.isPlaying)
+                                {
+                                    stoneWalk.Play();
+                                    if (woodWalk.isPlaying)
+                                    {
+                                        woodWalk.Stop();
+                                    }
+                                    if (grassWalk.isPlaying)
+                                    {
+                                        grassWalk.Stop();
+                                    }
+                                }
                             }
                             //if player is on grass
                             else if (name.Contains("Grass") || name.Contains("Moos") || name.Contains("Moss") || name.Contains("ShootDownPlatform"))
                             {
                                 Debug.Log("I make grass sounds");
+                                if (!grassWalk.isPlaying)
+                                {
+                                    grassWalk.Play();
+                                    if (woodWalk.isPlaying)
+                                    {
+                                        woodWalk.Stop();
+                                    }
+                                    if (stoneWalk.isPlaying)
+                                    {
+                                        stoneWalk.Stop();
+                                    }
+                                }
                             }
                             else
                             {
                                 Debug.Log("I make wood sounds");
+                                if (!woodWalk.isPlaying)
+                                {
+                                    woodWalk.Play();
+                                    if (stoneWalk.isPlaying)
+                                    {
+                                        stoneWalk.Stop();
+                                    }
+                                    if (grassWalk.isPlaying)
+                                    {
+                                        grassWalk.Stop();
+                                    }
+                                }
                             }
                         }
                         walkSoundTimer += Time.deltaTime;
-                        if (walkSoundTimer > 1) walkSoundTimer = 0;
+                        //if (walkSoundTimer > 1) walkSoundTimer = 0;
                     }
                 }
                 else
                 {
                     walkSoundTimer = 0;
+                    stopWalkSounds();
                 }
             }
         }
