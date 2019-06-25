@@ -10,9 +10,9 @@ public class postproccesingTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("camera trigger");
         if (collision.CompareTag("Player"))
         {
+            Debug.Log("camera trigger"+ triggerName+"huhu");
 
             animator.SetTrigger(triggerName);
         }
