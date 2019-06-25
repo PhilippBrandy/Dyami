@@ -76,6 +76,7 @@ public class CharacterController2D : MonoBehaviour
             {
                 m_Grounded = true;
                 if (!wasGrounded) {
+                    if(m_Rigidbody2D.velocity.y <= 0)
                     landingAndWalljump.Play();
 					OnLandEvent.Invoke();
 				}
