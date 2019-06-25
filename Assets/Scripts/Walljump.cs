@@ -43,6 +43,17 @@ public class Walljump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //Debug
+        //Resets everything about player gravity, controls etc.
+        if ((Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl)) && Input.GetKeyDown(KeyCode.Z))
+        {
+            resetControls();
+            arrowScript.setCanShoot(true);
+            rb.gravityScale = baseGravity;
+        }
+
+
         arrowScript = this.GetComponent<ShootArrow>();
         //Is the player grounded?
         grounded = this.GetComponent<CharacterController2D>().getGrounded();
@@ -155,11 +166,10 @@ public class Walljump : MonoBehaviour
                     reset();
                 }
             }
-            else if ((wallRight.collider != null || wallLeft.collider != null) && grounded)
+            else if (wasOnWall)
             {
-                resetControls();
-                rb.gravityScale = baseGravity;
-                arrowScript.setCanShoot(true);
+                reset();
+                wasOnWall = false;
             }
 
             if (arrowScript.playerTeleports())
@@ -173,9 +183,8 @@ public class Walljump : MonoBehaviour
                 controlTimer += Time.deltaTime;
                 if (controlTimer >= 0.8) resetControls(); 
             }
-            if (grounded && wasOnWall)
+            if (grounded)
             {
-                wasOnWall = false;
                 resetControls();
                 arrowScript.setCanShoot(true);
             }

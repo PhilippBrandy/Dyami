@@ -87,7 +87,7 @@ public class CharacterController2D : MonoBehaviour
                         //if player is on stone
                         if (name.Contains("cave") || name.Contains("stone") || name.Contains("Stone"))
                         {
-                            Debug.Log("I make stone sounds");
+                            //Debug.Log("I make stone sounds");
                             if (!stoneWalk.isPlaying)
                             {
                                 stoneWalk.Play();
@@ -104,7 +104,7 @@ public class CharacterController2D : MonoBehaviour
                         //if player is on grass
                         else if (name.Contains("Grass") || name.Contains("Moos") || name.Contains("Moss") || name.Contains("ShootDownPlatform"))
                         {
-                            Debug.Log("I make grass sounds");
+                            //Debug.Log("I make grass sounds");
                             if (!grassWalk.isPlaying)
                             {
                                 grassWalk.Play();
@@ -120,7 +120,7 @@ public class CharacterController2D : MonoBehaviour
                         }
                         else
                         {
-                            Debug.Log("I make wood sounds");
+                            //Debug.Log("I make wood sounds");
                             if (!woodWalk.isPlaying)
                             {
                                 woodWalk.Play();
