@@ -60,8 +60,8 @@ public class Walljump : MonoBehaviour
         grounded = this.GetComponent<CharacterController2D>().getGrounded();
 
         //Find walls to the left/right of the player
-        wallRight = Physics2D.Raycast(transform.position, Vector2.right, playerWidth, m_WhatIsWall);
-        wallLeft = Physics2D.Raycast(transform.position, Vector2.left, playerWidth, m_WhatIsWall);
+        wallRight = Physics2D.Raycast(transform.position - new Vector3(0, 1, 0), Vector2.right, playerWidth, m_WhatIsWall);
+        wallLeft = Physics2D.Raycast(transform.position - new Vector3(0, 1, 0), Vector2.left, playerWidth, m_WhatIsWall);
 
         edgeRight = Physics2D.Raycast(transform.position + new Vector3(0, 1, 0), Vector2.right, playerWidth, m_WhatIsWall);
         edgeLeft = Physics2D.Raycast(transform.position + new Vector3(0, 1, 0), Vector2.left, playerWidth, m_WhatIsWall);
@@ -189,6 +189,7 @@ public class Walljump : MonoBehaviour
             {
                 resetControls();
                 arrowScript.setCanShoot(true);
+                rb.gravityScale = baseGravity;
             }
         }
     }
