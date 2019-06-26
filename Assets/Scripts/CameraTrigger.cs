@@ -34,6 +34,7 @@ public class CameraTrigger : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         triggerAnimation = false;
+        camera.GetComponent<CameraBehaviour>().enabled = true;
 
 
     }
@@ -42,7 +43,6 @@ public class CameraTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
 
-        camera.GetComponent<CameraBehaviour>().enabled = true;
         avatarController.GetComponent<PlayerMovement>().enabled = true;
         avatarController.GetComponent<PlayerMovement>().maxSpeed = 200;
         avatarController.GetComponent<PlayerMovement>().minSpeed = 120;
