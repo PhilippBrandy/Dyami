@@ -37,7 +37,7 @@ public class ShootArrow : MonoBehaviour
     //Defines if a player shot an arrow after learning how to teleport
     private bool firstTeleportShot = false;
 
-    private Vector3 playerScale;
+    private float eagleScale;
     private Vector3 arrowVelocity;
     private float speed;
 
@@ -64,7 +64,7 @@ public class ShootArrow : MonoBehaviour
 
     private void Start()
     {
-        playerScale = player.transform.localScale;
+        eagleScale = eagle.transform.localScale.y;
     }
 
     private void FixedUpdate()
@@ -180,7 +180,7 @@ public class ShootArrow : MonoBehaviour
         if (playerTeleports())
         {
             isTeleporting = true;
-            player.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            //player.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             Rigidbody2D arrowRB = projectile.GetComponent<Rigidbody2D>();
             if (arrowRB != null)
             {
@@ -196,6 +196,12 @@ public class ShootArrow : MonoBehaviour
             foreach (BoxCollider2D collider in player.GetComponents<BoxCollider2D>())
             {
                 collider.enabled = false;
+            }
+            SpriteRenderer[] renderers;
+            renderers = GetComponentsInChildren<SpriteRenderer>();
+            foreach (SpriteRenderer renderer in renderers)
+            {
+                renderer.enabled = false;
             }
 
             // sound randomizer
@@ -220,11 +226,11 @@ public class ShootArrow : MonoBehaviour
 
             if(!facesRight)
             {
-                eagle.transform.localScale = new Vector3(16, -16, 16);
+                eagle.transform.localScale = new Vector3(eagleScale, -eagleScale, eagleScale);
             }
             else
             {
-                eagle.transform.localScale = new Vector3(16, 16, 16);
+                eagle.transform.localScale = new Vector3(eagleScale, eagleScale, eagleScale);
             }
 
             playerPos = new Vector3(movetowards.x, movetowards.y, player.transform.position.z);
@@ -370,7 +376,7 @@ public class ShootArrow : MonoBehaviour
         Destroy(projectile);
         arrows.Remove(projectile);
 
-        player.transform.localScale = playerScale;
+        //player.transform.localScale = playerScale;
         //player.transform.position = new Vector3(projectile.transform.position.x, projectile.transform.position.y + 0.5f, 0.0f);
         player.GetComponent<Killable>().enabled = true;
         player.GetComponent<PlayerMovement>().enabled = true;
@@ -378,6 +384,13 @@ public class ShootArrow : MonoBehaviour
         foreach (BoxCollider2D collider in player.GetComponents<BoxCollider2D>())
         {
             collider.enabled = true;
+        }
+
+        SpriteRenderer[] renderers;
+        renderers = GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer renderer in renderers)
+        {
+            renderer.enabled = true;
         }
         isTeleporting = false;
         eagle.SetActive(false);
