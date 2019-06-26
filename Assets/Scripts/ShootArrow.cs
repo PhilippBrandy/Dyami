@@ -394,7 +394,7 @@ public class ShootArrow : MonoBehaviour
         }
         isTeleporting = false;
         eagle.SetActive(false);
-
+        teleportIndicator.SetActive(false);
 
     }
 
