@@ -26,7 +26,7 @@ public class LoadGame : MonoBehaviour
         if (saveGames[0] != null)
         {
             button1.enabled = true;
-            button1Text.text = saveGames[0].Date + " " + saveGames[0].CurrentScene + " Collected Items: " + saveGames[0].ItemsCollected + " / " + saveGames[0].ItemsToCollect;
+            button1Text.text = saveGames[0].Date + " " + saveGames[0].CurrentScene + "\n" + " Collected Items: " + saveGames[0].ItemsCollected + " / " + saveGames[0].ItemsToCollect;
         }
         else
         {
@@ -35,7 +35,7 @@ public class LoadGame : MonoBehaviour
         if (saveGames[1] != null)
         {
             button2.enabled = true;
-            button2Text.text = saveGames[1].Date + " " + saveGames[1].CurrentScene + " Collected Items: " + saveGames[0].ItemsCollected + " / " + saveGames[0].ItemsToCollect;
+            button2Text.text = saveGames[1].Date + " " + saveGames[1].CurrentScene + "\n" + " Collected Items: " + saveGames[0].ItemsCollected + " / " + saveGames[0].ItemsToCollect;
         }
         else
         {
@@ -44,7 +44,7 @@ public class LoadGame : MonoBehaviour
         if (saveGames[2] != null)
         {
             button3.enabled = true;
-            button3Text.text = saveGames[2].Date + " " + saveGames[2].CurrentScene + " Collected Items: " + saveGames[0].ItemsCollected + " / " + saveGames[0].ItemsToCollect;
+            button3Text.text = saveGames[2].Date + " " + saveGames[2].CurrentScene + "\n" + " Collected Items: " + saveGames[0].ItemsCollected + " / " + saveGames[0].ItemsToCollect;
         }
         else
         {
