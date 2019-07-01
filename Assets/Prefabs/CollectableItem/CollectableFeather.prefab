@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8152265782253366993}
   - component: {fileID: 5660341832919064340}
   - component: {fileID: 2773657934642847498}
+  - component: {fileID: 5561978881158033952}
   m_Layer: 0
   m_Name: CollectableFeather
   m_TagString: CollectableItem
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 455c134c3b67da740844afde64d9c9f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c8e0fa1b3c898e8409482d02d0bc76c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,3 +120,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6970958e62392f4e85868e3cacda278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &5561978881158033952
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260536868107133116}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 26e58c12ab135224ab49908bd98c41cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
