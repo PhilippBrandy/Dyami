@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SetLoadedGame : MonoBehaviour
 {
     public GameObject player;
-    public string nameOfSecondLevel = "wood level blocking";
+    public string nameOfSecondLevel = "Spirit Forest";
 
     private void Update()
     {
