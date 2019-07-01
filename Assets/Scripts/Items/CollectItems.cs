@@ -23,11 +23,14 @@ public class CollectItems : MonoBehaviour
     void Start()
     {
         itemsNumber = items.Length;
-        for (int i = 0; i< items.Length; i++)
+        for (int i = 0; i < items.Length; i++)
         {
             //itemNames[i] = items[i].name;
         }
-        GameManager.instance.SetNumberOfAllCollectableItems(numberOfCollItemsInAllScenes);
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.SetNumberOfAllCollectableItems(numberOfCollItemsInAllScenes);
+        }
     }
 
     void Update()
@@ -45,7 +48,7 @@ public class CollectItems : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("CollectableItem") && curItemName!=other.name)
+        if (other.CompareTag("CollectableItem") && curItemName != other.name)
         {
             curItemName = other.name;
             curItemNumber++;

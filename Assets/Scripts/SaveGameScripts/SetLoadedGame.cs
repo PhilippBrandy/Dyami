@@ -10,16 +10,19 @@ public class SetLoadedGame : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.instance.IsGameLoaded())
+        if (GameManager.instance != null)
         {
-            player.transform.position = GameManager.instance.GetPlayerPos();
-            player.GetComponent<ShootArrow>().learnedTeleporting = GameManager.instance.CanPlayerTeleport();
-
-            if (SceneManager.GetActiveScene().name.Contains(nameOfSecondLevel))
+            if (GameManager.instance.IsGameLoaded())
             {
-                player.GetComponent<ShootArrow>().learnedTeleporting = true;
+                player.transform.position = GameManager.instance.GetPlayerPos();
+                player.GetComponent<ShootArrow>().learnedTeleporting = GameManager.instance.CanPlayerTeleport();
+
+                if (SceneManager.GetActiveScene().name.Contains(nameOfSecondLevel))
+                {
+                    player.GetComponent<ShootArrow>().learnedTeleporting = true;
+                }
+                GameManager.instance.SetIsGameLoaded(false);
             }
-            GameManager.instance.SetIsGameLoaded(false);
         }
     }
 }
