@@ -27,10 +27,13 @@ public class Spawnpoint : MonoBehaviour
                 saveGame.Date = System.DateTime.Now.ToString("dd.MM.yyyy HH:mm");
                 saveGame.SavePosition = gameObject.transform.position;
                 saveGame.CurrentScene = SceneManager.GetActiveScene().name;
-                saveGame.ItemsCollected = GameManager.instance.GetNumberOfCollectedItems();
-                saveGame.ItemsToCollect = GameManager.instance.GetNumberOfAllCollectableItems();
-                SaveGameManager.AddSaveGame(saveGame);
-                checkpointManager.GetComponent<CheckpointManager>().AddReachedCheckpoint(this.gameObject.name);
+                if (GameManager.instance != null)
+                {
+                    saveGame.ItemsCollected = GameManager.instance.GetNumberOfCollectedItems();
+                    saveGame.ItemsToCollect = GameManager.instance.GetNumberOfAllCollectableItems();
+                    SaveGameManager.AddSaveGame(saveGame);
+                    checkpointManager.GetComponent<CheckpointManager>().AddReachedCheckpoint(this.gameObject.name);
+                }
             }
         }
     }

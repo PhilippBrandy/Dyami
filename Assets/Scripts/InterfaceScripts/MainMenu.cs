@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Tutorial_Rework");
+        SceneManager.LoadScene("Spirit Cave");
     }
 
     public void LoadGameUI()
