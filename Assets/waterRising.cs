@@ -8,6 +8,10 @@ public class waterRising : MonoBehaviour
     public Animator TreesReset;
     public GameObject waterfall;
     public string triggerName;
+    public float waitTime;
+
+    private IEnumerator coroutine;
+
     // triggerNames:
     //"Dashed" water starts to rise
     //"reset" water set to default position after rising
@@ -36,6 +40,18 @@ public class waterRising : MonoBehaviour
             waterfall.SetActive(true);
             Debug.Log("trigger reset:" + TreesReset.name);
             TreesReset.SetTrigger("reset");
+
+            coroutine = WaitAndWatch(waitTime);
+
+
         }
+    }
+    private IEnumerator WaitAndWatch(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+
+        TreesReset.ResetTrigger("reset");
+        Debug.Log("trigger reset 1:" );
+
     }
 }

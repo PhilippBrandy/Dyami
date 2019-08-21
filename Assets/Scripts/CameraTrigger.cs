@@ -11,6 +11,7 @@ public class CameraTrigger : MonoBehaviour
     public float waitTime;
     private IEnumerator coroutine;
     public bool triggerAnimation;
+   
 
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +25,8 @@ public class CameraTrigger : MonoBehaviour
             avatarController.GetComponent<PlayerMovement>().enabled = false;
             avatarController.GetComponent<PlayerMovement>().maxSpeed = 0;
             avatarController.GetComponent<PlayerMovement>().minSpeed = 0;
+            avatarController.GetComponent<PlayerMovement>().crawlSpeed = 0;
+
 
             camAnimator.SetTrigger(triggerName);
             coroutine = WaitAndWatch(waitTime);
@@ -42,10 +45,11 @@ public class CameraTrigger : MonoBehaviour
     private IEnumerator WaitAndWatch(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-
+        Debug.Log("playewr can move again");
         avatarController.GetComponent<PlayerMovement>().enabled = true;
         avatarController.GetComponent<PlayerMovement>().maxSpeed = 200;
         avatarController.GetComponent<PlayerMovement>().minSpeed = 120;
-
+        avatarController.GetComponent<PlayerMovement>().crawlSpeed = 60;
+        triggerAnimation = false;
     }
 }
